@@ -1,7 +1,5 @@
 # Frontend Starter
 
-This project was generated
-
 ## Usage
    All you have to do is create entity and service class for the given enpoint. Then you can use methods:
    
@@ -12,8 +10,8 @@ This project was generated
    * modify(),  
    * delete(),  
    * exist(),  
-   * fetchByIdWithFullResponse()  // return Observable<HttpResponse<E>>,   
-   * fetchWithFullResponse()  // return Observable<HttpResponse<E[]>>,   
+   * fetchByIdWithFullResponse()  - return Observable<HttpResponse<E>>,   
+   * fetchWithFullResponse()  - return Observable<HttpResponse<E[]>>,   
 
  ```typescript
  export interface IPersonDeveloperSkills {
