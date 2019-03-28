@@ -1,4 +1,4 @@
-# FrontendCv
+# Frontend Starter
 
 This project was generated
 
