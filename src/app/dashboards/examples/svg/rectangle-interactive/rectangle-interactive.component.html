@@ -1,0 +1,13 @@
+<svg width="100%" height="110">
+  <rect class="main-bar" />
+
+  <rect [attr.x]="restrictionLeftX"  [attr.width]="getLengthBox()" class="restricted-bar" />
+
+  <line [attr.x1]="restrictionLeftX" y1="0" [attr.x2]="restrictionLeftX" y2="100"
+        [style.stroke-width]="restrictionStrokeWidth"
+        class="restriction-bar" fdsMouseDownUp #restrictionLeft="fdsMouseDownUp" />
+
+  <line [attr.x1]="restrictionRightX" y1="0" [attr.x2]="restrictionRightX" y2="100"
+        [style.stroke-width]="restrictionStrokeWidth"
+        class="restriction-bar" fdsMouseDownUp #restrictionRight="fdsMouseDownUp" />
+</svg>

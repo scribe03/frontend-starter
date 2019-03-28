@@ -1,0 +1,34 @@
+<mat-card class="m-1">
+    <mat-card-header *ngIf="title">
+        <mat-card-title>
+            <div class="title">
+                <span class="title__icon title__icon--back" *ngIf="!isHiddenBtnBack">
+                    <button mat-icon-button (click)="btnBack()">
+                        <mat-icon aria-label="Go back">arrow_back</mat-icon>
+                    </button>
+                </span>
+                <span [ngClass]="{'title__text--no-icon': isHiddenBtnBack, 'title__text': !isHiddenBtnBack}">{{ title }}</span>
+            </div>
+
+            <div class="title__icon--add" *ngIf="!isHiddenBtnAdd">
+                <button mat-icon-button class="mr-2" (click)="btnAdd()">
+                    <mat-icon aria-label="Add">playlist_add</mat-icon>
+                </button>
+            </div>
+            <mat-divider></mat-divider>
+        </mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content class="pos-relative">
+        <ng-content></ng-content>
+    </mat-card-content>
+
+    <mat-card-footer *ngIf="!isHiddenFooter && (!isHiddenBtnCancel || !isHiddenBtnSave)">
+        <fds-bar-form-buttons
+                [isHiddenBtnCancel]="isHiddenBtnCancel"
+                [isHiddenBtnSave]="isHiddenBtnSave"
+                (cancel)="btnCancel()"
+                (save)="btnSave()">
+        </fds-bar-form-buttons>
+    </mat-card-footer>
+</mat-card>

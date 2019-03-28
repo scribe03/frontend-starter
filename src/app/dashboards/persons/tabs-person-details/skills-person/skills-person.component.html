@@ -1,0 +1,44 @@
+<div *ngIf="form" class="container mt-2">
+    <form [formGroup]="form" autocomplete="off">
+        <div formArrayName="developer_skills">
+            <div class="row" *ngFor="let skill of form.get('developer_skills').controls; let i = index" [formGroupName]="i">
+                <div class="col">
+                    <mat-form-field class="example-full-width">
+                        <mat-select formControlName="code">
+                            <mat-option value="">Brak</mat-option>
+                            <mat-option *ngFor="let dict of dictionary$ | async" [value]="dict.code"> {{ dict.name }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Poziom" formControlName="level" type="number">
+                    </mat-form-field>
+                </div>
+
+                <div class="col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Doświadczenie w latach" formControlName="time_of_use" type="number">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-1">
+                    <button mat-icon-button (click)="remove(i)">
+                        <mat-icon aria-label="edit">delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1 offset-11">
+                    <button mat-icon-button (click)="addSkill()">
+                        <mat-icon aria-label="edit">add</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <fds-bar-form-buttons [isHiddenBtnCancel]="true" (save)="btnSave()"></fds-bar-form-buttons>
+    </form>
+</div>

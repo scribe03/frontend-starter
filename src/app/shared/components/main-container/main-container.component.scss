@@ -1,0 +1,28 @@
+.title {
+  padding-bottom: 0.8rem;
+}
+
+.title__text {
+  margin-left: -30px;
+}
+
+.title__text--no-icon {
+  margin-left: -12px;
+}
+
+.title__icon {
+  position: relative;
+  cursor: pointer;
+  top: -2px;
+}
+
+.title__icon--back {
+  left: -30px;
+  height: 18px;
+}
+
+.title__icon--add {
+  position: absolute;
+  right: 0;
+  top: 13px;
+}

@@ -1,0 +1,29 @@
+<div *ngIf="form" class="container mt-2">
+    <form [formGroup]="form" autocomplete="off">
+        <div formArrayName="emails">
+            <div class="row" *ngFor="let e of form.get('emails').controls; let i = index">
+                <div class="col">
+                    <mat-form-field class="example-full-width">
+                        <input matInput placeholder="Email" [formControlName]="i">
+                    </mat-form-field>
+                </div>
+
+                <div class="col-1">
+                    <button mat-icon-button (click)="remove(i)">
+                        <mat-icon aria-label="edit">delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-1 offset-11">
+                    <button mat-icon-button (click)="addEmail('')">
+                        <mat-icon aria-label="edit">add</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <fds-bar-form-buttons [isHiddenBtnCancel]="true" (save)="btnSave()"></fds-bar-form-buttons>
+    </form>
+</div>

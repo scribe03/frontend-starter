@@ -1,0 +1,22 @@
+<fds-main-container [title]="'Persons edit'"
+                   (back)="goBack()" [isHiddenFooter]="true" [isHiddenBtnAdd]="true">
+
+    <mat-tab-group>
+        <mat-tab label="Dane podstawowe">
+            <ng-template matTabContent>
+                <fds-edit-person [person]="person" (save)="savePerson($event)"></fds-edit-person>
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="Adresy email" [disabled]="isAddMode">
+            <ng-template matTabContent>
+                <fds-emails-person [person]="person" (save)="savePerson($event)"></fds-emails-person>
+            </ng-template>
+        </mat-tab>
+        <mat-tab label="Umiejętności" [disabled]="isAddMode">
+            <ng-template matTabContent>
+                <fds-skills-person [person]="person" (save)="savePerson($event)"></fds-skills-person>
+            </ng-template>
+        </mat-tab>
+    </mat-tab-group>
+
+</fds-main-container>

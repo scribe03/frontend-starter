@@ -1,0 +1,10 @@
+<p>
+  wallet works!
+  <button mat-raised-button color="primary" (click)="addMoney()">Add from Wallet</button>
+</p>
+<ul *ngIf="money">
+  <li *ngFor="let m of money">
+    <span *ngIf="!m.main">{{ m.value }} / {{ m.shortName }}</span>
+    <span *ngIf="m.main"><fds-money [money]="m"></fds-money></span>
+  </li>
+</ul>

@@ -1,0 +1,8 @@
+<fds-main-container [title]="'Certyfikaty'" [isHiddenFooter]="true" [isHiddenBtnAdd]="true" [isHiddenBtnBack]="true">
+  <div class="row">
+    <div class="col"><fds-certification-add (isAdd)="add($event)"></fds-certification-add></div>
+  </div>
+  <div class="row">
+    <div class="col"><fds-certifications></fds-certifications></div>
+  </div>
+</fds-main-container>

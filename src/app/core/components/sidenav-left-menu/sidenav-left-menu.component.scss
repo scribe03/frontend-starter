@@ -1,0 +1,9 @@
+@import "../../../../_variables.scss";
+
+mat-list-item {
+  cursor:pointer;
+}
+
+mat-list-item.active {
+  background-color: $accent;
+}
