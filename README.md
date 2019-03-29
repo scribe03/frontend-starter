@@ -108,6 +108,8 @@ export class ApiPersonService extends RestApiClientService<IPerson> {
 this.apiPersonService.setOptions({observe: 'response'}).fetch()
 ```
 
+Or use fetchByIdWithFullResponse(), fetchWithFullResponse() methods.
+
 ## QueryCriteria
 
 You can add query params using QueryCriteria class.
