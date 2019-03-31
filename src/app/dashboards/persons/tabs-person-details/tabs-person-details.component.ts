@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiPersonService } from '@core/api/cv/services/api-person/api-person.service';
+import { ApiPersonService } from '@core/api/cv/services/api-person.service';
 import { IPerson, Person } from '@core/api/cv/models/person.interface';
 
 @Component({

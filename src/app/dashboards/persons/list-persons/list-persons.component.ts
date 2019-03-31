@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 
 import { IQueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
-import { ApiPersonService } from '@core/api/cv/services/api-person/api-person.service';
+import { ApiPersonService } from '@core/api/cv/services/api-person.service';
 import { IPerson } from '@core/api/cv/models/person.interface';
 
 @Component({

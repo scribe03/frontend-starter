@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 
 import { IPerson, IPersonDeveloperSkills } from '@core/api/cv/models/person.interface';
 import { IDictionary } from '@core/api/cv/models/dictionary.interface';
-import { ApiDictionaryService } from '@core/api/cv/services/api-dictionary/api-dictionary.service';
+import { ApiDictionaryService } from '@core/api/cv/services/api-dictionary.service';
 
 @Component({
     selector: 'fds-skills-person',

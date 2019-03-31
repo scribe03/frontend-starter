@@ -8,13 +8,11 @@ import { SharedModule } from '@shared/shared.module';
 import { QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
 
 import { CoreModule } from '@core/core.module';
-import { ApiPersonService } from '@core/api/cv/services/api-person/api-person.service';
-import {
-    createSpyApiPersonService,
-    getPreparedSpyApiPersonService,
-} from '@core/api/cv/services/api-person/api-person.service.spy';
+import { ApiPersonService } from '@core/api/cv/services/api-person.service';
+
 
 import { ListPersonsComponent } from './list-persons.component';
+import { createSpyApiPersonService, getPreparedSpyApiPersonService } from '@testutils/spies/api/cv/api-person.service.spy';
 
 describe('ListPersonsComponent', () => {
     let component: ListPersonsComponent;

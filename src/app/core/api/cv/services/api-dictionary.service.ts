@@ -4,8 +4,8 @@ import { Observable } from 'rxjs';
 
 import { IQueryCriteria, RestApiClientService } from '@sharedlib/rest-api-client/src';
 import { environment } from '@env/environment';
-import { IDictionary } from '../../models/dictionary.interface';
-import { ApiCvModule } from '../../api-cv.module';
+import { IDictionary } from '../models/dictionary.interface';
+import { ApiCvModule } from '../api-cv.module';
 
 @Injectable({
     providedIn: ApiCvModule
