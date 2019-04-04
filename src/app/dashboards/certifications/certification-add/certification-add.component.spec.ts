@@ -7,7 +7,7 @@ import { MaterialModule } from '@shared/material.module';
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
 import { provideMockStore } from '@ngrx/store/testing';
-import { certificationReducer, initialCertificationState } from '@core/states/reducers/certification.reducer';
+import { certificationReducer, initialCertificationState } from '@core/state/global/reducers/certification.reducer';
 import { StoreModule } from '@ngrx/store';
 
 describe('CertificationAddComponent', () => {

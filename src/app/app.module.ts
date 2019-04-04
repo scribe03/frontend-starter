@@ -11,8 +11,8 @@ import { AppComponent } from './app.component';
 import { SharedModule } from './shared/shared.module';
 import { CoreModule } from './core/core.module';
 import { MaterialModule } from './shared/material.module';
-import { certificationReducer } from './core/states/reducers/certification.reducer';
-import { CertificationEffector } from './core/states/effects/certification.effector';
+import { certificationReducer } from './core/state/global/reducers/certification.reducer';
+import { CertificationEffector } from './core/state/global/effects/certification.effector';
 
 @NgModule({
     declarations: [

@@ -7,7 +7,7 @@ import { MaterialModule } from '@shared/material.module';
 import { CoreModule } from '@core/core.module';
 import { SharedModule } from '@shared/shared.module';
 import { StoreModule } from '@ngrx/store';
-import { certificationReducer } from '@core/states/reducers/certification.reducer';
+import { certificationReducer } from '@core/state/global/reducers/certification.reducer';
 
 describe('CertificationsComponent', () => {
     let component: CertificationsComponent;
