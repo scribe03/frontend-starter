@@ -1,9 +1,9 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Action } from '@ngrx/store';
 
 export abstract class LocalState {
     public store$: Observable<Action>;
-    private store = new BehaviorSubject<Action>(null);
+    private store = new Subject<Action>();
 
     protected constructor() {
         this.store$ = this.store.asObservable();
