@@ -1,7 +1,6 @@
-import { Certification } from '@core/api/cv/models/certification.interface';
 import { CertificationAction, CertificationActionTypes, CertificationState } from '../actions/certification.action';
 
-export const initialCertificationState: CertificationState<Certification> = {
+export const initialCertificationState: CertificationState = {
     entities: [],
     count: 0,
     queryCriteria: [],
@@ -11,7 +10,7 @@ export const initialCertificationState: CertificationState<Certification> = {
 export function certificationReducer(
     state = initialCertificationState,
     action: CertificationActionTypes
-): CertificationState<Certification> {
+): CertificationState {
 
     switch (action.type) {
         case CertificationAction.COUNT:
@@ -27,7 +26,11 @@ export function certificationReducer(
             return state;
 
         case CertificationAction.LOAD:
-            return {...state, isLoading: true};
+            return {
+                ...state,
+                queryCriteria: action.payload,
+                isLoading: true
+            };
 
         case CertificationAction.LOAD_SUCCESS:
             return {

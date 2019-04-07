@@ -2,8 +2,8 @@ import { Action } from '@ngrx/store';
 import { QueryCriteria } from '@sharedlib/rest-api-client/src/query';
 import { Certification } from '@core/api/cv/models/certification.interface';
 
-export interface CertificationState<T> {
-    entities: T[];
+export interface CertificationState {
+    entities: Certification[];
     count: number;
     queryCriteria: QueryCriteria[];
     isLoading: boolean;
