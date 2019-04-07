@@ -1,14 +1,14 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
-import { CertificationAddComponent } from './certification-add.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MaterialModule } from '@shared/material.module';
-import { CoreModule } from '@core/core.module';
-import { SharedModule } from '@shared/shared.module';
-import { provideMockStore } from '@ngrx/store/testing';
-import { certificationReducer, initialCertificationState } from '@core/state/global/reducers/certification.reducer';
+
 import { StoreModule } from '@ngrx/store';
+
+import { CertificationAddComponent } from './certification-add.component';
+import { certificationReducer } from '@core/state/global/reducers/certification.reducer';
+import { CoreModule } from '@core/core.module';
+import { MaterialModule } from '@shared/material.module';
+import { SharedModule } from '@shared/shared.module';
 
 describe('CertificationAddComponent', () => {
     let component: CertificationAddComponent;

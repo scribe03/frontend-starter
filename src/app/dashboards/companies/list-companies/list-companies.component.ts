@@ -42,10 +42,10 @@ export class ListCompaniesComponent implements OnInit, OnDestroy, OnMessageRecei
     }
 
     public loadCompanies(event: PageEvent): void {
-        this.companies$ = this.listCompaniesService.getStreamCompanies(event);
+        this.companies$ = this.listCompaniesService.getCompaniesAsStream(event);
     }
 
-    public remove(id: number): void {
+    public removeCompany(id: number): void {
         this.listCompaniesService.remove(id);
     }
 

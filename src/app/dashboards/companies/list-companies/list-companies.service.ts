@@ -55,7 +55,7 @@ export class ListCompaniesService extends MessageBusService {
         super();
     }
 
-    public getStreamCompanies(event: PageEvent): Observable<Company[]> {
+    public getCompaniesAsStream(event: PageEvent): Observable<Company[]> {
         this.send(new CompaniesIsLoadingMessage(true));
 
         const criteria: QueryCriteria[] = [];
@@ -69,10 +69,14 @@ export class ListCompaniesService extends MessageBusService {
     }
 
     public getCompanies(event: PageEvent): void {
-        this.getStreamCompanies(event).subscribe((companies) => this.send(new CompaniesLoadingSuccessMessage(companies)));
+        this.getCompaniesAsStream(event).subscribe((companies) => this.send(new CompaniesLoadingSuccessMessage(companies)));
     }
 
     public remove(id: number): void {
-        this.apiCompanies.delete(id).subscribe(() => this.send(new CompaniesRemoveSuccessMessage()));
+        this.send(new CompaniesIsLoadingMessage(true));
+
+        this.apiCompanies.delete(id).pipe(
+            tap(() => this.send(new CompaniesIsLoadingMessage(false)))
+        ).subscribe(() => this.send(new CompaniesRemoveSuccessMessage()));
     }
 }

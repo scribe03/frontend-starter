@@ -11,9 +11,9 @@ import {
     CertificationActionLoad, CertificationActionCount,
 } from '@core/state/global/actions/certification.action';
 import {
-    fetchCertificationsCount,
-    fetchCertificationsEntities,
-    fetchCertificationsIsLoading
+    getCertificationsCount,
+    getCertificationsEntities,
+    getCertificationsIsLoading
 } from '@core/state/global/selectors/certification.selector';
 
 import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client/src/query';
@@ -26,7 +26,6 @@ import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client
 export class CertificationsComponent implements OnInit {
     public displayedColumns: string[] = ['id', 'name', 'remove'];
 
-    // public certifications$: Observable<CertificationState<Certification>>;
     public certifications$: Observable<Certification[]>;
     public isLoading$: Observable<boolean>;
     public count$: Observable<number>;
@@ -38,10 +37,9 @@ export class CertificationsComponent implements OnInit {
     }
 
     public ngOnInit() {
-        // this.certifications$ = this.store.select('certifications');
-        this.count$ = this.store.select(fetchCertificationsCount);
-        this.certifications$ = this.store.select(fetchCertificationsEntities);
-        this.isLoading$ = this.store.select(fetchCertificationsIsLoading);
+        this.count$ = this.store.select(getCertificationsCount);
+        this.certifications$ = this.store.select(getCertificationsEntities);
+        this.isLoading$ = this.store.select(getCertificationsIsLoading);
 
         this.loadCertificationsCount();
         this.loadCertifications({pageIndex: 0, pageSize: 10, length: 0});
