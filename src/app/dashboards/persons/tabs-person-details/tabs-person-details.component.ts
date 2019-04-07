@@ -16,7 +16,7 @@ export class TabsPersonDetailsComponent implements OnInit {
     constructor(
         private router: Router,
         private activatedRoute: ActivatedRoute,
-        private apPersons: ApiPersonService
+        private apiPersons: ApiPersonService
     ) {
     }
 
@@ -34,12 +34,13 @@ export class TabsPersonDetailsComponent implements OnInit {
 
     public loadPerson(): void {
         if (this.personId && !this.isAddMode) {
-            this.apPersons.fetchById(this.personId).subscribe((res: Person) => this.person = res);
+            console.log('loadPerson::fetchById');
+            this.apiPersons.fetchById(this.personId).subscribe((res: Person) => this.person = res);
         }
     }
 
     public savePerson(data: Person): void {
-        this.apPersons.save(PersonFactory.create(data)).subscribe((person: Person) => {
+        this.apiPersons.save(PersonFactory.create(data)).subscribe((person: Person) => {
             if (this.isAddMode) {
                 this.router.navigate(['/', 'persons', person.id]);
             }
