@@ -1,7 +1,7 @@
-import { IQueryCriteria } from '../query-criteria.interface';
+import { QueryCriteria } from '../query-criteria.interface';
 import { QueryCriteriaType } from '../query-criteria-type';
 
-export class QueryCriteriaPaginate implements IQueryCriteria {
+export class QueryCriteriaPaginate implements QueryCriteria {
 
     constructor(private page: number = 0, private limit: number = 10) {
     }

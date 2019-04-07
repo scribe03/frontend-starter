@@ -1,4 +1,4 @@
-export interface ICompanyAddress {
+export interface CompanyAddress {
     countryCode: string;
     state: string;
     city: string;
@@ -7,8 +7,8 @@ export interface ICompanyAddress {
     streetNumber: number;
 }
 
-export interface ICompany {
+export interface Company {
     id: number;
     name: string;
-    address: ICompanyAddress;
+    address: CompanyAddress;
 }

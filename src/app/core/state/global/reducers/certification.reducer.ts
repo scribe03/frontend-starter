@@ -1,7 +1,7 @@
-import { ICertification } from '@core/api/cv/models/certification.interface';
-import { CertificationAction, CertificationActionTypes, ICertificationState } from '../actions/certification.action';
+import { Certification } from '@core/api/cv/models/certification.interface';
+import { CertificationAction, CertificationActionTypes, CertificationState } from '../actions/certification.action';
 
-export const initialCertificationState: ICertificationState<ICertification> = {
+export const initialCertificationState: CertificationState<Certification> = {
     entities: [],
     count: 0,
     queryCriteria: [],
@@ -10,7 +10,8 @@ export const initialCertificationState: ICertificationState<ICertification> = {
 
 export function certificationReducer(
     state = initialCertificationState,
-    action: CertificationActionTypes): ICertificationState<ICertification> {
+    action: CertificationActionTypes
+): CertificationState<Certification> {
 
     switch (action.type) {
         case CertificationAction.COUNT:

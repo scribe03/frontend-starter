@@ -1,9 +1,9 @@
-import { IQueryCriteria } from '../query-criteria.interface';
+import { QueryCriteria } from '../query-criteria.interface';
 import { QueryCriteriaType } from '../query-criteria-type';
 
 export type SortOrderType = 'asc' | 'desc';
 
-export class QueryCriteriaSort implements IQueryCriteria {
+export class QueryCriteriaSort implements QueryCriteria {
 
     constructor(private sort: string, private order: SortOrderType = 'asc') {
     }

@@ -1,8 +1,8 @@
-import { IQueryCriteria } from '../query-criteria.interface';
+import { QueryCriteria } from '../query-criteria.interface';
 import { QueryCriteriaType } from '../query-criteria-type';
 
 // To include parent resource
-export class QueryCriteriaRelationshipExpand implements IQueryCriteria {
+export class QueryCriteriaRelationshipExpand implements QueryCriteria {
 
     constructor(private expand: string) {
     }

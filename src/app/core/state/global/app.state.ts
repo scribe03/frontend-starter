@@ -1,6 +1,6 @@
-import { ICertification } from '../../api/cv/models/certification.interface';
-import { ICertificationState } from './actions/certification.action';
+import { Certification } from '../../api/cv/models/certification.interface';
+import { CertificationState } from './actions/certification.action';
 
 export interface IAppState {
-    readonly certifications: ICertificationState<ICertification>;
+    readonly certifications: CertificationState<Certification>;
 }

@@ -1,8 +1,8 @@
-import { IQueryCriteria } from '../query-criteria.interface';
+import { QueryCriteria } from '../query-criteria.interface';
 import { QueryCriteriaType } from '../query-criteria-type';
 
 // To include children resources
-export class QueryCriteriaRelationshipEmbed implements IQueryCriteria {
+export class QueryCriteriaRelationshipEmbed implements QueryCriteria {
 
     constructor(private embed: string) {
     }

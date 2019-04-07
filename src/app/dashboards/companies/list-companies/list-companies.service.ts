@@ -1,61 +1,78 @@
 import { Injectable } from '@angular/core';
-import { Action } from '@ngrx/store';
+import { PageEvent } from '@angular/material';
+import { Observable } from 'rxjs';
+import { map, switchMap, tap } from 'rxjs/operators';
 
 import { ApiCompaniesService } from '@core/api/cv/services/api-companies.service';
-import { LocalState } from '@core/state/local/local-state';
-import { IQueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
-import { PageEvent } from '@angular/material';
-import { map, switchMap, tap } from 'rxjs/operators';
-import { Observable } from 'rxjs';
-import { ICompany } from '@core/api/cv/models/company.interface';
+import { Company } from '@core/api/cv/models/company.interface';
+import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
+import { Message, MessageBusService } from '@sharedlib/message-bus';
 
-export enum CompaniesAction {
-    LOADING = '[Companies] Loading',
+// --- Type message
+
+export enum CompaniesMessage {
+    IS_LOADING = '[Companies] Loading',
+    COMPANIES_LOADING_SUCCESS = '[Companies] Get data success',
     COUNT = '[Companies] Count',
-    REMOVE = '[Companies] Remove',
+    REMOVE_SUCCESS = '[Companies] Remove success',
 }
 
-export class CompaniesActionLoading implements Action {
-    readonly type = CompaniesAction.LOADING;
+// --- Class message
+
+export class CompaniesIsLoadingMessage implements Message {
+    readonly type = CompaniesMessage.IS_LOADING;
 
     constructor(public payload: boolean) {
     }
 }
 
-export class CompaniesActionCount implements Action {
-    readonly type = CompaniesAction.COUNT;
+export class CompaniesLoadingSuccessMessage implements Message {
+    readonly type = CompaniesMessage.COMPANIES_LOADING_SUCCESS;
+
+    constructor(public payload: Company[]) {
+    }
+}
+
+export class CompaniesCountMessage implements Message {
+    readonly type = CompaniesMessage.COUNT;
 
     constructor(public payload: number) {
     }
 }
 
-export class CompaniesActionRemove implements Action {
-    readonly type = CompaniesAction.REMOVE;
+export class CompaniesRemoveSuccessMessage implements Message {
+    readonly type = CompaniesMessage.REMOVE_SUCCESS;
 }
+
+// --- Service
 
 @Injectable({
     providedIn: 'root'
 })
-export class ListCompaniesService extends LocalState {
+export class ListCompaniesService extends MessageBusService {
 
     constructor(private apiCompanies: ApiCompaniesService) {
         super();
     }
 
-    public getCompanies(event: PageEvent): Observable<ICompany[]> {
-        this.dispatch(new CompaniesActionLoading(true));
+    public getStreamCompanies(event: PageEvent): Observable<Company[]> {
+        this.send(new CompaniesIsLoadingMessage(true));
 
-        const criteria: IQueryCriteria[] = [];
+        const criteria: QueryCriteria[] = [];
         criteria.push(new QueryCriteriaPaginate(event.pageIndex + 1, event.pageSize));
 
         return this.apiCompanies.count().pipe(
-            map(countPersons => this.dispatch(new CompaniesActionCount(countPersons))),
+            map(count => this.send(new CompaniesCountMessage(count))),
             switchMap(() => this.apiCompanies.fetch(criteria)),
-            tap(() => this.dispatch(new CompaniesActionLoading(false)))
+            tap(() => this.send(new CompaniesIsLoadingMessage(false)))
         );
     }
 
+    public getCompanies(event: PageEvent): void {
+        this.getStreamCompanies(event).subscribe((companies) => this.send(new CompaniesLoadingSuccessMessage(companies)));
+    }
+
     public remove(id: number): void {
-        this.apiCompanies.delete(id).subscribe(() => this.dispatch(new CompaniesActionRemove()));
+        this.apiCompanies.delete(id).subscribe(() => this.send(new CompaniesRemoveSuccessMessage()));
     }
 }

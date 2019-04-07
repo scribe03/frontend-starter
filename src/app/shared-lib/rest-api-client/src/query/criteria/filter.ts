@@ -1,4 +1,4 @@
-import { IQueryCriteria } from '../query-criteria.interface';
+import { QueryCriteria } from '../query-criteria.interface';
 import { QueryCriteriaType } from '../query-criteria-type';
 
 export interface IFiltersOption {
@@ -6,7 +6,7 @@ export interface IFiltersOption {
     value: string | number;
 }
 
-export class QueryCriteriaFilter implements IQueryCriteria {
+export class QueryCriteriaFilter implements QueryCriteria {
 
     constructor(private filters: IFiltersOption[]) {
     }

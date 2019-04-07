@@ -8,11 +8,11 @@ import { mockPerson } from '@testutils/mocks/persons.mock';
 describe('ApiPersonService', () => {
 
     let httpClientSpy: { request: jasmine.Spy, delete: jasmine.Spy  };
-    let apiPersonService: ApiPersonService;
+    let ApiPersonService: ApiPersonService;
 
     beforeEach(() => {
         httpClientSpy = jasmine.createSpyObj('HttpClient', ['request', 'delete']);
-        apiPersonService = new ApiPersonService(<any> httpClientSpy);
+        ApiPersonService = new ApiPersonService(<any> httpClientSpy);
     });
 
     it('method fetch() should return data', fakeAsync(() => {
@@ -20,7 +20,7 @@ describe('ApiPersonService', () => {
         httpClientSpy.request.and.returnValue(of(testData));
 
 
-        apiPersonService.fetch().subscribe((data) => {
+        ApiPersonService.fetch().subscribe((data) => {
             expect(data).toEqual(testData);
         });
     }));
@@ -30,7 +30,7 @@ describe('ApiPersonService', () => {
         httpClientSpy.request.and.returnValue(of(testData));
 
 
-        apiPersonService.fetchById(1).subscribe((data) => {
+        ApiPersonService.fetchById(1).subscribe((data) => {
             expect(data).toEqual(testData);
         });
     }));
@@ -40,7 +40,7 @@ describe('ApiPersonService', () => {
         httpClientSpy.request.and.returnValue(of(testData));
 
 
-        apiPersonService.count().subscribe((data) => {
+        ApiPersonService.count().subscribe((data) => {
             expect(data).toEqual(testData);
         });
     }));
@@ -50,7 +50,7 @@ describe('ApiPersonService', () => {
         httpClientSpy.request.and.returnValue(of(testData));
 
 
-        apiPersonService.save(testData).subscribe((data) => {
+        ApiPersonService.save(testData).subscribe((data) => {
             expect(data).toEqual(testData);
         });
     }));
@@ -60,7 +60,7 @@ describe('ApiPersonService', () => {
         httpClientSpy.request.and.returnValue(of(testData));
 
 
-        apiPersonService.create(testData).subscribe((data) => {
+        ApiPersonService.create(testData).subscribe((data) => {
             expect(data).toEqual(testData);
         });
     }));
@@ -70,7 +70,7 @@ describe('ApiPersonService', () => {
         httpClientSpy.request.and.returnValue(of(testData));
 
 
-        apiPersonService.update(testData).subscribe((data) => {
+        ApiPersonService.update(testData).subscribe((data) => {
             expect(data).toEqual(testData);
         });
     }));
@@ -80,7 +80,7 @@ describe('ApiPersonService', () => {
         httpClientSpy.request.and.returnValue(of(testData));
 
 
-        apiPersonService.modify(1, {}).subscribe((data) => {
+        ApiPersonService.modify(1, {}).subscribe((data) => {
             expect(data).toEqual(testData);
         });
     }));
@@ -90,7 +90,7 @@ describe('ApiPersonService', () => {
         httpClientSpy.delete.and.returnValue(of(testData));
 
 
-        apiPersonService.delete(1).subscribe((data) => {
+        ApiPersonService.delete(1).subscribe((data) => {
             expect(data).toEqual(testData);
         });
     }));

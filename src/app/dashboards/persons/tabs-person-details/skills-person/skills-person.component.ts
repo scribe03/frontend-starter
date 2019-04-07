@@ -3,8 +3,8 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 
-import { IPerson, IPersonDeveloperSkills } from '@core/api/cv/models/person.interface';
-import { IDictionary } from '@core/api/cv/models/dictionary.interface';
+import { Person, PersonDeveloperSkills } from '@core/api/cv/models/person.interface';
+import { Dictionary } from '@core/api/cv/models/dictionary.interface';
 import { ApiDictionaryService } from '@core/api/cv/services/api-dictionary.service';
 
 @Component({
@@ -13,12 +13,12 @@ import { ApiDictionaryService } from '@core/api/cv/services/api-dictionary.servi
     styleUrls: ['./skills-person.component.scss']
 })
 export class SkillsPersonComponent implements OnInit {
-    public data: IPerson;
+    public data: Person;
     public form: FormGroup;
-    public dictionary$: Observable<IDictionary[]>;
-    @Output() public save = new EventEmitter<IPerson>();
+    public dictionary$: Observable<Dictionary[]>;
+    @Output() public save = new EventEmitter<Person>();
 
-    @Input() set person(data: IPerson) {
+    @Input() set person(data: Person) {
         this.createForm();
         if (data) {
             this.data = data;
@@ -35,7 +35,7 @@ export class SkillsPersonComponent implements OnInit {
         this.dictionary$ = this.dictionaryService.fetchCollectionById('developer_skills');
     }
 
-    public addSkill(skill: IPersonDeveloperSkills): void {
+    public addSkill(skill: PersonDeveloperSkills): void {
         skill = (!skill) ? {code: '', level: 0, time_of_use: 0} : skill;
         (this.form.get('developer_skills') as FormArray).push(this.fb.group(skill));
     }

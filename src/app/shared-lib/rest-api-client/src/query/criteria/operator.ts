@@ -1,17 +1,17 @@
-import { IQueryCriteria } from '../query-criteria.interface';
+import { QueryCriteria } from '../query-criteria.interface';
 import { QueryCriteriaType } from '../query-criteria-type';
 
 export type OperatorType = 'gte' | 'lte' | 'ne' | 'like';
 
-export interface IOperatorOption {
+export interface OperatorOption {
     key: string;
     operator: OperatorType;
     value: string | number;
 }
 
-export class QueryCriteriaOperator implements IQueryCriteria {
+export class QueryCriteriaOperator implements QueryCriteria {
 
-    constructor(private operators: IOperatorOption[]) {
+    constructor(private operators: OperatorOption[]) {
     }
 
     public getParameters(): string {
@@ -45,7 +45,7 @@ export class QueryCriteriaOperator implements IQueryCriteria {
         return QueryCriteriaType.OPERATOR;
     }
 
-    public getOperators(): IOperatorOption[] {
+    public getOperators(): OperatorOption[] {
         return this.operators;
     }
 }

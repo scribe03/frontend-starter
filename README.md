@@ -14,19 +14,19 @@
    * fetchWithFullResponse()  - return Observable<HttpResponse<E[]>>,   
 
  ```typescript
- export interface IPersonDeveloperSkills {
+ export interface PersonDeveloperSkills {
      code: string;
      level: number;
      timeOfUse: number;
  }
  
- export interface IPerson {
+ export interface Person {
      id: number;
      name: string;
      surname: string;
      age: number;
      emails: string[];
-     developer_skills: IPersonDeveloperSkills[];
+     developer_skills: PersonDeveloperSkills[];
  }
  ```
 
@@ -34,7 +34,7 @@
 @Injectable({
   providedIn: MyApiModule
 })
-export class ApiPersonService extends RestApiClientService<IPerson> {
+export class ApiPersonService extends RestApiClientService<Person> {
   protected resourceUri = 'persons';
 
   constructor(httpClient: HttpClient) {
@@ -51,21 +51,21 @@ export class ApiPersonService extends RestApiClientService<IPerson> {
 })
 export class MyPersonsComponent implements OnInit {
     public countPersons = 0;
-    public persons$: Observable<IPerson[]>;
+    public persons$: Observable<Person[]>;
     
-    constructor(private apiPersonService: ApiPersonService) {}
+    constructor(private ApiPersonService: ApiPersonService) {}
 
     public ngOnInit() {
         this.loadPersons();
     }
 
     public loadPersons(pageIndex = 0, pageSize = 10): void {
-        const criteria: IQueryCriteria[] = [];
+        const criteria: QueryCriteria[] = [];
         criteria.push(new QueryCriteriaPaginate(pageIndex + 1, pageSize));
 
-        this.persons$ = this.apiPersonService.count().pipe(
+        this.persons$ = this.ApiPersonService.count().pipe(
             map(countPersons => this.countPersons = countPersons),
-            switchMap(() => this.apiPersonService.fetch(criteria))
+            switchMap(() => this.ApiPersonService.fetch(criteria))
         );
     }
 }
@@ -77,7 +77,7 @@ export class MyPersonsComponent implements OnInit {
 @Injectable({
   providedIn: MyApiModule
 })
-export class ApiPersonService extends RestApiClientService<IPerson> {
+export class ApiPersonService extends RestApiClientService<Person> {
   protected resourceUri = '{XID}/docs/{YID}/persons';
   protected xid: number;
   protected yid: number;
@@ -100,12 +100,12 @@ export class ApiPersonService extends RestApiClientService<IPerson> {
   }
 }
 
-// this.apiPersonService.setParams(1, 2).fetch()
+// this.ApiPersonService.setParams(1, 2).fetch()
 ```
 ## If header included the response
 
 ```typescript
-this.apiPersonService.setOptions({observe: 'response'}).fetch()
+this.ApiPersonService.setOptions({observe: 'response'}).fetch()
 ```
 
 Or use fetchByIdWithFullResponse(), fetchWithFullResponse() methods.
@@ -115,13 +115,13 @@ Or use fetchByIdWithFullResponse(), fetchWithFullResponse() methods.
 You can add query params using QueryCriteria class.
 
 If you want to use different criteria then all you have to do is 
-implement the IQueryCriteria interface in your class.
+implement the QueryCriteria interface in your class.
 
 
 #### Filter ####
 
 ```typescript
-let criteria: IQueryCriteria[] = [];
+let criteria: QueryCriteria[] = [];
     
 let filters: IFiltersOption[] = []; 
 filters.push({key: 'author', value: 'typicode'});
@@ -139,7 +139,7 @@ this.anyService.fetch(criteria).subscribe((res: AnyEntity[]) => {
 #### Paginate ####
 
 ```typescript
-let criteria: IQueryCriteria[] = [];
+let criteria: QueryCriteria[] = [];
 criteria.push(new QueryCriteriaPaginate(1, 10));
 
 // other criteria ...
@@ -152,7 +152,7 @@ this.anyService.fetch(criteria).subscribe((res: AnyEntity[]) => {
 #### Sort ####
 
 ```typescript
-let criteria: IQueryCriteria[] = [];
+let criteria: QueryCriteria[] = [];
 criteria.push(new QueryCriteriaSort('title', 'asc'));
 
 // other criteria ...
@@ -166,7 +166,7 @@ this.anyService.fetch(criteria).subscribe((res: AnyEntity[]) => {
 #### Slice #### 
 
 ```typescript
-let criteria: IQueryCriteria[] = [];
+let criteria: QueryCriteria[] = [];
 criteria.push(new QueryCriteriaSlice({start: 20, end: 30}));
 
 // other criteria ...
@@ -180,9 +180,9 @@ this.anyService.fetch(criteria).subscribe((res: AnyEntity[]) => {
 #### Slice #### 
 
 ```typescript
-let criteria: IQueryCriteria[] = [];
+let criteria: QueryCriteria[] = [];
     
-let operators: IOperatorOption[] = []; 
+let operators: OperatorOption[] = []; 
 operators.push({key: 'title', operator: 'like', value: 'server'});
 operators.push({key: 'id', operator: 'ne', value: 1});
 criteria.push(new QueryCriteriaOperator(operators);
@@ -198,7 +198,7 @@ this.anyService.fetch(criteria).subscribe((res: AnyEntity[]) => {
 #### Full-text-search #### 
 
 ```typescript
-let criteria: IQueryCriteria[] = [];
+let criteria: QueryCriteria[] = [];
 criteria.push(new QueryCriteriaFullTextSearch('search-phrase'));
 
 // other criteria ...
@@ -212,7 +212,7 @@ this.anyService.fetch(criteria).subscribe((res: AnyEntity[]) => {
 #### Relationships #### 
 
 ```typescript
-let criteria: IQueryCriteria[] = [];
+let criteria: QueryCriteria[] = [];
 criteria.push(new QueryCriteriaRelationshipEmbed('comments'));
 criteria.push(new QueryCriteriaRelationshipExpand('post'));
 

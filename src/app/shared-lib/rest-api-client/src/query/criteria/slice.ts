@@ -1,15 +1,15 @@
-import { IQueryCriteria } from '../query-criteria.interface';
+import { QueryCriteria } from '../query-criteria.interface';
 import { QueryCriteriaType } from '../query-criteria-type';
 
-export interface ISliceOption {
+export interface SliceOption {
     start: number;
     end?: 0;
     limit?: 0;
 }
 
-export class QueryCriteriaSlice implements IQueryCriteria {
+export class QueryCriteriaSlice implements QueryCriteria {
 
-    constructor(private slice: ISliceOption) {
+    constructor(private slice: SliceOption) {
     }
 
     public getParameters(): string {
@@ -30,7 +30,7 @@ export class QueryCriteriaSlice implements IQueryCriteria {
         return QueryCriteriaType.SLICE;
     }
 
-    public getSlice(): ISliceOption {
+    public getSlice(): SliceOption {
         return this.slice;
     }
 }

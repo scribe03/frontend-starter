@@ -1,27 +1,27 @@
-export interface IPersonDeveloperSkills {
+export interface PersonDeveloperSkills {
     code: string;
     level: number;
     time_of_use: number;
 }
 
-export interface IIdentificationData {
+export interface IdentificationData {
     pesel: number;
     nip: number;
     regon: number;
 }
 
-export interface IPerson {
+export interface Person {
     id: number;
     name: string;
     surname: string;
     age: number;
-    identification_data: IIdentificationData;
+    identification_data: IdentificationData;
     emails: string[];
-    developer_skills: IPersonDeveloperSkills[];
+    developer_skills: PersonDeveloperSkills[];
 }
 
-export class Person {
-    public static factory(data: IPerson): IPerson {
+export class PersonFactory {
+    public static create(data: Person): Person {
         const person = {
             id: null,
             name: null,

@@ -1,7 +1,7 @@
 import { HttpObserve } from '@angular/common/http/src/client';
 import { HttpHeaders, HttpParams } from '@angular/common/http';
 
-export interface IHttpRequestOptions {
+export interface HttpRequestOptions {
     body?: any;
     headers?: HttpHeaders;
     observe?: HttpObserve;

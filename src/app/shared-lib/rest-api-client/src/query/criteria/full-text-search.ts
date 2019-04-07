@@ -1,7 +1,7 @@
-import { IQueryCriteria } from '../query-criteria.interface';
+import { QueryCriteria } from '../query-criteria.interface';
 import { QueryCriteriaType } from '../query-criteria-type';
 
-export class QueryCriteriaFullTextSearch implements IQueryCriteria {
+export class QueryCriteriaFullTextSearch implements QueryCriteria {
 
     constructor(private search: string) {
     }

@@ -1,4 +1,4 @@
-export interface IQueryCriteria {
+export interface QueryCriteria {
     getType(): string;
     getParameters(): string;
 }

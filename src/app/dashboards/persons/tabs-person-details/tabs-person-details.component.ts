@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApiPersonService } from '@core/api/cv/services/api-person.service';
-import { IPerson, Person } from '@core/api/cv/models/person.interface';
+import { Person, PersonFactory } from '@core/api/cv/models/person.interface';
 
 @Component({
     selector: 'fds-tabs-person-details',
@@ -10,13 +10,13 @@ import { IPerson, Person } from '@core/api/cv/models/person.interface';
 })
 export class TabsPersonDetailsComponent implements OnInit {
     public personId: string;
-    public person: IPerson;
+    public person: Person;
     public isAddMode = false;
 
     constructor(
         private router: Router,
         private activatedRoute: ActivatedRoute,
-        private apiPersons: ApiPersonService
+        private apPersons: ApiPersonService
     ) {
     }
 
@@ -34,12 +34,12 @@ export class TabsPersonDetailsComponent implements OnInit {
 
     public loadPerson(): void {
         if (this.personId && !this.isAddMode) {
-            this.apiPersons.fetchById(this.personId).subscribe((res: IPerson) => this.person = res);
+            this.apPersons.fetchById(this.personId).subscribe((res: Person) => this.person = res);
         }
     }
 
-    public savePerson(data: IPerson): void {
-        this.apiPersons.save(Person.factory(data)).subscribe((person: IPerson) => {
+    public savePerson(data: Person): void {
+        this.apPersons.save(PersonFactory.create(data)).subscribe((person: Person) => {
             if (this.isAddMode) {
                 this.router.navigate(['/', 'persons', person.id]);
             }

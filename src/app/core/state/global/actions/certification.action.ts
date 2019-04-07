@@ -1,11 +1,11 @@
 import { Action } from '@ngrx/store';
-import { IQueryCriteria } from '@sharedlib/rest-api-client/src/query';
-import { ICertification } from '@core/api/cv/models/certification.interface';
+import { QueryCriteria } from '@sharedlib/rest-api-client/src/query';
+import { Certification } from '@core/api/cv/models/certification.interface';
 
-export interface ICertificationState<T> {
+export interface CertificationState<T> {
     entities: T[];
     count: number;
-    queryCriteria: IQueryCriteria[];
+    queryCriteria: QueryCriteria[];
     isLoading: boolean;
 }
 
@@ -21,7 +21,7 @@ export enum CertificationAction {
 export class CertificationActionCount implements Action {
     readonly type = CertificationAction.COUNT;
 
-    constructor(public payload: IQueryCriteria[] = []) { }
+    constructor(public payload: QueryCriteria[] = []) { }
 }
 
 export class CertificationActionCountSuccess implements Action {
@@ -33,19 +33,19 @@ export class CertificationActionCountSuccess implements Action {
 export class CertificationActionAdd implements Action {
     readonly type = CertificationAction.ADD;
 
-    constructor(public payload: ICertification) { }
+    constructor(public payload: Certification) { }
 }
 
 export class CertificationActionLoad implements Action {
     readonly type = CertificationAction.LOAD;
 
-    constructor(public payload: IQueryCriteria[] = []) { }
+    constructor(public payload: QueryCriteria[] = []) { }
 }
 
 export class CertificationActionLoadSuccess implements Action {
     readonly type = CertificationAction.LOAD_SUCCESS;
 
-    constructor(public payload: ICertification[] = []) { }
+    constructor(public payload: Certification[] = []) { }
 }
 
 export class CertificationActionDelete implements Action {

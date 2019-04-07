@@ -6,9 +6,9 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 
-import { IQueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
+import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
 import { ApiPersonService } from '@core/api/cv/services/api-person.service';
-import { IPerson } from '@core/api/cv/models/person.interface';
+import { Person } from '@core/api/cv/models/person.interface';
 
 @Component({
     selector: 'fds-list-persons',
@@ -18,14 +18,14 @@ import { IPerson } from '@core/api/cv/models/person.interface';
 export class ListPersonsComponent implements OnInit {
     public isLoading = false;
     public countPersons = 0;
-    public persons$: Observable<IPerson[]>;
+    public persons$: Observable<Person[]>;
     public displayedColumns: string[] = ['id', 'name', 'surname', 'age', 'preview', 'remove'];
     // https://github.com/angular/material2/issues/5812
     @ViewChild(MatPaginator) paginator: MatPaginator;
 
     constructor(
         private router: Router,
-        private apiPersons: ApiPersonService
+        private apPersons: ApiPersonService
     ) {}
 
     ngOnInit() {
@@ -34,12 +34,12 @@ export class ListPersonsComponent implements OnInit {
 
     public loadPersons(event: PageEvent): void {
         this.isLoading = true;
-        const criteria: IQueryCriteria[] = [];
+        const criteria: QueryCriteria[] = [];
         criteria.push(new QueryCriteriaPaginate(event.pageIndex + 1, event.pageSize));
 
-        this.persons$ = this.apiPersons.count().pipe(
+        this.persons$ = this.apPersons.count().pipe(
             map(countPersons => this.countPersons = countPersons),
-            switchMap(() => this.apiPersons.fetch(criteria)),
+            switchMap(() => this.apPersons.fetch(criteria)),
             tap(() => this.isLoading = false)
         );
     }
@@ -49,7 +49,7 @@ export class ListPersonsComponent implements OnInit {
     }
 
     public remove(id: number): void {
-        this.apiPersons.delete(id).subscribe(() => {
+        this.apPersons.delete(id).subscribe(() => {
             this.loadPersons({pageIndex: 0, pageSize: 10, length: 0});
             this.paginator.pageIndex = 0;
         });

@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { IPerson } from '@core/api/cv/models/person.interface';
+import { Person } from '@core/api/cv/models/person.interface';
 
 @Component({
     selector: 'fds-emails-person',
@@ -9,11 +9,11 @@ import { IPerson } from '@core/api/cv/models/person.interface';
     styleUrls: ['./emails-person.component.scss']
 })
 export class EmailsPersonComponent implements OnInit {
-    public data: IPerson;
+    public data: Person;
     public form: FormGroup;
-    @Output() public save = new EventEmitter<IPerson>();
+    @Output() public save = new EventEmitter<Person>();
 
-    @Input() set person(data: IPerson) {
+    @Input() set person(data: Person) {
         this.createForm();
         if (data) {
             this.data = data;

@@ -21,7 +21,7 @@ describe('ListPersonsComponent', () => {
     let injectRouter: Router;
 
     beforeEach(async(() => {
-        // const apiPersonServiceProvide = jasmine.createSpyObj('ApiPersonService', httpApiStandardMethods);
+        // const ApiPersonServiceProvide = jasmine.createSpyObj('ApiPersonService', httpApiStandardMethods);
 
         TestBed.configureTestingModule({
             imports: [

@@ -4,7 +4,7 @@ import { MatPaginator, PageEvent } from '@angular/material';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { ICertification } from '@core/api/cv/models/certification.interface';
+import { Certification } from '@core/api/cv/models/certification.interface';
 import { IAppState } from '@core/state/global/app.state';
 import {
     CertificationActionDelete,
@@ -16,7 +16,7 @@ import {
     fetchCertificationsIsLoading
 } from '@core/state/global/selectors/certification.selector';
 
-import { IQueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client/src/query';
+import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client/src/query';
 
 @Component({
     selector: 'fds-certifications',
@@ -26,8 +26,8 @@ import { IQueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-clien
 export class CertificationsComponent implements OnInit {
     public displayedColumns: string[] = ['id', 'name', 'remove'];
 
-    // public certifications$: Observable<ICertificationState<ICertification>>;
-    public certifications$: Observable<ICertification[]>;
+    // public certifications$: Observable<CertificationState<Certification>>;
+    public certifications$: Observable<Certification[]>;
     public isLoading$: Observable<boolean>;
     public count$: Observable<number>;
 
@@ -57,7 +57,7 @@ export class CertificationsComponent implements OnInit {
     }
 
     public loadCertifications(event: PageEvent): void {
-        const criteria: IQueryCriteria[] = [];
+        const criteria: QueryCriteria[] = [];
         criteria.push(new QueryCriteriaPaginate(event.pageIndex + 1, event.pageSize));
 
         this.store.dispatch(new CertificationActionLoad(criteria));

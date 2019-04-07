@@ -3,7 +3,7 @@ import { map, switchMap } from 'rxjs/operators';
 
 import { Actions, Effect, ofType } from '@ngrx/effects';
 
-import { ICertification } from '../../../api/cv/models/certification.interface';
+import { Certification } from '../../../api/cv/models/certification.interface';
 import { ApiCertificationService } from '../../../api/cv/services/api-certification.service';
 import {
     CertificationAction, CertificationActionAdd, CertificationActionDelete,
@@ -11,7 +11,7 @@ import {
     CertificationActionCountSuccess,
     CertificationActionLoadSuccess
 } from '../actions/certification.action';
-import { IQueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client/src/query';
+import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client/src/query';
 
 @Injectable()
 export class CertificationEffector {
@@ -32,7 +32,7 @@ export class CertificationEffector {
     load$ = this.action$.pipe(
         ofType(CertificationAction.LOAD),
         switchMap((action: CertificationActionLoad) => this.certificationApi.fetch(action.payload)),
-        map((certifications: ICertification[]) => new CertificationActionLoadSuccess(certifications))
+        map((certifications: Certification[]) => new CertificationActionLoadSuccess(certifications))
     );
 
     @Effect()
@@ -40,7 +40,7 @@ export class CertificationEffector {
         ofType(CertificationAction.ADD),
         switchMap((action: CertificationActionAdd) => this.certificationApi.save(action.payload).pipe(
             switchMap(() => {
-                const criteria: IQueryCriteria[] = [];
+                const criteria: QueryCriteria[] = [];
                 criteria.push(new QueryCriteriaPaginate( 1, 10));
                 return [
                     new CertificationActionCount(),
@@ -55,7 +55,7 @@ export class CertificationEffector {
         ofType(CertificationAction.DELETE),
         switchMap((action: CertificationActionDelete) => this.certificationApi.delete(action.payload.id).pipe(
             switchMap(() => {
-                    const criteria: IQueryCriteria[] = [];
+                    const criteria: QueryCriteria[] = [];
                     criteria.push(new QueryCriteriaPaginate( 1, 10));
                     return [
                         new CertificationActionCount(),
