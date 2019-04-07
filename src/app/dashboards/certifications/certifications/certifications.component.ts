@@ -5,16 +5,16 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
 import { Certification } from '@core/api/cv/models/certification.interface';
-import { IAppState } from '@core/state/global/app.state';
+import { IAppState } from '@core/state/app.state';
 import {
     CertificationActionDelete,
     CertificationActionLoad, CertificationActionCount,
-} from '@core/state/global/actions/certification.action';
+} from '@core/state/actions/certification.action';
 import {
     getCertificationsCount,
     getCertificationsEntities,
     getCertificationsIsLoading
-} from '@core/state/global/selectors/certification.selector';
+} from '@core/state/selectors/certification.selector';
 
 import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client/src/query';
 

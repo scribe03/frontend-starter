@@ -3,8 +3,8 @@ import { map, switchMap } from 'rxjs/operators';
 
 import { Actions, Effect, ofType } from '@ngrx/effects';
 
-import { Certification } from '../../../api/cv/models/certification.interface';
-import { ApiCertificationService } from '../../../api/cv/services/api-certification.service';
+import { Certification } from '../../api/cv/models/certification.interface';
+import { ApiCertificationService } from '../../api/cv/services/api-certification.service';
 import {
     CertificationAction, CertificationActionAdd, CertificationActionDelete,
     CertificationActionLoad, CertificationActionCount,

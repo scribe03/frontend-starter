@@ -5,7 +5,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 
 import { CertificationAddComponent } from './certification-add.component';
-import { certificationReducer } from '@core/state/global/reducers/certification.reducer';
+import { certificationReducer } from '@core/state/reducers/certification.reducer';
 import { CoreModule } from '@core/core.module';
 import { MaterialModule } from '@shared/material.module';
 import { SharedModule } from '@shared/shared.module';
