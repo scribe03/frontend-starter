@@ -10,7 +10,7 @@ import {
     CertificationActionLoad, CertificationActionCount,
     CertificationActionCountSuccess,
     CertificationActionLoadSuccess
-} from '../actions/certification.action';
+} from '@core/state/certifications/certification.action';
 import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client/src/query';
 
 @Injectable()

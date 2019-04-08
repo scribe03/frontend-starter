@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Store } from '@ngrx/store';
 
 import { IAppState } from '@core/state/app.state';
-import { CertificationActionAdd } from '@core/state/actions/certification.action';
+import { CertificationActionAdd } from '@core/state/certifications/certification.action';
 
 @Component({
   selector: 'fds-certification-add',

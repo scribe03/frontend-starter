@@ -9,12 +9,12 @@ import { IAppState } from '@core/state/app.state';
 import {
     CertificationActionDelete,
     CertificationActionLoad, CertificationActionCount,
-} from '@core/state/actions/certification.action';
+} from '@core/state/certifications/certification.action';
 import {
     getCertificationsCount,
     getCertificationsEntities,
     getCertificationsIsLoading
-} from '@core/state/selectors/certification.selector';
+} from '@core/state/certifications/certification.selector';
 
 import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client/src/query';
 
