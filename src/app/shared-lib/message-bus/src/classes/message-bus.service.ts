@@ -11,7 +11,7 @@ export abstract class MessageBusService implements MessageBusInterface {
         this.bus$ = this.bus.asObservable();
     }
 
-    public send(event: Message): void {
+    public publish(event: Message): void {
         this.bus.next(event);
     }
 }

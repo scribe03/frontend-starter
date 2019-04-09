@@ -7,8 +7,8 @@ import { Observable } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 
 import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
-import { ApiPersonService } from '@core/api/cv/services/api-person.service';
-import { Person } from '@core/api/cv/models/person.interface';
+import { ApiPersonsService } from '@core/api/persons/api-persons.service';
+import { Person } from '@core/api/persons/person.interface';
 
 @Component({
     selector: 'fds-list-persons',
@@ -25,7 +25,7 @@ export class ListPersonsComponent implements OnInit {
 
     constructor(
         private router: Router,
-        private apPersons: ApiPersonService
+        private apPersons: ApiPersonsService
     ) {}
 
     ngOnInit() {

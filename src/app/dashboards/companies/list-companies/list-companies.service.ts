@@ -3,8 +3,8 @@ import { PageEvent } from '@angular/material';
 import { Observable } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 
-import { ApiCompaniesService } from '@core/api/cv/services/api-companies.service';
-import { Company } from '@core/api/cv/models/company.interface';
+import { ApiCompaniesService } from '@core/api/companies/api-companies.service';
+import { Company } from '@core/api/companies/company.interface';
 import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
 import { Message, MessageBusService } from '@sharedlib/message-bus';
 
@@ -13,7 +13,7 @@ import { Message, MessageBusService } from '@sharedlib/message-bus';
 export enum CompaniesMessage {
     IS_LOADING = '[Companies] Loading',
     COMPANIES_LOADING_SUCCESS = '[Companies] Get data success',
-    COUNT = '[Companies] Count',
+    COUNT_SUCCESS = '[Companies] Count',
     REMOVE_SUCCESS = '[Companies] Remove success',
 }
 
@@ -33,8 +33,8 @@ export class CompaniesLoadingSuccessMessage implements Message {
     }
 }
 
-export class CompaniesCountMessage implements Message {
-    readonly type = CompaniesMessage.COUNT;
+export class CompaniesCountSuccessMessage implements Message {
+    readonly type = CompaniesMessage.COUNT_SUCCESS;
 
     constructor(public payload: number) {
     }
@@ -56,27 +56,27 @@ export class ListCompaniesService extends MessageBusService {
     }
 
     public getCompaniesAsStream(event: PageEvent): Observable<Company[]> {
-        this.send(new CompaniesIsLoadingMessage(true));
+        this.publish(new CompaniesIsLoadingMessage(true));
 
         const criteria: QueryCriteria[] = [];
         criteria.push(new QueryCriteriaPaginate(event.pageIndex + 1, event.pageSize));
 
         return this.apiCompanies.count().pipe(
-            map(count => this.send(new CompaniesCountMessage(count))),
+            map(count => this.publish(new CompaniesCountSuccessMessage(count))),
             switchMap(() => this.apiCompanies.fetch(criteria)),
-            tap(() => this.send(new CompaniesIsLoadingMessage(false)))
+            tap(() => this.publish(new CompaniesIsLoadingMessage(false)))
         );
     }
 
     public getCompanies(event: PageEvent): void {
-        this.getCompaniesAsStream(event).subscribe((companies) => this.send(new CompaniesLoadingSuccessMessage(companies)));
+        this.getCompaniesAsStream(event).subscribe((companies) => this.publish(new CompaniesLoadingSuccessMessage(companies)));
     }
 
     public remove(id: number): void {
-        this.send(new CompaniesIsLoadingMessage(true));
+        this.publish(new CompaniesIsLoadingMessage(true));
 
         this.apiCompanies.delete(id).pipe(
-            tap(() => this.send(new CompaniesIsLoadingMessage(false)))
-        ).subscribe(() => this.send(new CompaniesRemoveSuccessMessage()));
+            tap(() => this.publish(new CompaniesIsLoadingMessage(false)))
+        ).subscribe(() => this.publish(new CompaniesRemoveSuccessMessage()));
     }
 }

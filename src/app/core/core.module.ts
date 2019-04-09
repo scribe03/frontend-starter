@@ -1,7 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ApiCvModule } from './api/cv/api-cv.module';
+import { ApiModule } from './api/api.module';
 import { throwIfAlreadyLoaded } from './quards/module-inport-guard';
 import { SidenavLeftMenuComponent } from './components/sidenav-left-menu/sidenav-left-menu.component';
 import { MaterialModule } from '../shared/material.module';
@@ -9,7 +9,7 @@ import { MaterialModule } from '../shared/material.module';
 @NgModule({
     imports: [
         CommonModule,
-        ApiCvModule,
+        ApiModule,
         MaterialModule
     ],
     declarations: [

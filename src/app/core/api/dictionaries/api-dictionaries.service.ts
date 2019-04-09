@@ -4,13 +4,13 @@ import { Observable } from 'rxjs';
 
 import { QueryCriteria, RestApiClientService } from '@sharedlib/rest-api-client/src';
 import { environment } from '@env/environment';
-import { Dictionary } from '../models/dictionary.interface';
-import { ApiCvModule } from '../api-cv.module';
+import { Dictionary } from '@core/api/dictionaries/dictionary.interface';
+import { ApiModule } from '../api.module';
 
 @Injectable({
-    providedIn: ApiCvModule
+    providedIn: ApiModule
 })
-export class ApiDictionaryService extends RestApiClientService<Dictionary> {
+export class ApiDictionariesService extends RestApiClientService<Dictionary> {
     protected resourceUri = 'dictionaries';
 
     constructor(private client: HttpClient) {

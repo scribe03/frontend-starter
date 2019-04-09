@@ -3,5 +3,5 @@ import { Message } from './message.interface';
 
 export interface MessageBusInterface {
     bus$: Observable<Message>;
-    send(event: Message): void;
+    publish(event: Message): void;
 }

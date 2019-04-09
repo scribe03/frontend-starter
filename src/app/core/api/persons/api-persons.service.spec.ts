@@ -2,17 +2,17 @@ import { fakeAsync } from '@angular/core/testing';
 
 import { of } from 'rxjs';
 
-import { ApiPersonService } from './api-person.service';
+import { ApiPersonsService } from '@core/api/persons/api-persons.service';
 import { mockPerson } from '@testutils/mocks/persons.mock';
 
-describe('ApiPersonService', () => {
+describe('ApiPersonsService', () => {
 
     let httpClientSpy: { request: jasmine.Spy, delete: jasmine.Spy  };
-    let apiPersonService: ApiPersonService;
+    let apiPersonService: ApiPersonsService;
 
     beforeEach(() => {
         httpClientSpy = jasmine.createSpyObj('HttpClient', ['request', 'delete']);
-        apiPersonService = new ApiPersonService(<any> httpClientSpy);
+        apiPersonService = new ApiPersonsService(<any> httpClientSpy);
     });
 
     it('method fetch() should return data', fakeAsync(() => {

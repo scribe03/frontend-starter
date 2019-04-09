@@ -1,4 +1,4 @@
-import { ApiCompaniesService } from './api-companies.service';
+import { ApiCompaniesService } from '@core/api/companies/api-companies.service';
 
 describe('ApiCompaniesService', () => {
   let httpClientSpy: { request: jasmine.Spy, delete: jasmine.Spy  };

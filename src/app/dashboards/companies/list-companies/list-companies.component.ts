@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 
 import { Observable, Subscription } from 'rxjs';
 
-import { Company } from '@core/api/cv/models/company.interface';
+import { Company } from '@core/api/companies/company.interface';
 import { Message, OnMessageReceiver } from '@sharedlib/message-bus';
 import {
-    CompaniesCountMessage, CompaniesIsLoadingMessage, CompaniesMessage, ListCompaniesService
+    CompaniesCountSuccessMessage, CompaniesIsLoadingMessage, CompaniesMessage, ListCompaniesService
 } from './list-companies.service';
 
 @Component({
@@ -55,8 +55,8 @@ export class ListCompaniesComponent implements OnInit, OnDestroy, OnMessageRecei
                 case CompaniesMessage.IS_LOADING:
                     this.isLoading = (message as CompaniesIsLoadingMessage).payload;
                     break;
-                case CompaniesMessage.COUNT:
-                    this.countCompanies = (message as CompaniesCountMessage).payload;
+                case CompaniesMessage.COUNT_SUCCESS:
+                    this.countCompanies = (message as CompaniesCountSuccessMessage).payload;
                     break;
                 case CompaniesMessage.REMOVE_SUCCESS:
                     this.loadCompanies({pageIndex: 0, pageSize: 10, length: 0});

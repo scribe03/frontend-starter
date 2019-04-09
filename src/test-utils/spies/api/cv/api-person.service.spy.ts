@@ -2,11 +2,11 @@ import { of } from 'rxjs';
 
 import { httpApiStandardMethods } from '@testutils/http-api-standard-methods';
 import { mockPerson } from '@testutils/mocks/persons.mock';
-import { ApiPersonService } from '@core/api/cv/services/api-person.service';
+import { ApiPersonsService } from '@core/api/persons/api-persons.service';
 
 export const createSpyApiPersonService = () => jasmine.createSpyObj('ApiPersonService', httpApiStandardMethods);
 
-export const getPreparedSpyApiPersonService = (serviceSpy: jasmine.SpyObj<ApiPersonService>) => {
+export const getPreparedSpyApiPersonService = (serviceSpy: jasmine.SpyObj<ApiPersonsService>) => {
     serviceSpy.fetchById.and.returnValue(of(mockPerson()[0]));
     serviceSpy.fetch.and.returnValue(of(mockPerson()));
     serviceSpy.count.and.returnValue(of(mockPerson().length));

@@ -4,17 +4,17 @@ import { HttpClient } from '@angular/common/http';
 import { ExistNotSupport, RestApiClientService } from '@sharedlib/rest-api-client';
 import { environment } from '@env/environment';
 
-import { Person } from '../models/person.interface';
-import { ApiCvModule } from '../api-cv.module';
+import { Person } from '@core/api/persons/person.interface';
+import { ApiModule } from '../api.module';
 
 // Use when either method are not supported on backend site
 // @FetchByIdNotSupport()
 // @CreateNotSupport()
 @ExistNotSupport()
 @Injectable({
-  providedIn: ApiCvModule
+  providedIn: ApiModule
 })
-export class ApiPersonService extends RestApiClientService<Person> {
+export class ApiPersonsService extends RestApiClientService<Person> {
   protected resourceUri = 'persons';
 
   constructor(httpClient: HttpClient) {

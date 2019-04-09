@@ -3,9 +3,9 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 
-import { Person, PersonDeveloperSkills } from '@core/api/cv/models/person.interface';
-import { Dictionary } from '@core/api/cv/models/dictionary.interface';
-import { ApiDictionaryService } from '@core/api/cv/services/api-dictionary.service';
+import { Person, PersonDeveloperSkills } from '@core/api/persons/person.interface';
+import { Dictionary } from '@core/api/dictionaries/dictionary.interface';
+import { ApiDictionariesService } from '@core/api/dictionaries/api-dictionaries.service';
 
 @Component({
     selector: 'fds-skills-person',
@@ -28,7 +28,7 @@ export class SkillsPersonComponent implements OnInit {
 
     constructor(
         private fb: FormBuilder,
-        private dictionaryService: ApiDictionaryService) {
+        private dictionaryService: ApiDictionariesService) {
     }
 
     public ngOnInit() {

@@ -4,7 +4,7 @@ import { MatPaginator, PageEvent } from '@angular/material';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Certification } from '@core/api/cv/models/certification.interface';
+import { Certification } from '@core/api/certifications/certification.interface';
 import { IAppState } from '@core/state/app.state';
 import {
     CertificationActionDelete,

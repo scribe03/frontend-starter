@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiPersonService } from '@core/api/cv/services/api-person.service';
-import { Person, PersonFactory } from '@core/api/cv/models/person.interface';
+import { ApiPersonsService } from '@core/api/persons/api-persons.service';
+import { Person, PersonFactory } from '@core/api/persons/person.interface';
 
 @Component({
     selector: 'fds-tabs-person-details',
@@ -16,7 +16,7 @@ export class TabsPersonDetailsComponent implements OnInit {
     constructor(
         private router: Router,
         private activatedRoute: ActivatedRoute,
-        private apiPersons: ApiPersonService
+        private apiPersons: ApiPersonsService
     ) {
     }
 

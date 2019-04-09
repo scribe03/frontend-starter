@@ -3,8 +3,8 @@ import { map, switchMap } from 'rxjs/operators';
 
 import { Actions, Effect, ofType } from '@ngrx/effects';
 
-import { Certification } from '../../api/cv/models/certification.interface';
-import { ApiCertificationService } from '../../api/cv/services/api-certification.service';
+import { Certification } from '../../api/certifications/certification.interface';
+import { ApiCertificationsService } from '../../api/certifications/api-certifications.service';
 import {
     CertificationAction, CertificationActionAdd, CertificationActionDelete,
     CertificationActionLoad, CertificationActionCount,
@@ -18,7 +18,7 @@ export class CertificationEffector {
 
     constructor(
         private action$: Actions,
-        private certificationApi: ApiCertificationService
+        private certificationApi: ApiCertificationsService
     ) {}
 
     @Effect()

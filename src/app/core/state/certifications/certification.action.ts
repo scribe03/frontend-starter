@@ -1,6 +1,6 @@
 import { Action } from '@ngrx/store';
 import { QueryCriteria } from '@sharedlib/rest-api-client/src/query';
-import { Certification } from '@core/api/cv/models/certification.interface';
+import { Certification } from '@core/api/certifications/certification.interface';
 
 export interface CertificationState {
     entities: Certification[];

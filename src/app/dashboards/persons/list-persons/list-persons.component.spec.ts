@@ -8,7 +8,7 @@ import { SharedModule } from '@shared/shared.module';
 import { QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
 
 import { CoreModule } from '@core/core.module';
-import { ApiPersonService } from '@core/api/cv/services/api-person.service';
+import { ApiPersonsService } from '@core/api/persons/api-persons.service';
 
 
 import { ListPersonsComponent } from './list-persons.component';
@@ -17,7 +17,7 @@ import { createSpyApiPersonService, getPreparedSpyApiPersonService } from '@test
 describe('ListPersonsComponent', () => {
     let component: ListPersonsComponent;
     let fixture: ComponentFixture<ListPersonsComponent>;
-    let spyApiPersonService: jasmine.SpyObj<ApiPersonService>;
+    let spyApiPersonService: jasmine.SpyObj<ApiPersonsService>;
     let injectRouter: Router;
 
     beforeEach(async(() => {
@@ -32,7 +32,7 @@ describe('ListPersonsComponent', () => {
                 SharedModule,
             ],
             providers: [
-                {provide: ApiPersonService, useValue: createSpyApiPersonService()}
+                {provide: ApiPersonsService, useValue: createSpyApiPersonService()}
             ],
             declarations: [ListPersonsComponent]
         })
@@ -43,7 +43,7 @@ describe('ListPersonsComponent', () => {
         fixture = TestBed.createComponent(ListPersonsComponent);
         component = fixture.componentInstance;
 
-        spyApiPersonService = getPreparedSpyApiPersonService(TestBed.get(ApiPersonService));
+        spyApiPersonService = getPreparedSpyApiPersonService(TestBed.get(ApiPersonsService));
         injectRouter = TestBed.get(Router);
 
         fixture.detectChanges();

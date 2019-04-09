@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { Person } from '@core/api/cv/models/person.interface';
+import { Person } from '@core/api/persons/person.interface';
 
 @Component({
     selector: 'fds-emails-person',

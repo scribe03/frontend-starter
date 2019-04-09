@@ -9,4 +9,4 @@ import { HttpClientModule } from '@angular/common/http';
     HttpClientModule
   ]
 })
-export class ApiCvModule { }
+export class ApiModule { }
