@@ -2,12 +2,12 @@ import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator, PageEvent } from '@angular/material';
 import { Router } from '@angular/router';
 
-import { Observable, Subscription } from 'rxjs';
+import { Subscription } from 'rxjs';
 
 import { Company } from '@core/api/companies/company.interface';
 import { Message, OnMessageReceiver } from '@sharedlib/message-bus';
 import {
-    CompaniesCountSuccessMessage, CompaniesIsLoadingMessage, CompaniesMessage, ListCompaniesService
+    CompaniesCountSuccessMessage, CompaniesIsLoadingMessage, CompaniesLoadedSuccessMessage, CompaniesMessage, ListCompaniesService
 } from './list-companies.service';
 
 @Component({
@@ -19,7 +19,7 @@ export class ListCompaniesComponent implements OnInit, OnDestroy, OnMessageRecei
 
     public isLoading = false;
     public countCompanies = 0;
-    public companies$: Observable<Company[]>;
+    public companies: Company[] = [];
     public displayedColumns: string[] = ['id', 'name', 'city', 'zipCode', 'streetName', 'remove'];
     // https://github.com/angular/material2/issues/5812
     @ViewChild(MatPaginator) paginator: MatPaginator;
@@ -42,7 +42,7 @@ export class ListCompaniesComponent implements OnInit, OnDestroy, OnMessageRecei
     }
 
     public loadCompanies(event: PageEvent): void {
-        this.companies$ = this.listCompaniesService.getCompaniesAsStream(event);
+        this.listCompaniesService.getCompanies(event);
     }
 
     public removeCompany(id: number): void {
@@ -57,6 +57,9 @@ export class ListCompaniesComponent implements OnInit, OnDestroy, OnMessageRecei
                     break;
                 case CompaniesMessage.COUNT_SUCCESS:
                     this.countCompanies = (message as CompaniesCountSuccessMessage).payload;
+                    break;
+                case CompaniesMessage.COMPANIES_LOADED_SUCCESS:
+                    this.companies = (message as CompaniesLoadedSuccessMessage).payload;
                     break;
                 case CompaniesMessage.REMOVE_SUCCESS:
                     this.loadCompanies({pageIndex: 0, pageSize: 10, length: 0});

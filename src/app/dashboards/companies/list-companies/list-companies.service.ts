@@ -12,7 +12,7 @@ import { Message, MessageBusService } from '@sharedlib/message-bus';
 
 export enum CompaniesMessage {
     IS_LOADING = '[Companies] Loading',
-    COMPANIES_LOADING_SUCCESS = '[Companies] Get data success',
+    COMPANIES_LOADED_SUCCESS = '[Companies] Get data success',
     COUNT_SUCCESS = '[Companies] Count',
     REMOVE_SUCCESS = '[Companies] Remove success',
 }
@@ -26,8 +26,8 @@ export class CompaniesIsLoadingMessage implements Message {
     }
 }
 
-export class CompaniesLoadingSuccessMessage implements Message {
-    readonly type = CompaniesMessage.COMPANIES_LOADING_SUCCESS;
+export class CompaniesLoadedSuccessMessage implements Message {
+    readonly type = CompaniesMessage.COMPANIES_LOADED_SUCCESS;
 
     constructor(public payload: Company[]) {
     }
@@ -69,7 +69,7 @@ export class ListCompaniesService extends MessageBusService {
     }
 
     public getCompanies(event: PageEvent): void {
-        this.getCompaniesAsStream(event).subscribe((companies) => this.publish(new CompaniesLoadingSuccessMessage(companies)));
+        this.getCompaniesAsStream(event).subscribe((companies) => this.publish(new CompaniesLoadedSuccessMessage(companies)));
     }
 
     public remove(id: number): void {

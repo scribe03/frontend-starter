@@ -1,6 +1,6 @@
 <fds-main-container [title]="'Companies'" [isHiddenFooter]="true" [isHiddenBtnBack]="true" [isHiddenBtnAdd]="true">
     <div class="mat-elevation-z8 pos-r">
-        <table mat-table [dataSource]="companies$ | async" style="width:100%">
+        <table mat-table [dataSource]="companies || []" style="width:100%">
             <ng-container matColumnDef="id">
                 <th mat-header-cell *matHeaderCellDef> Id.</th>
                 <td mat-cell *matCellDef="let data"> {{data.id}} </td>
