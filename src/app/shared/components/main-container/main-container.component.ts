@@ -7,11 +7,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class MainContainerComponent implements OnInit {
     @Input() title: string;
-    @Input() isHiddenFooter = false;
     @Input() isHiddenBtnBack = false;
     @Input() isHiddenBtnAdd = false;
     @Input() isHiddenBtnCancel = false;
     @Input() isHiddenBtnSave = false;
+    @Input() isHiddenFooter = false;
     @Output() back = new EventEmitter();
     @Output() cancel = new EventEmitter();
     @Output() save = new EventEmitter();
