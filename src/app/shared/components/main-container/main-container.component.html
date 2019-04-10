@@ -24,11 +24,11 @@
     </mat-card-content>
 
     <mat-card-footer *ngIf="!isHiddenFooter && (!isHiddenBtnCancel || !isHiddenBtnSave)">
-        <fds-bar-form-buttons
+        <fds-basic-form-action
                 [isHiddenBtnCancel]="isHiddenBtnCancel"
                 [isHiddenBtnSave]="isHiddenBtnSave"
                 (cancel)="btnCancel()"
                 (save)="btnSave()">
-        </fds-bar-form-buttons>
+        </fds-basic-form-action>
     </mat-card-footer>
 </mat-card>

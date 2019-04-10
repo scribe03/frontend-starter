@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BarFormButtonsComponent } from './bar-form-buttons.component';
+import { BasicFormActionComponent } from './basic-form-action.component';
 
-describe('BarFormButtonsComponent', () => {
-  let component: BarFormButtonsComponent;
-  let fixture: ComponentFixture<BarFormButtonsComponent>;
+describe('BasicFormActionComponent', () => {
+  let component: BasicFormActionComponent;
+  let fixture: ComponentFixture<BasicFormActionComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BarFormButtonsComponent ]
+      declarations: [ BasicFormActionComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BarFormButtonsComponent);
+    fixture = TestBed.createComponent(BasicFormActionComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
