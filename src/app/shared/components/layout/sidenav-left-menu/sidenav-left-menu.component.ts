@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-    selector: 'fds-sidenav-left-menu',
+    selector: 'sce-sidenav-left-menu',
     templateUrl: './sidenav-left-menu.component.html',
     styleUrls: ['./sidenav-left-menu.component.scss']
 })

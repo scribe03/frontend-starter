@@ -6,7 +6,7 @@
       "@env/*": ["src/environments/*"],
       "@core/*": ["src/app/core/*"],
       "@shared/*": ["src/app/shared/*"],
-      "@sharedlib/*": ["src/app/shared-lib/*"],
+      "@library/*": ["src/library/*"],
       "@testutils/*": ["src/test-utils/*"]
     },
     "outDir": "./dist/out-tsc",

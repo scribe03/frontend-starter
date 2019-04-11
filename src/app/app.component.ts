@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { BreakpointObserver, BreakpointState } from '@angular/cdk/layout';
 
 @Component({
-    selector: 'fds-root',
+    selector: 'sce-root',
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })

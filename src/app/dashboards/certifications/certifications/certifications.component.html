@@ -31,6 +31,6 @@
                 [pageSizeOptions]="[10, 20, 30]"
                 (page)="loadCertifications($event)"></mat-paginator>
 
-        <div *ngIf="isLoading$ | async"><fds-spinner></fds-spinner></div>
+        <div *ngIf="isLoading$ | async"><sce-spinner></sce-spinner></div>
     </div>
 </div>

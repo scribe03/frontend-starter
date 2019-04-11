@@ -2,7 +2,7 @@ import { of } from 'rxjs';
 
 import { httpApiStandardMethods } from '@testutils/http-api-standard-methods';
 import { mockPerson } from '@testutils/mocks/persons.mock';
-import { ApiPersonsService } from '@core/api/persons/api-persons.service';
+import { ApiPersonsService } from '@core/apis/persons/api-persons.service';
 
 export const createSpyApiPersonService = () => jasmine.createSpyObj('ApiPersonService', httpApiStandardMethods);
 

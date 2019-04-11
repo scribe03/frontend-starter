@@ -1,10 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { ApiPersonsService } from '@core/api/persons/api-persons.service';
-import { Person, PersonFactory } from '@core/api/persons/person.interface';
+import { ApiPersonsService } from '@core/apis/persons/api-persons.service';
+import { Person, PersonFactory } from '@core/apis/persons/person.interface';
 
 @Component({
-    selector: 'fds-tabs-person-details',
+    selector: 'sce-tabs-person-details',
     templateUrl: './tabs-person-details.component.html',
     styleUrls: ['./tabs-person-details.component.scss']
 })

@@ -3,7 +3,7 @@
         <mat-card-title>
             <div class="title">
                 <span class="title__icon title__icon--back" *ngIf="!isHiddenBtnBack">
-                    <button mat-icon-button (click)="btnBack()">
+                    <button mat-icon-button (click)="onBack()">
                         <mat-icon aria-label="Go back">arrow_back</mat-icon>
                     </button>
                 </span>
@@ -11,7 +11,7 @@
             </div>
 
             <div class="title__icon--add" *ngIf="!isHiddenBtnAdd">
-                <button mat-icon-button class="mr-2" (click)="btnAdd()">
+                <button mat-icon-button class="mr-2" (click)="onAdd()">
                     <mat-icon aria-label="Add">playlist_add</mat-icon>
                 </button>
             </div>
@@ -24,11 +24,11 @@
     </mat-card-content>
 
     <mat-card-footer *ngIf="!isHiddenFooter && (!isHiddenBtnCancel || !isHiddenBtnSave)">
-        <fds-basic-form-action
+        <sce-basic-form-action
                 [isHiddenBtnCancel]="isHiddenBtnCancel"
                 [isHiddenBtnSave]="isHiddenBtnSave"
-                (cancel)="btnCancel()"
-                (save)="btnSave()">
-        </fds-basic-form-action>
+                (cancel)="onCancel()"
+                (save)="onSave()">
+        </sce-basic-form-action>
     </mat-card-footer>
 </mat-card>

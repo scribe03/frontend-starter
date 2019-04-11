@@ -1,21 +1,21 @@
 <ng-container>
-    <mat-toolbar class="fds-header">
-        <button mat-button mat-stroked-button (click)="sidenav.toggle()" class="fds-btn-close-open-sidenav">
+    <mat-toolbar class="sce-header">
+        <button mat-button mat-stroked-button (click)="sidenav.toggle()" class="sce-btn-close-open-sidenav">
             <mat-icon *ngIf="isSidenavOpened">close</mat-icon>
             <mat-icon *ngIf="!isSidenavOpened">menu</mat-icon>
         </button>
         Angular Application
     </mat-toolbar>
 
-    <mat-sidenav-container class="fds-container" [hasBackdrop]="false">
+    <mat-sidenav-container class="sce-container" [hasBackdrop]="false">
         <mat-sidenav #sidenav mode="side"
-                     [opened]="!isSmallScreen" class="fds-sidenav"
+                     [opened]="!isSmallScreen" class="sce-sidenav"
                      (openedStart)="isSidenavOpened = true"
                      (closedStart)="isSidenavOpened = false"
                      [fixedTopGap]="64"
                      [fixedBottomGap]="32"
                      [fixedInViewport]="false">
-            <fds-sidenav-left-menu></fds-sidenav-left-menu>
+            <sce-sidenav-left-menu></sce-sidenav-left-menu>
         </mat-sidenav>
 
         <mat-sidenav-content>
@@ -34,5 +34,5 @@
         </mat-sidenav-content>
     </mat-sidenav-container>
 
-    <mat-toolbar class="fds-footer">Footer</mat-toolbar>
+    <mat-toolbar class="sce-footer">Footer</mat-toolbar>
 </ng-container>

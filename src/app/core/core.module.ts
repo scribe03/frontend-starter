@@ -1,7 +1,7 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { ApiModule } from './api/api.module';
+import { ApiModule } from './apis/api.module';
 import { throwIfAlreadyLoaded } from './quards/module-inport-guard';
 import { SidenavLeftMenuComponent } from '../shared/components/layout/sidenav-left-menu/sidenav-left-menu.component';
 import { MaterialModule } from '../shared/material.module';

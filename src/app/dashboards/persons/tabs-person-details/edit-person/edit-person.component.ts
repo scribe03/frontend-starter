@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
-import { Person } from '@core/api/persons/person.interface';
+import { Person } from '@core/apis/persons/person.interface';
 
 @Component({
-    selector: 'fds-edit-person',
+    selector: 'sce-edit-person',
     templateUrl: './edit-person.component.html',
     styleUrls: ['./edit-person.component.scss']
 })

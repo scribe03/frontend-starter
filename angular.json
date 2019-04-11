@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "fds",
+      "prefix": "sce",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"

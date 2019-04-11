@@ -4,22 +4,22 @@ import { MatPaginator, PageEvent } from '@angular/material';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 
-import { Certification } from '@core/api/certifications/certification.interface';
-import { IAppState } from '@core/state/app.state';
+import { Certification } from '@core/apis/certifications/certification.interface';
+import { IAppState } from '@core/states/app.state';
 import {
     CertificationActionDelete,
     CertificationActionLoad, CertificationActionCount,
-} from '@core/state/certifications/certification.action';
+} from '@core/states/certifications/certification.action';
 import {
     getCertificationsCount,
     getCertificationsEntities,
     getCertificationsIsLoading
-} from '@core/state/certifications/certification.selector';
+} from '@core/states/certifications/certification.selector';
 
-import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client/src/query';
+import { QueryCriteria, QueryCriteriaPaginate } from '@library/rest-api-client';
 
 @Component({
-    selector: 'fds-certifications',
+    selector: 'sce-certifications',
     templateUrl: './certifications.component.html',
     styleUrls: ['./certifications.component.scss']
 })

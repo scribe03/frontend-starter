@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { ExistNotSupport, RestApiClientService } from '@sharedlib/rest-api-client';
+import { ExistNotSupport, RestApiClientService } from '@library/rest-api-client';
 import { environment } from '@env/environment';
 
-import { Person } from '@core/api/persons/person.interface';
+import { Person } from '@core/apis/persons/person.interface';
 import { ApiModule } from '../api.module';
 
 // Use when either method are not supported on backend site

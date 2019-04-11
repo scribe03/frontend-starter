@@ -3,10 +3,10 @@ import { PageEvent } from '@angular/material';
 import { Observable } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 
-import { ApiCompaniesService } from '@core/api/companies/api-companies.service';
-import { Company } from '@core/api/companies/company.interface';
-import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
-import { Message, MessageBusService } from '@sharedlib/message-bus';
+import { ApiCompaniesService } from '@core/apis/companies/api-companies.service';
+import { Company } from '@core/apis/companies/company.interface';
+import { QueryCriteria, QueryCriteriaPaginate } from '@library/rest-api-client';
+import { Message, MessageBusService } from '@library/message-bus';
 
 // --- Type message
 

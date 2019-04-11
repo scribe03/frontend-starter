@@ -1,11 +1,11 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { RestApiClientService } from '@sharedlib/rest-api-client';
+import { RestApiClientService } from '@library/rest-api-client';
 import { environment } from '@env/environment';
 
 import { ApiModule } from '../api.module';
-import { Certification } from '@core/api/certifications/certification.interface';
+import { Certification } from '@core/apis/certifications/certification.interface';
 
 @Injectable({
     providedIn: ApiModule

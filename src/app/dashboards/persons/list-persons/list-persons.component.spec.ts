@@ -5,10 +5,10 @@ import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core
 
 import { MaterialModule } from '@shared/material.module';
 import { SharedModule } from '@shared/shared.module';
-import { QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
+import { QueryCriteriaPaginate } from '@library/rest-api-client';
 
 import { CoreModule } from '@core/core.module';
-import { ApiPersonsService } from '@core/api/persons/api-persons.service';
+import { ApiPersonsService } from '@core/apis/persons/api-persons.service';
 
 
 import { ListPersonsComponent } from './list-persons.component';

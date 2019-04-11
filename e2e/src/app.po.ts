@@ -6,6 +6,6 @@ export class AppPage {
   }
 
   getTitleText() {
-    return element(by.css('fds-root h1')).getText();
+    return element(by.css('sce-root h1')).getText();
   }
 }

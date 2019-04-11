@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-    selector: 'fds-main-container',
+    selector: 'sce-main-container',
     templateUrl: './main-container.component.html',
     styleUrls: ['./main-container.component.scss']
 })
@@ -24,19 +24,19 @@ export class MainContainerComponent implements OnInit {
     public ngOnInit() {
     }
 
-    public btnBack(): void {
+    public onBack(): void {
         this.back.emit(true);
     }
 
-    public btnCancel(): void {
+    public onCancel(): void {
         this.cancel.emit(true);
     }
 
-    public btnSave(): void {
+    public onSave(): void {
         this.save.emit(true);
     }
 
-    public btnAdd(): void {
+    public onAdd(): void {
         this.add.emit(true);
     }
 }

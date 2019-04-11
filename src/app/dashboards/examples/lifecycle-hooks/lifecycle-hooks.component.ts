@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'fds-lifecycle-hooks',
+  selector: 'sce-lifecycle-hooks',
   templateUrl: './lifecycle-hooks.component.html',
   styleUrls: ['./lifecycle-hooks.component.scss']
 })

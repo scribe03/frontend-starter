@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 
-import { Person } from '@core/api/persons/person.interface';
+import { Person } from '@core/apis/persons/person.interface';
 
 @Component({
-    selector: 'fds-emails-person',
+    selector: 'sce-emails-person',
     templateUrl: './emails-person.component.html',
     styleUrls: ['./emails-person.component.scss']
 })

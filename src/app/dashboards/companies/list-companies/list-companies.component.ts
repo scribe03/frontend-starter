@@ -4,14 +4,14 @@ import { Router } from '@angular/router';
 
 import { Subscription } from 'rxjs';
 
-import { Company } from '@core/api/companies/company.interface';
-import { Message, OnMessageReceiver } from '@sharedlib/message-bus';
+import { Company } from '@core/apis/companies/company.interface';
+import { Message, OnMessageReceiver } from '@library/message-bus';
 import {
     CompaniesCountSuccessMessage, CompaniesIsLoadingMessage, CompaniesLoadedSuccessMessage, CompaniesMessage, ListCompaniesService
 } from './list-companies.service';
 
 @Component({
-    selector: 'fds-list-companies',
+    selector: 'sce-list-companies',
     templateUrl: './list-companies.component.html',
     styleUrls: ['./list-companies.component.scss']
 })

@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-import { Company } from '@core/api/companies/company.interface';
-import { ApiModule } from '@core/api/api.module';
+import { Company } from '@core/apis/companies/company.interface';
+import { ApiModule } from '@core/apis/api.module';
 
-import { RestApiClientService } from '@sharedlib/rest-api-client';
+import { RestApiClientService } from '@library/rest-api-client';
 import { environment } from '@env/environment';
 
 @Injectable({

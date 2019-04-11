@@ -45,7 +45,7 @@ export class ApiPersonService extends RestApiClientService<Person> {
 
 ```typescript
 @Component({
-    selector: 'fds-list-persons',
+    selector: 'sce-list-persons',
     templateUrl: './list-persons.component.html',
     styleUrls: ['./list-persons.component.scss']
 })

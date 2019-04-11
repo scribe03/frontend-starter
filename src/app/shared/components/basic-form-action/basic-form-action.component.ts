@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-    selector: 'fds-basic-form-action',
+    selector: 'sce-basic-form-action',
     templateUrl: './basic-form-action.component.html',
     styleUrls: ['./basic-form-action.component.scss']
 })
@@ -17,11 +17,11 @@ export class BasicFormActionComponent implements OnInit {
     public ngOnInit() {
     }
 
-    public btnCancel(): void {
+    public onCancel(): void {
         this.cancel.emit(true);
     }
 
-    public btnSave(): void {
+    public onSave(): void {
         this.save.emit(true);
     }
 }

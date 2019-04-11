@@ -2,7 +2,7 @@ import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
 import { MouseDownUpDirective } from '@shared/directives/mouse-down-up/mouse-down-up.directive';
 
 @Component({
-    selector: 'fds-rectangle-interactive',
+    selector: 'sce-rectangle-interactive',
     templateUrl: './rectangle-interactive.component.html',
     styleUrls: ['./rectangle-interactive.component.scss']
 })

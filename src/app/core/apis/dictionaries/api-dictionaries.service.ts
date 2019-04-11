@@ -2,9 +2,9 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { QueryCriteria, RestApiClientService } from '@sharedlib/rest-api-client/src';
+import { QueryCriteria, RestApiClientService } from '@library/rest-api-client';
 import { environment } from '@env/environment';
-import { Dictionary } from '@core/api/dictionaries/dictionary.interface';
+import { Dictionary } from '@core/apis/dictionaries/dictionary.interface';
 import { ApiModule } from '../api.module';
 
 @Injectable({

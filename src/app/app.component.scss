@@ -1,4 +1,4 @@
-.fds-header {
+.sce-header {
   position: fixed;
   top: 0;
   left: 0;
@@ -6,12 +6,12 @@
   border-bottom: solid 1px rgba(0, 0, 0, 0.12);
 }
 
-.fds-sidenav {
+.sce-sidenav {
   min-width: 15rem;
   background: whitesmoke;
 }
 
-.fds-container {
+.sce-container {
   position: absolute;
   top: 64px;
   bottom: 32px;
@@ -21,13 +21,13 @@
 
 // override footer !
 @media (max-width: 599px) {
-  .fds-container {
+  .sce-container {
     top: 56px;
     bottom: 0;
   }
 }
 
-.fds-footer {
+.sce-footer {
   height: 32px;
   position: fixed;
   bottom: 0;
@@ -36,7 +36,7 @@
   border-top: solid 1px rgba(0, 0, 0, 0.12);
 }
 
-.fds-btn-close-open-sidenav {
+.sce-btn-close-open-sidenav {
   min-width: 0;
   padding: 0 8px;
   margin-right: 1rem;

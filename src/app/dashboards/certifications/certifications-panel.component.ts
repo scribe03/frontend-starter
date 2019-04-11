@@ -2,7 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { CertificationsComponent } from './certifications/certifications.component';
 
 @Component({
-    selector: 'fds-certifications-panel',
+    selector: 'sce-certifications-panel',
     templateUrl: './certifications-panel.component.html',
     styleUrls: ['./certifications-panel.component.scss']
 })

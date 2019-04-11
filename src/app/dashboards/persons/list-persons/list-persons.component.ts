@@ -6,12 +6,12 @@ import { MatPaginator } from '@angular/material/paginator';
 import { Observable } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 
-import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client';
-import { ApiPersonsService } from '@core/api/persons/api-persons.service';
-import { Person } from '@core/api/persons/person.interface';
+import { QueryCriteria, QueryCriteriaPaginate } from '@library/rest-api-client';
+import { ApiPersonsService } from '@core/apis/persons/api-persons.service';
+import { Person } from '@core/apis/persons/person.interface';
 
 @Component({
-    selector: 'fds-list-persons',
+    selector: 'sce-list-persons',
     templateUrl: './list-persons.component.html',
     styleUrls: ['./list-persons.component.scss']
 })

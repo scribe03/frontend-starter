@@ -3,12 +3,12 @@ import { FormArray, FormBuilder, FormGroup } from '@angular/forms';
 
 import { Observable } from 'rxjs';
 
-import { Person, PersonDeveloperSkills } from '@core/api/persons/person.interface';
-import { Dictionary } from '@core/api/dictionaries/dictionary.interface';
-import { ApiDictionariesService } from '@core/api/dictionaries/api-dictionaries.service';
+import { Person, PersonDeveloperSkills } from '@core/apis/persons/person.interface';
+import { Dictionary } from '@core/apis/dictionaries/dictionary.interface';
+import { ApiDictionariesService } from '@core/apis/dictionaries/api-dictionaries.service';
 
 @Component({
-    selector: 'fds-skills-person',
+    selector: 'sce-skills-person',
     templateUrl: './skills-person.component.html',
     styleUrls: ['./skills-person.component.scss']
 })

@@ -3,15 +3,15 @@ import { map, switchMap } from 'rxjs/operators';
 
 import { Actions, Effect, ofType } from '@ngrx/effects';
 
-import { Certification } from '../../api/certifications/certification.interface';
-import { ApiCertificationsService } from '../../api/certifications/api-certifications.service';
+import { Certification } from '../../apis/certifications/certification.interface';
+import { ApiCertificationsService } from '../../apis/certifications/api-certifications.service';
 import {
     CertificationAction, CertificationActionAdd, CertificationActionDelete,
     CertificationActionLoad, CertificationActionCount,
     CertificationActionCountSuccess,
     CertificationActionLoadSuccess
-} from '@core/state/certifications/certification.action';
-import { QueryCriteria, QueryCriteriaPaginate } from '@sharedlib/rest-api-client/src/query';
+} from '@core/states/certifications/certification.action';
+import { QueryCriteria, QueryCriteriaPaginate } from '@library/rest-api-client';
 
 @Injectable()
 export class CertificationEffector {
