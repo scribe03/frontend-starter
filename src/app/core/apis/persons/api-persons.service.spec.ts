@@ -2,8 +2,8 @@ import { fakeAsync } from '@angular/core/testing';
 
 import { of } from 'rxjs';
 
-import { ApiPersonsService } from '@core/apis/persons/api-persons.service';
-import { mockPerson } from '@testutils/mocks/persons.mock';
+import { ApiPersonsService } from '@master/core/apis/persons/api-persons.service';
+import { mockPerson } from '@master/core/apis/_fixtures/mocks/persons.mock';
 
 describe('ApiPersonsService', () => {
 

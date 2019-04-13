@@ -1,6 +1,6 @@
 import { createFeatureSelector, createSelector } from '@ngrx/store';
 
-import { CertificationState } from '@core/states/certifications/certification.action';
+import { CertificationState } from '@master/core/states/certifications/certification.action';
 
 export const certificationsEntities = (state: CertificationState) => state.entities;
 export const certificationsCount = (state: CertificationState) => state.count;

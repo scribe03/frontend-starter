@@ -2,13 +2,12 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
-import { QueryCriteria, RestApiClientService } from '@library/rest-api-client';
+import { QueryCriteria, RestApiClientService } from '@scribe';
 import { environment } from '@env/environment';
-import { Dictionary } from '@core/apis/dictionaries/dictionary.interface';
-import { ApiModule } from '../api.module';
+import { Dictionary } from '@master/core/apis/dictionaries/dictionary.interface';
 
 @Injectable({
-    providedIn: ApiModule
+    providedIn: 'root'
 })
 export class ApiDictionariesService extends RestApiClientService<Dictionary> {
     protected resourceUri = 'dictionaries';

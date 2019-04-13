@@ -1,4 +1,4 @@
-import { CertificationAction, CertificationActionTypes, CertificationState } from '@core/states/certifications/certification.action';
+import { CertificationAction, CertificationActionTypes, CertificationState } from '@master/core/states/certifications/certification.action';
 
 export const initialCertificationState: CertificationState = {
     entities: [],

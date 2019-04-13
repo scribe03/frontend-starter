@@ -3,11 +3,44 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+
+    "start::app-concept": "ng serve app-concept",
+    "build::app-concept": "npm run build-all-libraries && ng build app-concept",
+    "build::app-concept::prod": "npm run build-all-libraries && ng build app-concept --prod",
+    "test::app-concept": "ng test app-concept",
+    "lint::app-concept": "ng lint app-concept",
+    "e2e::app-concept": "ng e2e app-concept-e2e",
+
+    "start::app-science-department": "ng serve app-science-department",
+    "build::app-science-department": "npm run build-all-libraries && ng build app-science-department",
+    "build::app-science-department::prod": "npm run build-all-libraries && ng build app-science-department --prod",
+    "test::app-science-department": "ng test app-science-department",
+    "lint::app-science-department": "ng lint app-science-department",
+    "e2e::app-science-department": "ng e2e app-science-department-e2e",
+
+    "start::app-transport-department": "ng serve app-transport-department",
+    "build::app-transport-department": "npm run build-all-libraries && ng build app-transport-department",
+    "build::app-transport-department::prod": "npm run build-all-libraries && ng build app-transport-department --prod",
+    "test::app-transport-department": "ng test app-transport-department",
+    "lint::app-transport-department": "ng lint app-transport-department",
+    "e2e::app-transport-department": "ng e2e app-transport-department-e2e",
+
+    "build::lib-scribe": "ng build lib-scribe",
+    "build::lib-scribe::watch": "ng build lib-scribe --watch",
+    "test::lib-scribe": "ng test lib-scribe",
+    "lint::lib-scribe": "ng lint lib-scribe",
+
+    "build::lib-scribe-ui": "ng build lib-scribe-ui",
+    "build::lib-scribe-ui::watch": "ng build lib-scribe-ui --watch",
+    "test::lib-scribe-ui": "ng test lib-scribe-ui",
+    "lint::lib-scribe-ui": "ng lint lib-scribe-ui",
+
+    "test-all": "ng test --watch=false",
+    "e2e-all": "npm run e2e::app-concept && npm run e2e::app-science-department && npm run e2e::app-transport-department",
+    "build-all-libraries": "npm run build::lib-scribe && npm run build::lib-scribe-ui",
+    "build-and-watch-all-libraries": "npm run build::lib-scribe::watch && npm run build::lib-scribe-ui::watch"
   },
   "private": true,
   "dependencies": {
@@ -30,23 +63,27 @@
     "zone.js": "~0.8.26"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "~0.12.0",
+    "@angular-devkit/build-angular": "^0.13.8",
+    "@angular-devkit/build-ng-packagr": "~0.12.0",
     "@angular/cli": "~7.2.2",
     "@angular/compiler-cli": "~7.2.0",
     "@angular/language-service": "~7.2.0",
-    "@types/node": "~8.9.4",
     "@types/jasmine": "~2.8.8",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "~8.9.4",
     "codelyzer": "~4.5.0",
     "jasmine-core": "~2.99.1",
     "jasmine-spec-reporter": "~4.2.1",
-    "karma": "~3.1.1",
+    "karma": "^4.0.1",
     "karma-chrome-launcher": "~2.2.0",
     "karma-coverage-istanbul-reporter": "~2.0.1",
     "karma-jasmine": "~1.1.2",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "ng-packagr": "^4.2.0",
     "protractor": "~5.4.0",
     "ts-node": "~7.0.0",
+    "tsickle": ">=0.34.0",
+    "tslib": "^1.9.0",
     "tslint": "~5.11.0",
     "typescript": "~3.2.2"
   }

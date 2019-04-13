@@ -3,21 +3,14 @@ import { CommonModule } from '@angular/common';
 
 import { ApiModule } from './apis/api.module';
 import { throwIfAlreadyLoaded } from './quards/module-inport-guard';
-import { SidenavLeftMenuComponent } from '../shared/components/layout/sidenav-left-menu/sidenav-left-menu.component';
-import { MaterialModule } from '../shared/material.module';
 
 @NgModule({
     imports: [
         CommonModule,
-        ApiModule,
-        MaterialModule
+        ApiModule
     ],
-    declarations: [
-        SidenavLeftMenuComponent
-    ],
-    exports: [
-        SidenavLeftMenuComponent
-    ]
+    declarations: [],
+    exports: []
 })
 export class CoreModule {
     constructor( @Optional() @SkipSelf() parentModule: CoreModule) {

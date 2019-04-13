@@ -1,7 +1,7 @@
 import { TestBed } from '@angular/core/testing';
 
 import { ApiDictionariesService } from './api-dictionaries.service';
-import { httpApiStandardMethods } from '@testutils/http-api-standard-methods';
+import { httpApiStandardMethods } from '@master/core/apis/_fixtures/http-api-standard-methods';
 
 describe('ApiDictionariesService', () => {
   beforeEach(() => TestBed.configureTestingModule({

@@ -3,11 +3,33 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@env/*": ["src/environments/*"],
-      "@core/*": ["src/app/core/*"],
-      "@shared/*": ["src/app/shared/*"],
-      "@library/*": ["src/library/*"],
-      "@testutils/*": ["src/test-utils/*"]
+      "@env/*": [
+        "src/environments/*"
+      ],
+      "@env-app-concept/*": [
+        "projects/app-concept/src/environments/*"
+      ],
+      "@env-app-science-deparment/*": [
+        "projects/app-science-department/src/environments/*"
+      ],
+      "@env-app-transport-deparment/*": [
+        "projects/app-transport-department/src/environments/*"
+      ],
+      "@master/*": [
+        "src/app/*"
+      ],
+      "@scribe": [
+        "dist/lib-scribe"
+      ],
+      "@scribe/*": [
+        "dist/lib-scribe/*"
+      ],
+      "@scribe-ui": [
+        "dist/lib-scribe-ui"
+      ],
+      "@scribe-ui/*": [
+        "dist/lib-scribe-ui/*"
+      ]
     },
     "outDir": "./dist/out-tsc",
     "sourceMap": true,

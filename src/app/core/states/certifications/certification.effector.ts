@@ -10,8 +10,8 @@ import {
     CertificationActionLoad, CertificationActionCount,
     CertificationActionCountSuccess,
     CertificationActionLoadSuccess
-} from '@core/states/certifications/certification.action';
-import { QueryCriteria, QueryCriteriaPaginate } from '@library/rest-api-client';
+} from '@master/core/states/certifications/certification.action';
+import { QueryCriteria, QueryCriteriaPaginate } from '@scribe';
 
 @Injectable()
 export class CertificationEffector {
