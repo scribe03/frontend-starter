@@ -1,4 +1,4 @@
-<sce-main-container [title]="'Persons'" [isHiddenFooter]="true" [isHiddenBtnBack]="true" (add)="add()">
+<sc-main-container [title]="'Persons'" [isHiddenFooter]="true" [isHiddenBtnBack]="true" (add)="add()">
 
     <div class="mat-elevation-z8 pos-r">
         <table mat-table [dataSource]="persons$ | async" style="width:100%">
@@ -51,7 +51,7 @@
                 [pageSizeOptions]="[10, 20, 30]"
                 (page)="loadPersons($event)"></mat-paginator>
 
-        <div *ngIf="isLoading"><sce-spinner></sce-spinner></div>
+        <div *ngIf="isLoading"><sc-spinner></sc-spinner></div>
     </div>
 
-</sce-main-container>
+</sc-main-container>

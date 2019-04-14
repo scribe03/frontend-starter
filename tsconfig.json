@@ -25,10 +25,10 @@
         "dist/lib-scribe/*"
       ],
       "@scribe-ui": [
-        "dist/lib-scribe-ui"
+        "dist/scribe-ui"
       ],
       "@scribe-ui/*": [
-        "dist/lib-scribe-ui/*"
+        "dist/scribe-ui/*"
       ]
     },
     "outDir": "./dist/out-tsc",

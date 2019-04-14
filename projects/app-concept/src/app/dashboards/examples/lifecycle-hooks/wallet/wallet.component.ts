@@ -10,7 +10,7 @@ import {
 } from '@angular/core';
 
 @Component({
-  selector: 'sce-wallet',
+  selector: 'sc-wallet',
   templateUrl: './wallet.component.html',
   styleUrls: ['./wallet.component.scss']
 })

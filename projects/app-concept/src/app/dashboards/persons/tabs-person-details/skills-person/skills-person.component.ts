@@ -8,7 +8,7 @@ import { Dictionary } from '@master/core/apis/dictionaries/dictionary.interface'
 import { ApiDictionariesService } from '@master/core/apis/dictionaries/api-dictionaries.service';
 
 @Component({
-    selector: 'sce-skills-person',
+    selector: 'sc-skills-person',
     templateUrl: './skills-person.component.html',
     styleUrls: ['./skills-person.component.scss']
 })

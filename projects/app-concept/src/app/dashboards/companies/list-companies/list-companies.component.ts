@@ -10,7 +10,7 @@ import {
 } from './list-companies.service';
 
 @Component({
-    selector: 'sce-list-companies',
+    selector: 'sc-list-companies',
     templateUrl: './list-companies.component.html',
     styleUrls: ['./list-companies.component.scss']
 })

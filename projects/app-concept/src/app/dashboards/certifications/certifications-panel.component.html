@@ -1,8 +1,8 @@
-<sce-main-container [title]="'Certyfikaty'" [isHiddenFooter]="true" [isHiddenBtnAdd]="true" [isHiddenBtnBack]="true">
+<sc-main-container [title]="'Certyfikaty'" [isHiddenFooter]="true" [isHiddenBtnAdd]="true" [isHiddenBtnBack]="true">
   <div class="row">
-    <div class="col"><sce-certification-add (isAdd)="add($event)"></sce-certification-add></div>
+    <div class="col"><sc-certification-add (isAdd)="add($event)"></sc-certification-add></div>
   </div>
   <div class="row">
-    <div class="col"><sce-certifications></sce-certifications></div>
+    <div class="col"><sc-certifications></sc-certifications></div>
   </div>
-</sce-main-container>
+</sc-main-container>

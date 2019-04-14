@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-    selector: 'sce-main-container',
+    selector: 'sc-main-container',
     templateUrl: './main-container.component.html',
     styleUrls: ['./main-container.component.scss']
 })

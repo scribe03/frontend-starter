@@ -1,7 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
-    selector: 'sce-basic-form-action',
+    selector: 'sc-basic-form-action',
     templateUrl: './basic-form-action.component.html',
     styleUrls: ['./basic-form-action.component.scss']
 })

@@ -4,7 +4,7 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 import { Person } from '@master/core/apis/persons/person.interface';
 
 @Component({
-    selector: 'sce-edit-person',
+    selector: 'sc-edit-person',
     templateUrl: './edit-person.component.html',
     styleUrls: ['./edit-person.component.scss']
 })

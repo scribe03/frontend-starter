@@ -5,6 +5,6 @@
 <ul *ngIf="money">
   <li *ngFor="let m of money">
     <span *ngIf="!m.main">{{ m.value }} / {{ m.shortName }}</span>
-    <span *ngIf="m.main"><sce-money [money]="m"></sce-money></span>
+    <span *ngIf="m.main"><sc-money [money]="m"></sc-money></span>
   </li>
 </ul>

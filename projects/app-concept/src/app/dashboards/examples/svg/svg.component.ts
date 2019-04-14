@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'sce-svg',
+  selector: 'sc-svg',
   templateUrl: './svg.component.html',
   styleUrls: ['./svg.component.scss']
 })

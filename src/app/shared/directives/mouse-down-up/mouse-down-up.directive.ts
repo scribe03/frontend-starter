@@ -1,8 +1,8 @@
 import { Directive, HostListener } from '@angular/core';
 
 @Directive({
-    selector: '[sceMouseDownUp]',
-    exportAs: 'sceMouseDownUp'
+    selector: '[scMouseDownUp]',
+    exportAs: 'scMouseDownUp'
 })
 export class MouseDownUpDirective {
     public isDown = false;

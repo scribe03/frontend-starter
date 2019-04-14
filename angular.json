@@ -7,7 +7,7 @@
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
-      "prefix": "sce",
+      "prefix": "sc",
       "schematics": {
         "@schematics/angular:component": {
           "styleext": "scss"
@@ -27,8 +27,8 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss",
-              "src/styles/_variables.scss"
+              "src/master.scss",
+              "src/styles/layouts/default/_base.scss"
             ],
             "scripts": []
           },
@@ -84,7 +84,8 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles.scss"
+              "src/master.scss",
+              "src/styles/layouts/default/_base.scss"
             ],
             "scripts": [],
             "assets": [
@@ -107,39 +108,11 @@
         }
       }
     },
-    "frontend-starter-e2e": {
-      "root": "e2e/",
-      "projectType": "application",
-      "prefix": "",
-      "architect": {
-        "e2e": {
-          "builder": "@angular-devkit/build-angular:protractor",
-          "options": {
-            "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "frontend-starter:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "frontend-starter:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": "e2e/tsconfig.e2e.json",
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
     "app-concept": {
       "root": "projects/app-concept/",
       "sourceRoot": "projects/app-concept/src",
       "projectType": "application",
-      "prefix": "sce",
+      "prefix": "sc",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -271,7 +244,7 @@
       "root": "projects/app-science-department/",
       "sourceRoot": "projects/app-science-department/src",
       "projectType": "application",
-      "prefix": "sce",
+      "prefix": "sc",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -402,7 +375,7 @@
       "root": "projects/app-transport-department/",
       "sourceRoot": "projects/app-transport-department/src",
       "projectType": "application",
-      "prefix": "sce",
+      "prefix": "sc",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -533,7 +506,7 @@
       "root": "projects/lib-scribe",
       "sourceRoot": "projects/lib-scribe/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "sc",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -568,7 +541,7 @@
       "root": "projects/lib-scribe-ui",
       "sourceRoot": "projects/lib-scribe-ui/src",
       "projectType": "library",
-      "prefix": "lib",
+      "prefix": "sc-ui",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

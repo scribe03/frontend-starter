@@ -11,7 +11,7 @@ import { ApiPersonsService } from '@master/core/apis/persons/api-persons.service
 import { Person } from '@master/core/apis/persons/person.interface';
 
 @Component({
-    selector: 'sce-list-persons',
+    selector: 'sc-list-persons',
     templateUrl: './list-persons.component.html',
     styleUrls: ['./list-persons.component.scss']
 })

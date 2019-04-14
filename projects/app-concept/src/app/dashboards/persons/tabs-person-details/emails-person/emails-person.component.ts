@@ -4,7 +4,7 @@ import { FormArray, FormBuilder, FormControl, FormGroup, Validators } from '@ang
 import { Person } from '@master/core/apis/persons/person.interface';
 
 @Component({
-    selector: 'sce-emails-person',
+    selector: 'sc-emails-person',
     templateUrl: './emails-person.component.html',
     styleUrls: ['./emails-person.component.scss']
 })

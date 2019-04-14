@@ -24,11 +24,11 @@
     </mat-card-content>
 
     <mat-card-footer *ngIf="!isHiddenFooter && (!isHiddenBtnCancel || !isHiddenBtnSave)">
-        <sce-basic-form-action
+        <sc-basic-form-action
                 [isHiddenBtnCancel]="isHiddenBtnCancel"
                 [isHiddenBtnSave]="isHiddenBtnSave"
                 (cancel)="onCancel()"
                 (save)="onSave()">
-        </sce-basic-form-action>
+        </sc-basic-form-action>
     </mat-card-footer>
 </mat-card>

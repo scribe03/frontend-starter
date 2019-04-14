@@ -1,7 +1,6 @@
 <div class="buttons">
   <div class="d-flex justify-content-center">
-    <button mat-raised-button *ngIf="!isHiddenBtnCancel" (click)="onCancel()">Anuluj</button>
-    <button mat-raised-button *ngIf="!isHiddenBtnSave" (click)="onSave()"
-            color="primary">Zapisz</button>
+    <button *ngIf="!isHiddenBtnCancel" (click)="onCancel()" class="btn btn-light">Anuluj</button>
+    <button *ngIf="!isHiddenBtnSave" (click)="onSave()" class="btn btn-primary">Zapisz</button>
   </div>
 </div>

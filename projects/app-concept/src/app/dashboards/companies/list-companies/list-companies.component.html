@@ -1,4 +1,4 @@
-<sce-main-container [title]="'Companies'" [isHiddenFooter]="true" [isHiddenBtnBack]="true" [isHiddenBtnAdd]="true">
+<sc-main-container [title]="'Companies'" [isHiddenFooter]="true" [isHiddenBtnBack]="true" [isHiddenBtnAdd]="true">
     <div class="mat-elevation-z8 pos-r">
         <table mat-table [dataSource]="companies || []" style="width:100%">
             <ng-container matColumnDef="id">
@@ -55,6 +55,6 @@
                 [pageSizeOptions]="[10, 20, 30]"
                 (page)="loadCompanies($event)"></mat-paginator>
 
-        <div *ngIf="isLoading"><sce-spinner></sce-spinner></div>
+        <div *ngIf="isLoading"><sc-spinner></sc-spinner></div>
     </div>
-</sce-main-container>
+</sc-main-container>

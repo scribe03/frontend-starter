@@ -4,7 +4,7 @@ import { ApiPersonsService } from '@master/core/apis/persons/api-persons.service
 import { Person, PersonFactory } from '@master/core/apis/persons/person.interface';
 
 @Component({
-    selector: 'sce-tabs-person-details',
+    selector: 'sc-tabs-person-details',
     templateUrl: './tabs-person-details.component.html',
     styleUrls: ['./tabs-person-details.component.scss']
 })

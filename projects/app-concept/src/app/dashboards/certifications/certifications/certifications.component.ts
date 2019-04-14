@@ -19,7 +19,7 @@ import {
 import { QueryCriteria, QueryCriteriaPaginate } from '@scribe';
 
 @Component({
-    selector: 'sce-certifications',
+    selector: 'sc-certifications',
     templateUrl: './certifications.component.html',
     styleUrls: ['./certifications.component.scss']
 })

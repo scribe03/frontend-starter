@@ -5,7 +5,7 @@ import { IAppState } from '@master/core/states/app.state';
 import { CertificationActionAdd } from '@master/core/states/certifications/certification.action';
 
 @Component({
-  selector: 'sce-certification-add',
+  selector: 'sc-certification-add',
   templateUrl: './certification-add.component.html',
   styleUrls: ['./certification-add.component.scss']
 })
