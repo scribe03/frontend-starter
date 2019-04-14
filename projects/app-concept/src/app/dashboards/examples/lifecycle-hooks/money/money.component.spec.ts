@@ -2,9 +2,9 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MoneyComponent } from './money.component';
 import { CoreModule } from '@master/core/core.module';
-import { SharedModule } from '@master/shared/shared.module';
 import { MaterialModule } from '../../../../shared/material.module';
 import { SharedConceptModule } from '../../../../shared/shared.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('MoneyComponent', () => {
     let component: MoneyComponent;
@@ -15,7 +15,7 @@ describe('MoneyComponent', () => {
             imports: [
                 MaterialModule,
                 CoreModule,
-                SharedModule,
+                UiModule,
                 SharedConceptModule
             ],
             declarations: [MoneyComponent]

@@ -7,9 +7,9 @@ import { StoreModule } from '@ngrx/store';
 import { CertificationAddComponent } from './certification-add.component';
 import { certificationReducer } from '@master/core/states/certifications/certification.reducer';
 import { CoreModule } from '@master/core/core.module';
-import { SharedModule } from '@master/shared/shared.module';
 import { SharedConceptModule } from '../../../shared/shared.module';
 import { MaterialModule } from '../../../shared/material.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('CertificationAddComponent', () => {
     let component: CertificationAddComponent;
@@ -22,7 +22,7 @@ describe('CertificationAddComponent', () => {
                 BrowserAnimationsModule,
                 MaterialModule,
                 CoreModule,
-                SharedModule,
+                UiModule,
                 SharedConceptModule,
                 StoreModule.forRoot({
                     certifications: certificationReducer

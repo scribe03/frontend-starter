@@ -1,7 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { RectangleInteractiveComponent } from './rectangle-interactive.component';
-import { MouseDownUpDirective } from '@master/shared/directives/mouse-down-up/mouse-down-up.directive';
+import { MouseDownUpDirective } from '@master/ui/directives/mouse-down-up/mouse-down-up.directive';
 
 describe('RectangleInteractiveComponent', () => {
   let component: RectangleInteractiveComponent;

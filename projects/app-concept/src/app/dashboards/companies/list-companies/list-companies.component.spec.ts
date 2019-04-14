@@ -4,10 +4,10 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { ListCompaniesComponent } from './list-companies.component';
 import { CoreModule } from '@master/core/core.module';
-import { SharedModule } from '@master/shared/shared.module';
 import { ListCompaniesService } from './list-companies.service';
 import { MaterialModule } from '../../../shared/material.module';
 import { SharedConceptModule } from '../../../shared/shared.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('ListCompaniesComponent', () => {
   let component: ListCompaniesComponent;
@@ -20,7 +20,7 @@ describe('ListCompaniesComponent', () => {
         BrowserAnimationsModule,
         MaterialModule,
         CoreModule,
-        SharedModule,
+        UiModule,
         SharedConceptModule
       ],
       providers: [

@@ -3,7 +3,6 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { async, ComponentFixture, fakeAsync, TestBed, tick } from '@angular/core/testing';
 
-import { SharedModule } from '@master/shared/shared.module';
 import { QueryCriteriaPaginate } from '@scribe';
 
 import { CoreModule } from '@master/core/core.module';
@@ -13,6 +12,7 @@ import { createSpyApiPersonService, getPreparedSpyApiPersonService } from '@mast
 import { ListPersonsComponent } from './list-persons.component';
 import { MaterialModule } from '../../../shared/material.module';
 import { SharedConceptModule } from '../../../shared/shared.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('ListPersonsComponent', () => {
     let component: ListPersonsComponent;
@@ -29,7 +29,7 @@ describe('ListPersonsComponent', () => {
                 BrowserAnimationsModule,
                 MaterialModule,
                 CoreModule,
-                SharedModule,
+                UiModule,
                 SharedConceptModule
             ],
             providers: [

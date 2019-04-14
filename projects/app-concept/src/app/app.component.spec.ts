@@ -2,10 +2,11 @@ import { TestBed, async } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { CoreModule } from '@master/core/core.module';
-import { SharedModule } from '@master/shared/shared.module';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MaterialModule } from './shared/material.module';
 import { SharedConceptModule } from './shared/shared.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('AppComponent', () => {
   beforeEach(async(() => {
@@ -15,7 +16,7 @@ describe('AppComponent', () => {
         BrowserAnimationsModule,
         MaterialModule,
         CoreModule,
-        SharedModule,
+        UiModule,
         SharedConceptModule
       ],
       declarations: [

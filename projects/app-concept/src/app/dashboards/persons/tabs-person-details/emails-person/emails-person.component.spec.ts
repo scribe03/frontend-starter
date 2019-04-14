@@ -5,9 +5,9 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CoreModule } from '@master/core/core.module';
-import { SharedModule } from '@master/shared/shared.module';
 import { MaterialModule } from '../../../../shared/material.module';
 import { SharedConceptModule } from '../../../../shared/shared.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('EmailsPersonComponent', () => {
   let component: EmailsPersonComponent;
@@ -22,7 +22,7 @@ describe('EmailsPersonComponent', () => {
         ReactiveFormsModule,
         MaterialModule,
         CoreModule,
-        SharedModule,
+        UiModule,
         SharedConceptModule
       ],
       declarations: [

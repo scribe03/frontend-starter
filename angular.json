@@ -27,8 +27,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/master.scss",
-              "src/styles/layouts/default/_base.scss"
+              "src/master.scss"
             ],
             "scripts": []
           },
@@ -132,6 +131,7 @@
               "projects/app-concept/src/assets"
             ],
             "styles": [
+              "src/master.scss",
               "projects/app-concept/src/styles.scss",
               "projects/app-concept/src/_variables.scss"
             ],
@@ -189,6 +189,7 @@
             "tsConfig": "projects/app-concept/tsconfig.spec.json",
             "karmaConfig": "projects/app-concept/karma.conf.js",
             "styles": [
+              "src/master.scss",
               "projects/app-concept/src/styles.scss"
             ],
             "scripts": [],
@@ -264,6 +265,7 @@
               "projects/app-science-department/src/assets"
             ],
             "styles": [
+              "src/master.scss",
               "projects/app-science-department/src/styles.scss"
             ],
             "scripts": []
@@ -320,6 +322,7 @@
             "tsConfig": "projects/app-science-department/tsconfig.spec.json",
             "karmaConfig": "projects/app-science-department/karma.conf.js",
             "styles": [
+              "src/master.scss",
               "projects/app-science-department/src/styles.scss"
             ],
             "scripts": [],
@@ -395,6 +398,7 @@
               "projects/app-transport-department/src/assets"
             ],
             "styles": [
+              "src/master.scss",
               "projects/app-transport-department/src/styles.scss"
             ],
             "scripts": []
@@ -451,6 +455,7 @@
             "tsConfig": "projects/app-transport-department/tsconfig.spec.json",
             "karmaConfig": "projects/app-transport-department/karma.conf.js",
             "styles": [
+              "src/master.scss",
               "projects/app-transport-department/src/styles.scss"
             ],
             "scripts": [],
@@ -507,6 +512,11 @@
       "sourceRoot": "projects/lib-scribe/src",
       "projectType": "library",
       "prefix": "sc",
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -529,41 +539,6 @@
             "tsConfig": [
               "projects/lib-scribe/tsconfig.lib.json",
               "projects/lib-scribe/tsconfig.spec.json"
-            ],
-            "exclude": [
-              "**/node_modules/**"
-            ]
-          }
-        }
-      }
-    },
-    "lib-scribe-ui": {
-      "root": "projects/lib-scribe-ui",
-      "sourceRoot": "projects/lib-scribe-ui/src",
-      "projectType": "library",
-      "prefix": "sc-ui",
-      "architect": {
-        "build": {
-          "builder": "@angular-devkit/build-ng-packagr:build",
-          "options": {
-            "tsConfig": "projects/lib-scribe-ui/tsconfig.lib.json",
-            "project": "projects/lib-scribe-ui/ng-package.json"
-          }
-        },
-        "test": {
-          "builder": "@angular-devkit/build-angular:karma",
-          "options": {
-            "main": "projects/lib-scribe-ui/src/test.ts",
-            "tsConfig": "projects/lib-scribe-ui/tsconfig.spec.json",
-            "karmaConfig": "projects/lib-scribe-ui/karma.conf.js"
-          }
-        },
-        "lint": {
-          "builder": "@angular-devkit/build-angular:tslint",
-          "options": {
-            "tsConfig": [
-              "projects/lib-scribe-ui/tsconfig.lib.json",
-              "projects/lib-scribe-ui/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"

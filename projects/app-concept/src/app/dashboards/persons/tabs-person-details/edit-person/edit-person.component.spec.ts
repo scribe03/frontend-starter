@@ -1,13 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { EditPersonComponent } from './edit-person.component';
-import { SharedModule } from '@master/shared/shared.module';
 import { CoreModule } from '@master/core/core.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterTestingModule } from '@angular/router/testing';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { SharedConceptModule } from '../../../../shared/shared.module';
 import { MaterialModule } from '../../../../shared/material.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('EditPersonComponent', () => {
   let component: EditPersonComponent;
@@ -22,7 +22,7 @@ describe('EditPersonComponent', () => {
         ReactiveFormsModule,
         MaterialModule,
         CoreModule,
-        SharedModule,
+        UiModule,
         SharedConceptModule
       ],
       declarations: [

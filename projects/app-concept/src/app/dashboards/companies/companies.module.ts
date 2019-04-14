@@ -1,12 +1,11 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { SharedModule } from '@master/shared/shared.module';
-
 import { CompaniesRoutingModule } from './companies-routing.module';
 import { ListCompaniesComponent } from './list-companies/list-companies.component';
 import { SharedConceptModule } from '../../shared/shared.module';
 import { MaterialModule } from '../../shared/material.module';
+import { UiModule } from '@master/ui/ui.module';
 
 @NgModule({
     declarations: [ListCompaniesComponent],
@@ -16,7 +15,7 @@ import { MaterialModule } from '../../shared/material.module';
         CompaniesRoutingModule,
         // others
         MaterialModule,
-        SharedModule,
+        UiModule,
         SharedConceptModule
     ]
 })

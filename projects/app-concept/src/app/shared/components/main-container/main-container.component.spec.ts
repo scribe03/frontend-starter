@@ -4,9 +4,9 @@ import { MainContainerComponent } from './main-container.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from '@master/core/core.module';
-import { SharedModule } from '@master/shared/shared.module';
 import { SharedConceptModule } from '../../shared.module';
 import { MaterialModule } from '../../material.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('MainContainerComponent', () => {
   let component: MainContainerComponent;
@@ -19,7 +19,7 @@ describe('MainContainerComponent', () => {
         BrowserAnimationsModule,
         MaterialModule,
         CoreModule,
-        SharedModule,
+        UiModule,
         SharedConceptModule
       ],
       // declarations: [ MainContainerComponent ]

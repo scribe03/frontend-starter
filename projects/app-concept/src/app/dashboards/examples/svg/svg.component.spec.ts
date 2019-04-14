@@ -1,9 +1,9 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { SvgComponent } from './svg.component';
-import { SharedModule } from '@master/shared/shared.module';
 import { RectangleInteractiveComponent } from './rectangle-interactive/rectangle-interactive.component';
 import { SharedConceptModule } from '../../../shared/shared.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('SvgComponent', () => {
     let component: SvgComponent;
@@ -12,7 +12,7 @@ describe('SvgComponent', () => {
     beforeEach(async(() => {
         TestBed.configureTestingModule({
             imports: [
-                SharedModule,
+                UiModule,
                 SharedConceptModule
             ],
             declarations: [

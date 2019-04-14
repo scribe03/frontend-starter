@@ -2,7 +2,6 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
-import { SharedModule } from '@master/shared/shared.module';
 import { PersonsRoutingModule } from './persons-routing.module';
 import { ListPersonsComponent } from './list-persons/list-persons.component';
 import { TabsPersonDetailsComponent } from './tabs-person-details/tabs-person-details.component';
@@ -11,6 +10,7 @@ import { SkillsPersonComponent } from './tabs-person-details/skills-person/skill
 import { EditPersonComponent } from './tabs-person-details/edit-person/edit-person.component';
 import { MaterialModule } from '../../shared/material.module';
 import { SharedConceptModule } from '../../shared/shared.module';
+import { UiModule } from '@master/ui/ui.module';
 
 @NgModule({
     declarations: [
@@ -27,7 +27,7 @@ import { SharedConceptModule } from '../../shared/shared.module';
         PersonsRoutingModule,
         // others
         MaterialModule,
-        SharedModule,
+        UiModule,
         SharedConceptModule
     ]
 })

@@ -4,15 +4,15 @@ import { RouterModule } from '@angular/router';
 import { MaterialModule } from './material.module';
 
 import { MainContainerComponent } from './components/main-container/main-container.component';
-import { SharedModule } from '@master/shared/shared.module';
 import { SidenavLeftMenuComponent } from './components/layout/sidenav-left-menu/sidenav-left-menu.component';
+import { UiModule } from '@master/ui/ui.module';
 
 @NgModule({
     imports: [
         CommonModule,
         RouterModule,
         MaterialModule,
-        SharedModule
+        UiModule
     ],
     declarations: [
         MainContainerComponent, SidenavLeftMenuComponent

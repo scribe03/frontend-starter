@@ -4,10 +4,10 @@ import { CertificationsComponent } from './certifications.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from '@master/core/core.module';
-import { SharedModule } from '@master/shared/shared.module';
 import { StoreModule } from '@ngrx/store';
 import { certificationReducer } from '@master/core/states/certifications/certification.reducer';
 import { MaterialModule } from '../../../shared/material.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('CertificationsComponent', () => {
     let component: CertificationsComponent;
@@ -20,7 +20,7 @@ describe('CertificationsComponent', () => {
                 BrowserAnimationsModule,
                 MaterialModule,
                 CoreModule,
-                SharedModule,
+                UiModule,
                 StoreModule.forRoot({
                     certifications: certificationReducer
                 }),

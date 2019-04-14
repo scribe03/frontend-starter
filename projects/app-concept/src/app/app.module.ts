@@ -8,12 +8,12 @@ import { EffectsModule } from '@ngrx/effects';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SharedModule } from '@master/shared/shared.module';
 import { CoreModule } from '@master/core/core.module';
 import { certificationReducer } from '@master/core/states/certifications/certification.reducer';
 import { CertificationEffector } from '@master/core/states/certifications/certification.effector';
 import { SharedConceptModule } from './shared/shared.module';
 import { MaterialModule } from './shared/material.module';
+import { UiModule } from '@master/ui/ui.module';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,7 @@ import { MaterialModule } from './shared/material.module';
     // others
     MaterialModule,
     CoreModule,
-    SharedModule,
+    UiModule,
     SharedConceptModule,
     // ...
     AppRoutingModule

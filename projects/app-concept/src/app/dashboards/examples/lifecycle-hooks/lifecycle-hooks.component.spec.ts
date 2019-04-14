@@ -4,11 +4,11 @@ import { LifecycleHooksComponent } from './lifecycle-hooks.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CoreModule } from '@master/core/core.module';
-import { SharedModule } from '@master/shared/shared.module';
 import { WalletComponent } from './wallet/wallet.component';
 import { MoneyComponent } from './money/money.component';
 import { SharedConceptModule } from '../../../shared/shared.module';
 import { MaterialModule } from '../../../shared/material.module';
+import { UiModule } from '@master/ui/ui.module';
 
 describe('LifecycleHooksComponent', () => {
     let component: LifecycleHooksComponent;
@@ -21,7 +21,7 @@ describe('LifecycleHooksComponent', () => {
                 BrowserAnimationsModule,
                 MaterialModule,
                 CoreModule,
-                SharedModule,
+                UiModule,
                 SharedConceptModule
             ],
             declarations: [

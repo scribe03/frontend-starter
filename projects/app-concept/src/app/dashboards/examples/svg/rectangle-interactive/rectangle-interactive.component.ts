@@ -1,5 +1,5 @@
 import { Component, HostListener, OnInit, ViewChild } from '@angular/core';
-import { MouseDownUpDirective } from '@master/shared/directives/mouse-down-up/mouse-down-up.directive';
+import { MouseDownUpDirective } from '@master/ui/directives/mouse-down-up/mouse-down-up.directive';
 
 @Component({
     selector: 'sc-rectangle-interactive',
