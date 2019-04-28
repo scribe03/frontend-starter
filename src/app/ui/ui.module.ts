@@ -1,25 +1,33 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { BasicFormActionComponent } from '@master/ui/components/basic-form-action/basic-form-action.component';
-import { SpinnerComponent } from '@master/ui/components/spinner/spinner.component';
 import { MouseDownUpDirective } from '@master/ui/directives/mouse-down-up/mouse-down-up.directive';
+import { FormGroupComponent } from './form/form-group/form-group.component';
+import { FieldDirective } from './directives/form/field/field.directive';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ValidationMessagesComponent } from './form/validation-messages/validation-messages.component';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule,
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
-    BasicFormActionComponent,
-    SpinnerComponent,
-    MouseDownUpDirective
+    MouseDownUpDirective,
+    FormGroupComponent,
+    ValidationMessagesComponent,
+    FieldDirective
   ],
   exports: [
     // COMPONENTS
-    BasicFormActionComponent,
-    SpinnerComponent,
-    MouseDownUpDirective
+    // FORMS
+    FormGroupComponent,
+    ValidationMessagesComponent,
+    // ...
+    MouseDownUpDirective,
+    FieldDirective
     // DIRECTIVES
     // PIPES
   ]

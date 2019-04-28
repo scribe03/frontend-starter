@@ -27,8 +27,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/master.scss"
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -83,9 +88,13 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/master.scss",
-              "src/styles/layouts/default/_base.scss"
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss",
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": [],
             "assets": [
               "src/favicon.ico",
@@ -131,10 +140,14 @@
               "projects/app-concept/src/assets"
             ],
             "styles": [
-              "src/master.scss",
-              "projects/app-concept/src/styles.scss",
-              "projects/app-concept/src/_variables.scss"
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss",
+              "projects/app-concept/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -189,9 +202,14 @@
             "tsConfig": "projects/app-concept/tsconfig.spec.json",
             "karmaConfig": "projects/app-concept/karma.conf.js",
             "styles": [
-              "src/master.scss",
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss",
               "projects/app-concept/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": [],
             "assets": [
               "projects/app-concept/src/favicon.ico",
@@ -265,9 +283,14 @@
               "projects/app-science-department/src/assets"
             ],
             "styles": [
-              "src/master.scss",
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss",
               "projects/app-science-department/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -322,9 +345,14 @@
             "tsConfig": "projects/app-science-department/tsconfig.spec.json",
             "karmaConfig": "projects/app-science-department/karma.conf.js",
             "styles": [
-              "src/master.scss",
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss",
               "projects/app-science-department/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": [],
             "assets": [
               "projects/app-science-department/src/favicon.ico",
@@ -398,9 +426,14 @@
               "projects/app-transport-department/src/assets"
             ],
             "styles": [
-              "src/master.scss",
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss",
               "projects/app-transport-department/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -455,9 +488,14 @@
             "tsConfig": "projects/app-transport-department/tsconfig.spec.json",
             "karmaConfig": "projects/app-transport-department/karma.conf.js",
             "styles": [
-              "src/master.scss",
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss",
               "projects/app-transport-department/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": [],
             "assets": [
               "projects/app-transport-department/src/favicon.ico",
@@ -571,8 +609,14 @@
               "projects/guide-ui/src/assets"
             ],
             "styles": [
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss",
               "projects/guide-ui/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -627,8 +671,15 @@
             "tsConfig": "projects/guide-ui/tsconfig.spec.json",
             "karmaConfig": "projects/guide-ui/karma.conf.js",
             "styles": [
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss",
+              "src/styles/layouts/default/_base.scss",
               "projects/guide-ui/src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/styles"
+              ]
+            },
             "scripts": [],
             "assets": [
               "projects/guide-ui/src/favicon.ico",

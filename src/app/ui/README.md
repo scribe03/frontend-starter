@@ -4,7 +4,6 @@
 
 https://github.com/angular/angular-cli/issues/10869
 
-
 ---
 COMPONENT
     sc-alert
@@ -32,4 +31,4 @@ sc-input-checkbox
 sc-input-range
 sc-input-file
     OR
-sc-field
+sc-form-group

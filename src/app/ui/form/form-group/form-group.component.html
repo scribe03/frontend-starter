@@ -1,0 +1,11 @@
+<div class="sc-fg-block">
+  <div class="sc-fg-line">
+    <ng-content select="span.prefix"></ng-content>
+    <div class="sc-fg-input-box">
+      <ng-content select="input"></ng-content>
+      <ng-content select="span.suffix"></ng-content>
+      <label [@labelUpDown]="isLabelMoveUp ? 'up' : 'down'">{{ placeholder }}</label>
+    </div>
+  </div>
+  <sc-validation-messages *ngIf="!field.input.valid" [errors]="field.errors"></sc-validation-messages>
+</div>

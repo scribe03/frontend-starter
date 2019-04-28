@@ -15,6 +15,9 @@
       "@env-app-transport-deparment/*": [
         "projects/app-transport-department/src/environments/*"
       ],
+      "@env-guide-ui/*": [
+        "projects/quide-ui/src/environments/*"
+      ],
       "@master/*": [
         "src/app/*"
       ],

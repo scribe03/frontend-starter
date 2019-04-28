@@ -1,0 +1,52 @@
+$container-mt: 0.5rem;
+$container-mb: 2rem;
+
+$icon-mt: 0.6rem;
+$icon-mr: 0.2rem;
+$icon-mb: 0.2rem;
+$icon-ml: 0.2rem;
+
+
+.sc-fg-block {
+  margin-top: $container-mt;
+  margin-bottom: $container-mb;
+
+  .sc-fg-line {
+    display: flex;
+    // flex-flow: row wrap;
+
+    ::ng-deep {
+      .prefix {
+        padding: $icon-mt $icon-mr $icon-mb $icon-ml;
+      }
+
+      .sc-fg-input-box {
+        position: relative;
+        display: flex;
+        width: 100%;
+
+        input[type=text],
+        input[type=password],
+        input[type=email],
+        input[type=tel],
+        input[type=url] {
+          margin: 0.1rem;
+          color: #343a40;
+          width: 100%;
+        }
+
+        .suffix {
+          padding: $icon-mt $icon-mr $icon-mb $icon-ml;
+        }
+
+        label {
+
+        }
+      }
+    }
+
+    sc-validation-messages {
+      flex: 1 100%;
+    }
+  }
+}
