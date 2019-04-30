@@ -1,11 +1,15 @@
 <div class="sc-fg-block">
-  <div class="sc-fg-line">
-    <ng-content select="span.prefix"></ng-content>
-    <div class="sc-fg-input-box">
-      <ng-content select="input"></ng-content>
-      <ng-content select="span.suffix"></ng-content>
-      <label [@labelUpDown]="isLabelMoveUp ? 'up' : 'down'">{{ placeholder }}</label>
+    <div class="sc-fg-line" (click)="markAsFocus()">
+        <ng-content select="span.prefix"></ng-content>
+        <div class="sc-fg-input-box">
+            <ng-content select="input"></ng-content>
+            <ng-content select="span.suffix"></ng-content>
+            <label [@labelUpDown]="isLabelMoveUp ? 'up' : 'down'">{{ placeholder }}</label>
+        </div>
     </div>
-  </div>
-  <sc-validation-messages *ngIf="!field.input.valid" [errors]="field.errors"></sc-validation-messages>
+
+    <sc-validation-messages
+            *ngIf="!field.input.valid"
+            [isOnlyLastErrorMessage]="isOnlyLastErrorMessage"
+            [errors]="field.errors"></sc-validation-messages>
 </div>

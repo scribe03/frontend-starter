@@ -7,10 +7,10 @@ import { MouseDownUpDirective } from '@master/ui/directives/mouse-down-up/mouse-
     styleUrls: ['./rectangle-interactive.component.scss']
 })
 export class RectangleInteractiveComponent implements OnInit {
-
     public restrictionStrokeWidth = 4;
     public restrictionLeftX = 50;
     public restrictionRightX = 100;
+
     @ViewChild('restrictionLeft') protected restrictionLeft: MouseDownUpDirective;
     @ViewChild('restrictionRight') protected restrictionRight: MouseDownUpDirective;
 

@@ -1,3 +1,25 @@
-<p>
-  validation-messages works!
-</p>
+<div *ngFor="let msg of messages">
+    <span *ngIf="msg.key === 'minlength'">
+        Minimalna ilość znaków to {{ msg.value.requiredLength }}, wprowadzono {{ msg.value.actualLength }}.
+    </span>
+
+    <span *ngIf="msg.key === 'maxlength'">
+        Maksymalna ilość znaków to {{ msg.value.requiredLength }}, wprowadzono {{ msg.value.actualLength }}.
+    </span>
+
+    <span *ngIf="msg.key === 'pattern'">
+        Wyrażenie nie spełnia kryteriów.
+    </span>
+
+    <span *ngIf="msg.key === 'email'">
+        Błędny adres email.
+    </span>
+
+    <span *ngIf="msg.key === 'required'">
+        Pole wymagane
+    </span>
+
+    <span *ngIf="!isDefaultValidator(msg.key)">
+        {{ msg.value }}
+    </span>
+</div>
