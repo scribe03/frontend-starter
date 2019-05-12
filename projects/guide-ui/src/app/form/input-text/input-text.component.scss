@@ -1,5 +1,7 @@
-@import "ui/variables/colors";
+@import "default/variables/colors";
+
 .ex-form {
   width: 100%;
   border:1px solid $color-border-primary;
+  padding: 10px 5px;
 }

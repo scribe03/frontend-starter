@@ -16,7 +16,7 @@ $color-light: #f5f5f5;
 $color-white: #ffffff;
 
 // ----------------------------
-// access colors ... ?
+// access colors
 
 // TEXT
 
@@ -28,8 +28,9 @@ $color-text-danger: $color-danger;
 $color-text-warning: $color-warning;
 $color-text-info: $color-info;
 
-// $color-text-dark: $color-dark;
+$color-text-black: $color-black;
 $color-text-muted: $color-muted;
+$color-text-light: $color-light;
 $color-text-white: $color-white;
 
 // BACKGROUND
@@ -42,10 +43,22 @@ $color-bg-danger: $color-danger;
 $color-bg-warning: $color-warning;
 $color-bg-info: $color-info;
 
-// $color-bg-dark: $color-dark;
-$color-bg-light: $color-muted;
+$color-bg-black: $color-black;
+$color-bg-muted: $color-muted;
+$color-bg-light: $color-light;
 $color-bg-white: $color-white;
 
 // BORDER
 
 $color-border-primary: $color-primary;
+$color-border-secondary: $color-secondary;
+
+$color-border-success: $color-success;
+$color-border-danger: $color-danger;
+$color-border-warning: $color-warning;
+$color-border-info: $color-info;
+
+$color-border-black: $color-black;
+$color-border-muted: $color-muted;
+$color-border-light: $color-light;
+$color-border-white: $color-white;

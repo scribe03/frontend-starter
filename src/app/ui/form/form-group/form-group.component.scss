@@ -1,23 +1,50 @@
-$container-mt: 0.5rem;
-$container-mb: 2rem;
+@import 'default/style-default';
 
-$icon-mt: 0.6rem;
-$icon-mr: 0.2rem;
-$icon-mb: 0.2rem;
-$icon-ml: 0.2rem;
+$input-icon-mt: 0.6rem;
+$input-icon-mr: 0.2rem;
+$input-icon-mb: 0.2rem;
+$input-icon-ml: 0.2rem;
 
+$input-font-size: 16px;
+$input-line-height: 1.5385;
+
+@mixin inputs-in-box {
+  input[type=text],
+  input[type=password],
+  input[type=email],
+  input[type=tel],
+  input[type=url] {
+    margin: 0.1rem;
+    color: #343a40;
+    width: 100%;
+
+    font-size: $input-font-size;
+    line-height: $input-line-height;
+    border: none;
+
+    &:hover, &:active, &:focus {
+      border: none;
+      outline: none;
+      -webkit-box-shadow: none;
+    }
+  }
+}
 
 .sc-fg-block {
-  margin-top: $container-mt;
-  margin-bottom: $container-mb;
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
 
   .sc-fg-line {
     display: flex;
-    // flex-flow: row wrap;
+    border: 1px solid $color-border-secondary;
+    border-radius: $radius;
+    padding: 5px 2px;
+
 
     ::ng-deep {
+
       .prefix {
-        padding: $icon-mt $icon-mr $icon-mb $icon-ml;
+        padding: $input-icon-mt $input-icon-mr $input-icon-mb $input-icon-ml;
       }
 
       .sc-fg-input-box {
@@ -25,28 +52,47 @@ $icon-ml: 0.2rem;
         display: flex;
         width: 100%;
 
-        input[type=text],
-        input[type=password],
-        input[type=email],
-        input[type=tel],
-        input[type=url] {
-          margin: 0.1rem;
-          color: #343a40;
-          width: 100%;
-        }
+        @include inputs-in-box;
 
         .suffix {
-          padding: $icon-mt $icon-mr $icon-mb $icon-ml;
+          padding: $input-icon-mt $input-icon-mr $input-icon-mb $input-icon-ml;
         }
 
         label {
-
+          font-size: $input-font-size;
+          line-height: $input-line-height;
         }
       }
     }
 
-    sc-validation-messages {
-      flex: 1 100%;
+    &.up {
+      label {
+        border: 1px solid $color-secondary;
+        border-radius: 0.25rem;
+        padding: 0 5px;
+        background-color: $color-bg-secondary;
+        color: $color-text-white;
+      }
     }
+
+    &:hover {
+      border: 1px solid $color-border-warning;
+      &.up {
+        label {
+          background-color: $color-border-warning;
+        }
+      }
+    }
+
+    &.focused {
+      border: 1px solid $color-border-success !important;
+      label {
+        background-color: $color-border-success !important;
+      }
+    }
+  }
+
+  sc-validation-messages {
+    flex: 1 100%;
   }
 }

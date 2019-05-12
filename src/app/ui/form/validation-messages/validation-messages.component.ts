@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
 import { ValidationErrors } from '@angular/forms';
-import { ValidationMessage } from '../shared/interfaces/validation-message.interface';
+import { ValidationMessage } from './validation-message.interface';
 
 @Component({
     selector: 'sc-validation-messages',

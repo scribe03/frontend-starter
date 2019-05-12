@@ -1,5 +1,7 @@
 <div class="sc-fg-block">
-    <div class="sc-fg-line" (click)="markAsFocus()">
+    <div class="sc-fg-line"
+         [ngClass]="{'up': isLabelMoveUp, 'focused': field.isFocus}"
+         (click)="markAsFocus()">
         <ng-content select="span.prefix"></ng-content>
         <div class="sc-fg-input-box">
             <ng-content select="input"></ng-content>

@@ -88,7 +88,7 @@
             "tsConfig": "src/tsconfig.spec.json",
             "karmaConfig": "src/karma.conf.js",
             "styles": [
-              "src/styles/vendors/bootstrap/bootstrap-customize.scss",
+              "src/styles/vendors/bootstrap/bootstrap-customize.scss"
             ],
             "stylePreprocessorOptions": {
               "includePaths": [
@@ -672,7 +672,6 @@
             "karmaConfig": "projects/guide-ui/karma.conf.js",
             "styles": [
               "src/styles/vendors/bootstrap/bootstrap-customize.scss",
-              "src/styles/layouts/default/_base.scss",
               "projects/guide-ui/src/styles.scss"
             ],
             "stylePreprocessorOptions": {
