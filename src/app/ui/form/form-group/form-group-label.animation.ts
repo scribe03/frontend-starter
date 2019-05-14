@@ -1,14 +1,14 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 
 export const labelUpDown = trigger('labelUpDown', [
-    state('void', style({position: 'absolute', left: 0, top: '-20px', transform: 'scale(0.8)'})),
-    state('up', style({position: 'absolute', left: 0, top: '-20px', transform: 'scale(0.8)'})),
-    state('down', style({position: 'absolute', left: '2px', top: '4px', transform: 'scale(1)'})),
+    state('void', style({position: 'absolute', left: '4px', top: '-4px', fontSize: '12px'})),
+    state('up', style({position: 'absolute', left: '4px', top: '-4px', fontSize: '12px'})),
+    state('down', style({position: 'absolute', left: '4px', top: '6px', fontSize: '16px'})),
     transition('* => up', [
         style({position: 'absolute', left: 0, top: 0}),
-        animate('0.25s linear', style({transform: 'translateY(-20px) scale(0.8)'}))
+        animate('0.25s linear', style({transform: 'translateY(-4px)', left: '4px', fontSize: '12px'}))
     ]),
     transition('* => down', [
-        animate('0.25s linear', style({transform: 'translateY(18px) scale(1)'}))
+        animate('0.25s linear', style({transform: 'translateY(12px)', fontSize: '16px'}))
     ])
 ]);

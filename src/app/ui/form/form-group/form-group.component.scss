@@ -1,9 +1,9 @@
 @import 'default/style-default';
 
 $input-icon-mt: 0.6rem;
-$input-icon-mr: 0.2rem;
-$input-icon-mb: 0.2rem;
-$input-icon-ml: 0.2rem;
+$input-icon-mr: 0.4rem;
+$input-icon-mb: 0.6rem;
+$input-icon-ml: 0.6rem;
 
 $input-font-size: 16px;
 $input-line-height: 1.5385;
@@ -14,12 +14,11 @@ $input-line-height: 1.5385;
   input[type=email],
   input[type=tel],
   input[type=url] {
-    margin: 0.1rem;
+    margin: 0;
+    padding: 12px 0 0 4px;
     color: #343a40;
     width: 100%;
-
     font-size: $input-font-size;
-    line-height: $input-line-height;
     border: none;
 
     &:hover, &:active, &:focus {
@@ -40,11 +39,11 @@ $input-line-height: 1.5385;
     border-radius: $radius;
     padding: 5px 2px;
 
-
     ::ng-deep {
 
       .prefix {
-        padding: $input-icon-mt $input-icon-mr $input-icon-mb $input-icon-ml;
+        padding: $input-icon-mt $input-icon-mr $input-icon-ml $input-icon-mb;
+        color: $color-bg-secondary;
       }
 
       .sc-fg-input-box {
@@ -55,7 +54,8 @@ $input-line-height: 1.5385;
         @include inputs-in-box;
 
         .suffix {
-          padding: $input-icon-mt $input-icon-mr $input-icon-mb $input-icon-ml;
+          padding: $input-icon-mt;
+          color: $color-bg-secondary;
         }
 
         label {
@@ -67,11 +67,7 @@ $input-line-height: 1.5385;
 
     &.up {
       label {
-        border: 1px solid $color-secondary;
-        border-radius: 0.25rem;
-        padding: 0 5px;
-        background-color: $color-bg-secondary;
-        color: $color-text-white;
+        color: $color-bg-secondary;
       }
     }
 
@@ -79,7 +75,7 @@ $input-line-height: 1.5385;
       border: 1px solid $color-border-warning;
       &.up {
         label {
-          background-color: $color-border-warning;
+          color: $color-border-warning;
         }
       }
     }
@@ -87,7 +83,7 @@ $input-line-height: 1.5385;
     &.focused {
       border: 1px solid $color-border-success !important;
       label {
-        background-color: $color-border-success !important;
+        color: $color-border-success !important;
       }
     }
   }
