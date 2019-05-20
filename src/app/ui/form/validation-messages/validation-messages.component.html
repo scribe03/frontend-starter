@@ -1,4 +1,4 @@
-<div *ngFor="let msg of messages">
+<div *ngFor="let msg of messages" class="error">
     <span *ngIf="msg.key === 'minlength'">
         Minimalna ilość znaków to {{ msg.value.requiredLength }}, wprowadzono {{ msg.value.actualLength }}.
     </span>
