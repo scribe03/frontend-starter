@@ -5,15 +5,14 @@ $input-icon-mr: 4px;
 $input-icon-mb: 10px;
 $input-icon-ml: 10px;
 
+$input-container-mt: 8px;
+$input-container-mb: 24px;
+
 $input-font-size: 18px;
 $input-font-size-label: 18px;
-$input-font-size-error: 18px;
+// $input-font-size-error: 18px;
 
-$input-line-height: 1.5385;
-
-
-
-@mixin inputs-in-box {
+@mixin input-text {
   input[type=text],
   input[type=password],
   input[type=email],
@@ -21,7 +20,7 @@ $input-line-height: 1.5385;
   input[type=url] {
     margin: 0;
     padding: 12px 0 0 4px;
-    color: #343a40;
+    color: $color-text-black;
     width: 100%;
     font-size: $input-font-size;
     border: none;
@@ -34,70 +33,82 @@ $input-line-height: 1.5385;
   }
 }
 
-.sc-fg-block {
-  padding-top: 8px;
-  padding-bottom: 24px;
-
-  .sc-fg-line {
-    display: flex;
-    border: 1px solid $color-border-secondary;
-    border-radius: $radius;
-    padding: 5px 2px;
-
-    ::ng-deep {
-
-      .prefix {
-        padding: $input-icon-mt $input-icon-mr $input-icon-ml $input-icon-mb;
-        color: $color-bg-secondary;
-        font-size: $input-font-size;
-      }
-
-      .sc-fg-input-box {
-        position: relative;
-        display: flex;
-        width: 100%;
-
-        @include inputs-in-box;
-
-        .suffix {
-          padding: $input-icon-mt;
-          color: $color-bg-secondary;
-          font-size: $input-font-size;
-        }
-
-        label {
-          font-size: $input-font-size-label;
-          line-height: $input-line-height;
-        }
-      }
-    }
-
-    &.up {
-      label {
-        color: $color-bg-secondary;
-      }
-    }
-
-    &:hover {
-      border: 1px solid $color-border-warning;
-      &.up {
-        label {
-          color: $color-border-warning;
-        }
-      }
-    }
-
-    &.focused {
-      border: 1px solid $color-border-success !important;
-      label {
-        color: $color-border-success !important;
-      }
-    }
-  }
-
+// @todo: go to _mixing
+@mixin component-validation-messages {
   sc-validation-messages {
     flex: 1 100%;
     position: relative;
     display: block;
   }
+}
+
+@mixin input-colored($color) {
+  border: 1px solid $color;
+
+  ::ng-deep {
+    .prefix {
+      color: $color;
+    }
+
+    .suffix {
+      color: $color;
+    }
+  }
+
+  label {
+    color: $color;
+  }
+}
+
+.sc-fg-container {
+  padding-top: $input-container-mt;
+  padding-bottom: $input-container-mb;
+
+  .sc-fg-input {
+    display: flex;
+    border: 1px solid $color-border-secondary;
+    border-radius: $radius;
+    padding: 5px 2px;
+
+    .sc-fg-input-parts {
+      position: relative;
+      display: flex;
+      width: 100%;
+    }
+
+    ::ng-deep {
+      .prefix {
+        padding: $input-icon-mt $input-icon-mr $input-icon-ml $input-icon-mb;
+        font-size: $input-font-size;
+      }
+
+      @include input-text;
+
+      .suffix {
+        padding: $input-icon-mt;
+        font-size: $input-font-size;
+      }
+    }
+
+    label {
+      font-size: $input-font-size-label;
+    }
+
+
+    @include input-colored($color-text-secondary);
+
+    &.up {
+      @include input-colored($color-text-secondary);
+    }
+
+    &:hover {
+      @include input-colored($color-border-secondary-lighten);
+    }
+
+    &.focused {
+      @include input-colored($color-border-secondary-darken !important);
+    }
+  }
+
+  @include component-validation-messages;
 }

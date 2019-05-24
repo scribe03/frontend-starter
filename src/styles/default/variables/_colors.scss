@@ -1,14 +1,31 @@
 // https://material.io/tools/color/#!/?view.left=0&view.right=1&primary.color=757575
 // https://thoughtbot.com/blog/controlling-color-with-sass-color-functions
 
+@import 'sizes';
 
 $color-primary: #37474f;
-$color-secondary: #78909c;
+$color-primary-lighten: lighten($color-primary, $color-lighten-percent);
+$color-primary-darken: darken($color-primary, $color-darken-percent);
+
+$color-secondary: #90AFC5; //#78909c;
+$color-secondary-lighten: lighten($color-secondary, $color-lighten-percent);
+$color-secondary-darken: darken($color-secondary, $color-darken-percent);
 
 $color-success: #4caf50;
+$color-success-lighten: lighten($color-success, $color-lighten-percent);
+$color-success-darken: darken($color-success, $color-darken-percent);
+
 $color-danger: #ff5252;
+$color-danger-lighten: lighten($color-danger, $color-lighten-percent);
+$color-danger-darken: darken($color-danger, $color-darken-percent);
+
 $color-warning: #fb8c00;
+$color-warning-lighten: lighten($color-warning, $color-lighten-percent);
+$color-warning-darken: darken($color-warning, $color-darken-percent);
+
 $color-info: #00d3ee;
+$color-info-lighten: lighten($color-info, $color-lighten-percent);
+$color-info-darken: darken($color-info, $color-darken-percent);
 
 $color-black: #000000;
 $color-muted: #b7b7b7;
@@ -36,12 +53,20 @@ $color-text-white: $color-white;
 // BACKGROUND
 
 $color-bg-primary: $color-primary;
+$color-bg-primary-lighten: $color-primary-lighten;
+$color-bg-primary-darken: $color-primary-darken;
+
 $color-bg-secondary: $color-secondary;
+$color-bg-secondary-lighten: $color-secondary-lighten;
+$color-bg-secondary-darken: $color-secondary-darken;
 
 $color-bg-success: $color-success;
+$color-bg-success-lighten: $color-success-lighten;
+$color-bg-success-darken: $color-success-darken;
+
 $color-bg-danger: $color-danger;
-$color-bg-warning: $color-warning;
-$color-bg-info: $color-info;
+$color-bg-danger-lighten: $color-danger-lighten;
+$color-bg-danger-darken: $color-danger-darken;
 
 $color-bg-black: $color-black;
 $color-bg-muted: $color-muted;
@@ -51,12 +76,28 @@ $color-bg-white: $color-white;
 // BORDER
 
 $color-border-primary: $color-primary;
+$color-border-primary-lighten: $color-primary-lighten;
+$color-border-primary-darken: $color-primary-darken;
+
 $color-border-secondary: $color-secondary;
+$color-border-secondary-lighten: $color-secondary-lighten;
+$color-border-secondary-darken: $color-secondary-darken;
 
 $color-border-success: $color-success;
+$color-border-success-lighten: $color-success-lighten;
+$color-border-success-darken: $color-success-darken;
+
 $color-border-danger: $color-danger;
+$color-border-danger-lighten: $color-danger-lighten;
+$color-border-danger-darken: $color-danger-darken;
+
 $color-border-warning: $color-warning;
+$color-border-warning-lighten: $color-warning-lighten;
+$color-border-warning-darken: $color-warning-darken;
+
 $color-border-info: $color-info;
+$color-border-info-lighten: $color-info-lighten;
+$color-border-info-darken: $color-info-darken;
 
 $color-border-black: $color-black;
 $color-border-muted: $color-muted;

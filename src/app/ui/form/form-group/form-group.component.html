@@ -1,9 +1,9 @@
-<div class="sc-fg-block">
-    <div class="sc-fg-line"
+<div class="sc-fg-container">
+    <div class="sc-fg-input"
          [ngClass]="{'up': isLabelMoveUp, 'focused': field.isFocus}"
          (click)="markAsFocus()">
         <ng-content select="span.prefix"></ng-content>
-        <div class="sc-fg-input-box">
+        <div class="sc-fg-input-parts">
             <ng-content select="input"></ng-content>
             <ng-content select="span.suffix"></ng-content>
             <label [@labelUpDown]="isLabelMoveUp ? 'up' : 'down'">{{ placeholder }}</label>
