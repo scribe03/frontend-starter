@@ -7,7 +7,7 @@ $color-primary: #37474f;
 $color-primary-lighten: lighten($color-primary, $color-lighten-percent);
 $color-primary-darken: darken($color-primary, $color-darken-percent);
 
-$color-secondary: #90AFC5; //#78909c;
+$color-secondary: #5626C4;
 $color-secondary-lighten: lighten($color-secondary, $color-lighten-percent);
 $color-secondary-darken: darken($color-secondary, $color-darken-percent);
 
@@ -27,10 +27,14 @@ $color-info: #00d3ee;
 $color-info-lighten: lighten($color-info, $color-lighten-percent);
 $color-info-darken: darken($color-info, $color-darken-percent);
 
-$color-black: #000000;
+$color-black: #181818;
 $color-muted: #b7b7b7;
 $color-light: #f5f5f5;
 $color-white: #ffffff;
+
+$color-form: #BDBDBD;
+$color-form-lighten: lighten($color-form, $color-lighten-percent);
+$color-form-darken: darken($color-form, $color-darken-percent);
 
 // ----------------------------
 // access colors
@@ -49,6 +53,7 @@ $color-text-black: $color-black;
 $color-text-muted: $color-muted;
 $color-text-light: $color-light;
 $color-text-white: $color-white;
+$color-text-input: #616161;
 
 // BACKGROUND
 

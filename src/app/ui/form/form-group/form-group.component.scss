@@ -20,7 +20,7 @@ $input-font-size-label: 18px;
   input[type=url] {
     margin: 0;
     padding: 12px 0 0 4px;
-    color: $color-text-black;
+    color: $color-text-input;
     width: 100%;
     font-size: $input-font-size;
     border: none;
@@ -66,7 +66,7 @@ $input-font-size-label: 18px;
 
   .sc-fg-input {
     display: flex;
-    border: 1px solid $color-border-secondary;
+    border: 1px solid $color-form;
     border-radius: $radius;
     padding: 5px 2px;
 
@@ -95,18 +95,18 @@ $input-font-size-label: 18px;
     }
 
 
-    @include input-colored($color-text-secondary);
+    @include input-colored($color-form);
 
     &.up {
-      @include input-colored($color-text-secondary);
+      @include input-colored($color-form);
     }
 
     &:hover {
-      @include input-colored($color-border-secondary-lighten);
+      @include input-colored($color-form-darken);
     }
 
     &.focused {
-      @include input-colored($color-border-secondary-darken !important);
+      @include input-colored($color-form-darken !important);
     }
   }
 
