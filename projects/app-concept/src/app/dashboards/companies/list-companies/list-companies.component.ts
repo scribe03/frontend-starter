@@ -1,5 +1,5 @@
 import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, PageEvent } from '@angular/material';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 import { Router } from '@angular/router';
 import { Subscription } from 'rxjs';
 
@@ -21,7 +21,7 @@ export class ListCompaniesComponent implements OnInit, OnDestroy, OnMessageRecei
     public companies: Company[] = [];
     public displayedColumns: string[] = ['id', 'name', 'city', 'zipCode', 'streetName', 'remove'];
     // https://github.com/angular/material2/issues/5812
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
     private subscriptions = new Subscription();
 

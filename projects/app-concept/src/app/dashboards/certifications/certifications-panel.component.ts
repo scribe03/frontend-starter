@@ -7,7 +7,7 @@ import { CertificationsComponent } from './certifications/certifications.compone
     styleUrls: ['./certifications-panel.component.scss']
 })
 export class CertificationsPanelComponent implements OnInit {
-    @ViewChild(CertificationsComponent) certificationsComponent;
+    @ViewChild(CertificationsComponent, {static: true}) certificationsComponent;
 
     constructor() {
     }

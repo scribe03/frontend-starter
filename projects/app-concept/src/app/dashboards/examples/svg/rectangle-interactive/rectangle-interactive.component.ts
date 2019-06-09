@@ -11,8 +11,8 @@ export class RectangleInteractiveComponent implements OnInit {
     public restrictionLeftX = 50;
     public restrictionRightX = 100;
 
-    @ViewChild('restrictionLeft') protected restrictionLeft: MouseDownUpDirective;
-    @ViewChild('restrictionRight') protected restrictionRight: MouseDownUpDirective;
+    @ViewChild('restrictionLeft', {static: true}) protected restrictionLeft: MouseDownUpDirective;
+    @ViewChild('restrictionRight', {static: true}) protected restrictionRight: MouseDownUpDirective;
 
     constructor() {
     }

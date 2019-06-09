@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { PageEvent } from '@angular/material';
+import { PageEvent } from '@angular/material/paginator';
 import { MatPaginator } from '@angular/material/paginator';
 
 import { Observable } from 'rxjs';
@@ -21,7 +21,7 @@ export class ListPersonsComponent implements OnInit {
     public persons$: Observable<Person[]>;
     public displayedColumns: string[] = ['id', 'name', 'surname', 'age', 'preview', 'remove'];
     // https://github.com/angular/material2/issues/5812
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
     constructor(
         private router: Router,

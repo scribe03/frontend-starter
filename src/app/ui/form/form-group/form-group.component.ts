@@ -1,4 +1,4 @@
-import { Component, ContentChild, Input, OnInit } from '@angular/core';
+import { Component, ContentChild, ElementRef, Input, OnInit } from '@angular/core';
 import { FieldDirective } from '@master/ui/directives/form/field/field.directive';
 import { labelUpDown } from './form-group-label.animation';
 
@@ -12,7 +12,7 @@ export class FormGroupComponent implements OnInit {
     @Input() isOnlyLastErrorMessage = true;
     public placeholder: string;
 
-    @ContentChild(FieldDirective) public field: FieldDirective;
+    @ContentChild(FieldDirective, {static: true}) public field: FieldDirective;
 
     constructor() {
     }

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
-import { MouseDownUpDirective } from '@master/ui/directives/mouse-down-up/mouse-down-up.directive';
-import { FormGroupComponent } from './form/form-group/form-group.component';
-import { FieldDirective } from './directives/form/field/field.directive';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { ValidationMessagesComponent } from './form/validation-messages/validation-messages.component';
+
+import { MouseDownUpDirective } from '@master/ui/directives/mouse-down-up/mouse-down-up.directive';
+import { FormGroupComponent } from '@master/ui/form/form-group/form-group.component';
+import { ValidationMessagesComponent } from '@master/ui/form/validation-messages/validation-messages.component';
+import { FieldDirective } from '@master/ui/directives/form/field/field.directive';
 
 @NgModule({
   imports: [

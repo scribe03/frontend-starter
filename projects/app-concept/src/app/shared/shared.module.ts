@@ -21,7 +21,9 @@ import { BasicFormActionComponent } from './components/basic-form-action/basic-f
     exports: [
         // COMPONENTS
         MainContainerComponent,
-        SidenavLeftMenuComponent
+        SidenavLeftMenuComponent,
+        SpinnerComponent,
+        BasicFormActionComponent
         // DIRECTIVES
         // PIPES
     ]

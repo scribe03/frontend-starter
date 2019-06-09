@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { MatPaginator, PageEvent } from '@angular/material';
+import { MatPaginator, PageEvent } from '@angular/material/paginator';
 
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
@@ -31,7 +31,7 @@ export class CertificationsComponent implements OnInit {
     public count$: Observable<number>;
 
     // https://github.com/angular/material2/issues/5812
-    @ViewChild(MatPaginator) paginator: MatPaginator;
+    @ViewChild(MatPaginator, {static: true}) paginator: MatPaginator;
 
     constructor(private store: Store<IAppState>) {
     }
