@@ -1,4 +1,4 @@
-import { Component, ContentChild, ElementRef, Input, OnInit } from '@angular/core';
+import { AfterContentInit, Component, ContentChild, Input } from '@angular/core';
 import { FieldDirective } from '@master/ui/directives/form/field/field.directive';
 import { labelUpDown } from './form-group-label.animation';
 
@@ -8,16 +8,17 @@ import { labelUpDown } from './form-group-label.animation';
     styleUrls: ['./form-group.component.scss'],
     animations: [labelUpDown]
 })
-export class FormGroupComponent implements OnInit {
+export class FormGroupComponent implements AfterContentInit {
     @Input() isOnlyLastErrorMessage = true;
     public placeholder: string;
 
-    @ContentChild(FieldDirective, {static: true}) public field: FieldDirective;
+    @ContentChild(FieldDirective, {static: false}) public field: FieldDirective;
 
     constructor() {
     }
 
-    ngOnInit() {
+
+    ngAfterContentInit() {
         this.placeholder = this.field.placeholder;
         this.field.placeholder = '';
     }
