@@ -1,17 +1,5 @@
 @import 'default/style-default';
 
-$input-icon-mt: 10px;
-$input-icon-mr: 4px;
-$input-icon-mb: 10px;
-$input-icon-ml: 10px;
-
-$input-container-mt: 8px;
-$input-container-mb: 24px;
-
-$input-font-size: 18px;
-$input-font-size-label: 18px;
-// $input-font-size-error: 18px;
-
 @mixin input-text {
   input[type=text],
   input[type=password],
@@ -61,8 +49,8 @@ $input-font-size-label: 18px;
 }
 
 .sc-fg-container {
-  padding-top: $input-container-mt;
-  padding-bottom: $input-container-mb;
+  padding-top: 8px;
+  padding-bottom: 24px;
 
   .sc-fg-input {
     display: flex;
@@ -78,22 +66,21 @@ $input-font-size-label: 18px;
 
     ::ng-deep {
       .prefix {
-        padding: $input-icon-mt $input-icon-mr $input-icon-ml $input-icon-mb;
+        padding: 10px 4px 10px 10px;
         font-size: $input-font-size;
       }
 
       @include input-text;
 
       .suffix {
-        padding: $input-icon-mt;
+        padding: 10px;
         font-size: $input-font-size;
       }
     }
 
     label {
-      font-size: $input-font-size-label;
+      font-size: $input-font-size;
     }
-
 
     @include input-colored($color-form);
 
@@ -102,7 +89,7 @@ $input-font-size-label: 18px;
     }
 
     &:hover {
-      @include input-colored($color-form-darken);
+      @include input-colored($color-form-lighten);
     }
 
     &.focused {
