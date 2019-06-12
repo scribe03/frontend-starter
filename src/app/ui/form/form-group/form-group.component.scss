@@ -21,15 +21,6 @@
   }
 }
 
-// @todo: go to _mixing
-@mixin component-validation-messages {
-  sc-validation-messages {
-    flex: 1 100%;
-    position: relative;
-    display: block;
-  }
-}
-
 @mixin input-colored($color) {
   border: 1px solid $color;
 
@@ -50,7 +41,7 @@
 
 .sc-fg-container {
   padding-top: 8px;
-  padding-bottom: 24px;
+  padding-bottom: 26px;
 
   .sc-fg-input {
     display: flex;
@@ -94,6 +85,10 @@
 
     &.focused {
       @include input-colored($color-form-darken !important);
+    }
+
+    &.invalid {
+      @include input-colored($color-danger !important);
     }
   }
 

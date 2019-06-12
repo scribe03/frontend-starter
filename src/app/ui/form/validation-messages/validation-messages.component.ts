@@ -10,13 +10,19 @@ import { ValidationMessage } from './validation-message.interface';
 })
 export class ValidationMessagesComponent {
     @Input() public isOnlyLastErrorMessage = true;
+    @Input() public isInvalid: false;
+    @Input() set errors(err: ValidationErrors) {
+        this.prepareMessages(err);
+    }
 
     public messages: ValidationMessage[] = [];
-
     private defaultValidators = ['minlength', 'maxlength', 'pattern', 'email', 'required'];
 
-    @Input() set errors(err: ValidationErrors) {
-        this.messages = [];
+    public isDefaultValidator(key: string): boolean {
+        return this.defaultValidators.indexOf(key) === -1 ? false : true;
+    }
+
+    public prepareMessages(err: ValidationErrors): void {
         if (err) {
             Object.keys(err).map(name => {
                 if (this.isOnlyLastErrorMessage) {
@@ -25,9 +31,6 @@ export class ValidationMessagesComponent {
                 this.messages.push({key: name, value: err[name]});
             });
         }
-    }
 
-    public isDefaultValidator(key: string): boolean {
-        return this.defaultValidators.indexOf(key) === -1 ? false : true;
     }
 }

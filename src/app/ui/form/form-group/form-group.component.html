@@ -1,6 +1,10 @@
 <div class="sc-fg-container">
     <div class="sc-fg-input"
-         [ngClass]="{'up': isLabelMoveUp, 'focused': field.isFocus}"
+         [ngClass]="{
+            'up': isLabelMoveUp,
+            'focused': field.isFocus,
+            'invalid': field.isInvalid(isShowErrorWithoutTouched)
+            }"
          (click)="markAsFocus()">
         <ng-content select="span.prefix"></ng-content>
         <div class="sc-fg-input-parts">
@@ -11,7 +15,8 @@
     </div>
 
     <sc-validation-messages
-            *ngIf="!field.input.valid"
+            [isInvalid]="field.isInvalid(isShowErrorWithoutTouched)"
+            [errors]="field.errors"
             [isOnlyLastErrorMessage]="isOnlyLastErrorMessage"
-            [errors]="field.errors"></sc-validation-messages>
+            ></sc-validation-messages>
 </div>

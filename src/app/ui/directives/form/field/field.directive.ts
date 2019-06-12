@@ -31,6 +31,22 @@ export class FieldDirective {
         return this.input.errors;
     }
 
+    public isInvalid(isShowErrorWithoutTouched: boolean): boolean {
+        let isInvalid = false;
+        const valid = this.input.valid;
+        const isTouched = this.input.touched;
+
+        if (isShowErrorWithoutTouched && !valid) {
+            isInvalid = true;
+        }
+
+        if (isTouched && !valid) {
+            isInvalid = true;
+        }
+
+        return isInvalid;
+    }
+
     public get placeholder(): string {
         return this.selectedRootElement.placeholder || '';
     }

@@ -10,13 +10,10 @@ import { labelUpDown } from './form-group-label.animation';
 })
 export class FormGroupComponent implements AfterContentInit {
     @Input() isOnlyLastErrorMessage = true;
-    public placeholder: string;
-
+    @Input() isShowErrorWithoutTouched = false;
     @ContentChild(FieldDirective, {static: false}) public field: FieldDirective;
 
-    constructor() {
-    }
-
+    public placeholder: string;
 
     ngAfterContentInit() {
         this.placeholder = this.field.placeholder;

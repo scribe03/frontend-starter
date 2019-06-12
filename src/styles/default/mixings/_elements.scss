@@ -16,3 +16,11 @@
     @content;
   }
 }
+
+@mixin component-validation-messages {
+  sc-validation-messages {
+    flex: 1 100%;
+    position: relative;
+    display: block;
+  }
+}
