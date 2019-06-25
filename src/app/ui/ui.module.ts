@@ -6,7 +6,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MouseDownUpDirective } from '@master/ui/directives/mouse-down-up/mouse-down-up.directive';
 import { FormGroupComponent } from '@master/ui/form/form-group/form-group.component';
 import { ValidationMessagesComponent } from '@master/ui/form/validation-messages/validation-messages.component';
-import { FieldDirective } from '@master/ui/directives/form/field/field.directive';
+import { InputDirective } from '@master/ui/directives/form/input/input.directive';
 
 @NgModule({
   imports: [
@@ -19,7 +19,7 @@ import { FieldDirective } from '@master/ui/directives/form/field/field.directive
     MouseDownUpDirective,
     FormGroupComponent,
     ValidationMessagesComponent,
-    FieldDirective
+    InputDirective
   ],
   exports: [
     // COMPONENTS
@@ -28,7 +28,7 @@ import { FieldDirective } from '@master/ui/directives/form/field/field.directive
     ValidationMessagesComponent,
     // ...
     MouseDownUpDirective,
-    FieldDirective
+    InputDirective
     // DIRECTIVES
     // PIPES
   ]

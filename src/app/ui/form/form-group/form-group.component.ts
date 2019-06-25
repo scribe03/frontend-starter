@@ -1,5 +1,5 @@
 import { AfterContentInit, Component, ContentChild, Input } from '@angular/core';
-import { FieldDirective } from '@master/ui/directives/form/field/field.directive';
+import { InputDirective } from '@master/ui/directives/form/input/input.directive';
 import { labelUpDown } from './form-group-label.animation';
 
 @Component({
@@ -11,20 +11,20 @@ import { labelUpDown } from './form-group-label.animation';
 export class FormGroupComponent implements AfterContentInit {
     @Input() isOnlyLastErrorMessage = true;
     @Input() isShowErrorWithoutTouched = false;
-    @ContentChild(FieldDirective, {static: false}) public field: FieldDirective;
+    @ContentChild(InputDirective, {static: false}) public input: InputDirective;
 
     public placeholder: string;
 
     ngAfterContentInit() {
-        this.placeholder = this.field.placeholder;
-        this.field.placeholder = '';
+        this.placeholder = this.input.placeholder;
+        this.input.placeholder = '';
     }
 
     public get isLabelMoveUp(): boolean {
-        return this.field.isFocus || this.field.input.value;
+        return this.input.isFocus || this.input.control.value;
     }
 
     public markAsFocus(): void {
-        this.field.markAsFocus();
+        this.input.markAsFocus();
     }
 }

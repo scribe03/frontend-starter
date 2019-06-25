@@ -55,29 +55,3 @@ export class ListPersonsComponent implements OnInit {
         });
     }
 }
-
-// --- move to service ?
-// this.isLoading
-// this.countPersons
-// this.paginator.pageIndex
-
-// BehaviorSubject ??
-// isLoading$
-// persons$
-// countPersons$
-
-// --
-
-// @Injectable()
-// export class LessonSelectedService {
-//
-//     private _selected: BehaviorSubject<Lesson> = new BehaviorSubject(null);
-//
-//     public selected$ = this._selected.asObservable().filter(lesson => !!lesson);
-//
-//
-//     select(lesson:Lesson) {
-//         this._selected.next(lesson);
-//     }
-//
-// }

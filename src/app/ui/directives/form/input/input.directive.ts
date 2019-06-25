@@ -2,9 +2,9 @@ import { Directive, ElementRef, HostListener, Renderer2 } from '@angular/core';
 import { AbstractControl, NgControl, ValidationErrors } from '@angular/forms';
 
 @Directive({
-    selector: '[scField]'
+    selector: '[scInput]'
 })
-export class FieldDirective {
+export class InputDirective {
     private focus = false;
     private selectedRootElement;
 
@@ -19,22 +19,18 @@ export class FieldDirective {
         this.selectedRootElement = this.renderer.selectRootElement(this.inputRef.nativeElement);
     }
 
-    public get input(): NgControl {
-        return this.inputControl;
-    }
-
     public get control(): AbstractControl {
-        return this.input.control;
+        return this.inputControl.control;
     }
 
     public get errors(): ValidationErrors {
-        return this.input.errors;
+        return this.inputControl.errors;
     }
 
     public isInvalid(isShowErrorWithoutTouched: boolean): boolean {
         let isInvalid = false;
-        const valid = this.input.valid;
-        const isTouched = this.input.touched;
+        const valid = this.inputControl.valid;
+        const isTouched = this.inputControl.touched;
 
         if (isShowErrorWithoutTouched && !valid) {
             isInvalid = true;
