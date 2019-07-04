@@ -41,11 +41,11 @@ export class ListCompaniesComponent implements OnInit, OnDestroy, OnMessageRecei
     }
 
     public loadCompanies(event: PageEvent): void {
-        this.listCompaniesService.getCompanies(event);
+        this.subscriptions.add(this.listCompaniesService.getCompanies(event));
     }
 
     public removeCompany(id: number): void {
-        this.listCompaniesService.remove(id);
+        this.subscriptions.add(this.listCompaniesService.remove(id));
     }
 
     public messageReceiver(): void {

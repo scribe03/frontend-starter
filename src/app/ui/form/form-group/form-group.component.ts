@@ -3,7 +3,7 @@ import { InputDirective } from '@master/ui/directives/form/input/input.directive
 import { labelUpDown } from './form-group-label.animation';
 
 @Component({
-    selector: 'sc-form-group',
+    selector: 'sc-input-group',
     templateUrl: './form-group.component.html',
     styleUrls: ['./form-group.component.scss'],
     animations: [labelUpDown]

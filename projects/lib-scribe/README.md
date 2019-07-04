@@ -53,7 +53,7 @@ export class MyPersonsComponent implements OnInit {
     public countPersons = 0;
     public persons$: Observable<Person[]>;
     
-    constructor(private ApiPersonService: ApiPersonService) {}
+    constructor(private apiPersonService: ApiPersonService) {}
 
     public ngOnInit() {
         this.loadPersons();
@@ -63,9 +63,9 @@ export class MyPersonsComponent implements OnInit {
         const criteria: QueryCriteria[] = [];
         criteria.push(new QueryCriteriaPaginate(pageIndex + 1, pageSize));
 
-        this.persons$ = this.ApiPersonService.count().pipe(
+        this.persons$ = this.apiPersonService.count().pipe(
             map(countPersons => this.countPersons = countPersons),
-            switchMap(() => this.ApiPersonService.fetch(criteria))
+            switchMap(() => this.apiPersonService.fetch(criteria))
         );
     }
 }

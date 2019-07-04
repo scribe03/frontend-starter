@@ -31,4 +31,4 @@ sc-input-checkbox
 sc-input-range
 sc-input-file
     OR
-sc-form-group
+sc-input-group

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { PageEvent } from '@angular/material/paginator';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { map, switchMap, tap } from 'rxjs/operators';
 
 import { ApiCompaniesService } from '@master/core/apis/companies/api-companies.service';
@@ -68,14 +68,14 @@ export class ListCompaniesService extends MessageBusService {
         );
     }
 
-    public getCompanies(event: PageEvent): void {
-        this.getCompaniesAsStream(event).subscribe((companies) => this.publish(new CompaniesLoadedSuccessMessage(companies)));
+    public getCompanies(event: PageEvent): Subscription {
+        return this.getCompaniesAsStream(event).subscribe((companies) => this.publish(new CompaniesLoadedSuccessMessage(companies)));
     }
 
-    public remove(id: number): void {
+    public remove(id: number): Subscription {
         this.publish(new CompaniesIsLoadingMessage(true));
 
-        this.apiCompanies.delete(id).pipe(
+        return this.apiCompanies.delete(id).pipe(
             tap(() => this.publish(new CompaniesIsLoadingMessage(false)))
         ).subscribe(() => this.publish(new CompaniesRemoveSuccessMessage()));
     }
