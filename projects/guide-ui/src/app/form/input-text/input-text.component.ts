@@ -18,7 +18,7 @@ export class InputTextComponent implements OnInit {
 
     private generateForm(): void {
         this.fg = this.fb.group({
-            surname: ['', [
+            email: ['', [
                     Validators.required,
                     Validators.email,
                     Validators.minLength(5),

@@ -4,9 +4,11 @@ import { RouterModule } from '@angular/router';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { MouseDownUpDirective } from '@master/ui/directives/mouse-down-up/mouse-down-up.directive';
-import { FormGroupComponent } from '@master/ui/form/form-group/form-group.component';
+import { InputGroupComponent } from '@master/ui/form/input-group/input-group.component';
 import { ValidationMessagesComponent } from '@master/ui/form/validation-messages/validation-messages.component';
 import { InputDirective } from '@master/ui/directives/form/input/input.directive';
+import { ModalComponent } from './windows/modal/modal.component';
+import { BaseModalComponent } from './windows/modal/base-modal/base-modal.component';
 
 @NgModule({
   imports: [
@@ -17,15 +19,18 @@ import { InputDirective } from '@master/ui/directives/form/input/input.directive
   ],
   declarations: [
     MouseDownUpDirective,
-    FormGroupComponent,
+    InputGroupComponent,
     ValidationMessagesComponent,
-    InputDirective
+    InputDirective,
+    ModalComponent
   ],
   exports: [
     // COMPONENTS
     // FORMS
-    FormGroupComponent,
+    InputGroupComponent,
     ValidationMessagesComponent,
+    // MODALS
+    ModalComponent,
     // ...
     MouseDownUpDirective,
     InputDirective

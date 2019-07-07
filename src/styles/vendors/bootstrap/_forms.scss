@@ -252,7 +252,7 @@ textarea.form-control {
 // forms begin stacked on extra small (mobile) devices and then go inline when
 // viewports reach <768px.
 //
-// Requires wrapping inputs and labels with `.form-group` for proper display of
+// Requires wrapping inputs and labels with `.input-group` for proper display of
 // default HTML form controls and our custom form controls (e.g., input groups).
 
 .form-inline {
@@ -285,10 +285,10 @@ textarea.form-control {
       margin-bottom: 0;
     }
 
-    // Allow folks to *not* use `.form-group`
+    // Allow folks to *not* use `.input-group`
     .form-control {
       display: inline-block;
-      width: auto; // Prevent labels from stacking above inputs in `.form-group`
+      width: auto; // Prevent labels from stacking above inputs in `.input-group`
       vertical-align: middle;
     }
 

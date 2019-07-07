@@ -3,7 +3,13 @@
 <div class="container mt-4">
   <div class="row">
     <div class="col-4">
-      <a [routerLink]="['form', 'input-text']" class="menu-item">Input text</a>
+      <ul>
+        <li><b>FORM</b></li>
+        <li><a [routerLink]="['form', 'input-text']" class="menu-item">Input text</a></li>
+        <li>&nbsp;</li>
+        <li>UI</li>
+        <li><a [routerLink]="['ui', 'modals']" class="menu-item">Modals</a></li>
+      </ul>
     </div>
     <div class="col-8">
       <router-outlet></router-outlet>

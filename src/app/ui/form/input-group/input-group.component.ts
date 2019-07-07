@@ -1,14 +1,14 @@
 import { AfterContentInit, Component, ContentChild, Input } from '@angular/core';
 import { InputDirective } from '@master/ui/directives/form/input/input.directive';
-import { labelUpDown } from './form-group-label.animation';
+import { labelUpDown } from './input-group-label.animation';
 
 @Component({
     selector: 'sc-input-group',
-    templateUrl: './form-group.component.html',
-    styleUrls: ['./form-group.component.scss'],
+    templateUrl: './input-group.component.html',
+    styleUrls: ['./input-group.component.scss'],
     animations: [labelUpDown]
 })
-export class FormGroupComponent implements AfterContentInit {
+export class InputGroupComponent implements AfterContentInit {
     @Input() isOnlyLastErrorMessage = true;
     @Input() isShowErrorWithoutTouched = false;
     @ContentChild(InputDirective, {static: false}) public input: InputDirective;

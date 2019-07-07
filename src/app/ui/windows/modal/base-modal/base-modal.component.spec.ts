@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { FormGroupComponent } from './form-group.component';
+import { BaseModalComponent } from './base-modal.component';
 
-describe('FormGroupComponent', () => {
-  let component: FormGroupComponent;
-  let fixture: ComponentFixture<FormGroupComponent>;
+describe('BaseModalComponent', () => {
+  let component: BaseModalComponent;
+  let fixture: ComponentFixture<BaseModalComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ FormGroupComponent ]
+      declarations: [ BaseModalComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(FormGroupComponent);
+    fixture = TestBed.createComponent(BaseModalComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
