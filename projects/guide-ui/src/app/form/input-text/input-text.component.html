@@ -1,35 +1,33 @@
 <form [formGroup]="fg">
-    <div class="ex-form">
-        <sc-input-group>
-            <input scInput
-                   formControlName="email"
-                   type="text"
-                   placeholder="Email">
-        </sc-input-group>
+    <sc-input-group>
+        <input scInput
+               formControlName="email"
+               type="text"
+               placeholder="Email">
+    </sc-input-group>
 
-        <sc-input-group>
-            <span class="prefix fas fa-address-book"></span>
-            <input scInput
-                   formControlName="name"
-                   type="text"
-                   placeholder="Imie">
-        </sc-input-group>
+    <sc-input-group>
+        <span class="prefix fas fa-address-book"></span>
+        <input scInput
+               formControlName="name"
+               type="text"
+               placeholder="Imie">
+    </sc-input-group>
 
-        <sc-input-group>
-            <input scInput
-                   formControlName="country"
-                   type="text"
-                   placeholder="Kraj">
-            <span class="suffix fas fa-search"></span>
-        </sc-input-group>
+    <sc-input-group>
+        <input scInput
+               formControlName="country"
+               type="text"
+               placeholder="Kraj">
+        <span class="suffix fas fa-search"></span>
+    </sc-input-group>
 
-        <sc-input-group>
-            <span class="prefix fas fa-address-book"></span>
-            <input scInput
-                   formControlName="city"
-                   type="text"
-                   placeholder="Miasto">
-            <span class="suffix fas fa-search"></span>
-        </sc-input-group>
-    </div>
+    <sc-input-group>
+        <span class="prefix fas fa-address-book"></span>
+        <input scInput
+               formControlName="city"
+               type="text"
+               placeholder="Miasto">
+        <span class="suffix fas fa-search"></span>
+    </sc-input-group>
 </form>

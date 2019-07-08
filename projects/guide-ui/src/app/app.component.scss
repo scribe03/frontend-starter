@@ -1,3 +1,14 @@
+@import 'default/style-default';
+
+.menu {
+  border-right: 1px solid $color-muted;
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
 .menu-item {
   font-size: 16px;
 }
