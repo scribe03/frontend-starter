@@ -34,30 +34,37 @@
           text-align: left;
           border-radius: $radius;
           max-height: 50vh;
-          width: 50vw;
+          width: 95vw;
+
+          @include sm() {
+            width: 75vw;
+          }
+
+          @include md() {
+            width: 50vw;
+          }
+
+          &.small {
+            max-width: 350px;
+          }
+
+          &.medium {
+            max-width: 540px;
+          }
+
+          &.large {
+            max-width: 720px;
+          }
+
+          &.extra-large {
+            max-width: 960px;
+          }
+
+          &.full {
+            width: 100vw;
+            height: 100vh;
+          }
         }
-
-        //.small {
-        //  max-width: 350px;
-        //}
-        //
-        //.medium {
-        //  max-width: 600px;
-        //}
-        //
-        //.large {
-        //  max-width: 900px;
-        //}
-        //
-        //.extra-large {
-        //  max-width: 1200px;
-        //}
-        //
-        //.full {
-        //  width: 100vw;
-        //  height: 100vh;
-        //}
-
       }
     }
   }

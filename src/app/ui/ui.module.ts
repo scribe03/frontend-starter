@@ -7,8 +7,10 @@ import { MouseDownUpDirective } from '@master/ui/directives/mouse-down-up/mouse-
 import { InputGroupComponent } from '@master/ui/form/input-group/input-group.component';
 import { ValidationMessagesComponent } from '@master/ui/form/validation-messages/validation-messages.component';
 import { InputDirective } from '@master/ui/directives/form/input/input.directive';
-import { ModalComponent } from './windows/modal/modal.component';
-import { BaseModalComponent } from './windows/modal/base-modal/base-modal.component';
+
+import { ModalComponent } from '@master/ui/windows/modal/modal.component';
+// ERROR: https://github.com/angular/angular/issues/29361
+// import { ModalComponent } from './windows/modal/modal.component';
 
 @NgModule({
   imports: [
