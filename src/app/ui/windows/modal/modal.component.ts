@@ -7,7 +7,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 })
 export class ModalComponent implements OnInit {
   @Input() show = false;
-  @Output() isClickedOutsideWorkArea = new EventEmitter<void>(); // @todo: dodaj obsluge !!
+  @Output() clickedOutsideWorkArea = new EventEmitter<void>();
 
   constructor() { }
 
