@@ -1,6 +1,6 @@
 <div class="modal-layer" *ngIf="show">
-  <div class="overlay-layer"></div>
-  <div class="modal-content-layer">
+  <div class="overlay"></div>
+  <div class="modal-box" [ngClass]="size">
     <ng-content></ng-content>
   </div>
 </div>

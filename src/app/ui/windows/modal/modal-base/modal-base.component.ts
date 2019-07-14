@@ -1,6 +1,6 @@
 import { EventEmitter, Input, Output } from '@angular/core';
 
-export abstract class BaseModalComponent {
+export abstract class ModalBaseComponent {
   @Input() show = false;
   @Output() close = new EventEmitter<void>();
 
