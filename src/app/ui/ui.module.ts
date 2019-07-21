@@ -9,9 +9,9 @@ import { ValidationMessagesComponent } from '@master/ui/form/validation-messages
 import { InputDirective } from '@master/ui/directives/form/input/input.directive';
 
 import { ModalComponent } from '@master/ui/windows/modal/modal.component';
-import { ModalHeaderComponent } from './windows/modal/modal-header/modal-header.component';
-import { ModalContentComponent } from './windows/modal/modal-content/modal-content.component';
-import { ModalFooterComponent } from './windows/modal/modal-footer/modal-footer.component';
+import { ModalContentComponent } from '@master/ui/windows/modal/modal-content/modal-content.component';
+import { ModalFooterComponent } from '@master/ui/windows/modal/modal-footer/modal-footer.component';
+import { ModalHeaderComponent } from '@master/ui/windows/modal/modal-header/modal-header.component';
 // ERROR: https://github.com/angular/angular/issues/29361
 // import { ModalComponent } from './windows/modal/modal.component';
 

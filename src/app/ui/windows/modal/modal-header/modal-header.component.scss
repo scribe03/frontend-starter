@@ -1,0 +1,17 @@
+@import 'default/style-default';
+
+
+.modal-header {
+  border-bottom: 1px solid $color-success-darken;
+  background-color: $color-success; // @todo: worning, error
+
+  ::ng-deep {
+    .title {
+      display: block;
+      font-size: 24px;
+      color: $color-white;
+      padding: $py $py;
+    }
+  }
+}
+
