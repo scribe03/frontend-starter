@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'sc-modal-content',
   templateUrl: './modal-content.component.html',
-  styleUrls: ['./modal-content.component.scss']
+  styleUrls: ['./modal-content.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class ModalContentComponent implements OnInit {
 

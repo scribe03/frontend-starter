@@ -16,4 +16,8 @@ export class ModalComponent implements OnInit {
   ngOnInit() {
   }
 
+  public overlayClicked(): void {
+    this.clickedOutsideWorkArea.emit();
+  }
+
 }

@@ -1,5 +1,5 @@
 <div class="modal-layer" *ngIf="show">
-  <div class="overlay"></div>
+  <div class="overlay" (click)="overlayClicked()"></div>
   <div class="modal-box" [ngClass]="size">
     <ng-content></ng-content>
   </div>

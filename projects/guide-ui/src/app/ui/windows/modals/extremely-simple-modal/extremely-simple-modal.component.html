@@ -1,5 +1,5 @@
 <sc-modal [show]="show" (clickedOutsideWorkArea)="onClose()">
-    <sc-modal-header>
+    <sc-modal-header (close)="onClose()">
         <span class="title">To jest header</span>
     </sc-modal-header>
 
