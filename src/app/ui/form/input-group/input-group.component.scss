@@ -21,21 +21,22 @@
   }
 }
 
-@mixin input-colored($color) {
-  border: 1px solid $color;
+@mixin input-colored($color-p, $color-s) {
+  border: 1px solid $color-p;
+  border-bottom: 2px solid $color-s;
 
   ::ng-deep {
     .prefix {
-      color: $color;
+      color: $color-s;
     }
 
     .suffix {
-      color: $color;
+      color: $color-s;
     }
   }
 
   label {
-    color: $color;
+    color: $color-s;
   }
 }
 
@@ -45,7 +46,6 @@
 
   .sc-fg-input {
     display: flex;
-    border: 1px solid $color-form;
     border-radius: $radius;
     padding: 5px 2px;
 
@@ -73,22 +73,22 @@
       font-size: $input-font-size;
     }
 
-    @include input-colored($color-form);
+    @include input-colored($color-form-primary, $color-form-secondary);
 
     &.up {
-      @include input-colored($color-form);
+      @include input-colored($color-form-primary, $color-form-secondary);
     }
 
     &:hover {
-      @include input-colored($color-form-lighten);
+      @include input-colored($color-form-primary-darken, $color-form-secondary-darken);
     }
 
     &.focused {
-      @include input-colored($color-form-darken !important);
+      @include input-colored($color-form-primary-darken !important, $color-form-secondary-darken !important);
     }
 
     &.invalid {
-      @include input-colored($color-danger !important);
+      @include input-colored($color-form-primary !important, $color-danger !important);
     }
   }
 
