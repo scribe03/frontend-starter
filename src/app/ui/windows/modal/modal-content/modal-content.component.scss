@@ -1,8 +1,10 @@
 @import 'default/style-default';
 
 .modal-content {
+  max-height: 50vh;
   background-color: $color-white;
   padding: $py $py;
+  overflow-x: auto;
 }
 
 

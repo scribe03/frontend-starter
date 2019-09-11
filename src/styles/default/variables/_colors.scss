@@ -40,6 +40,11 @@ $color-form-secondary: #039be5; // ffa726
 $color-form-secondary-lighten: lighten($color-form-secondary, $color-lighten-percent);
 $color-form-secondary-darken: darken($color-form-secondary, $color-darken-percent);
 
+$color-form-text-tertiary: #B4B4B4;
+$color-form-text-tertiary-lighten: lighten($color-form-text-tertiary, $color-lighten-percent);
+$color-form-text-tertiary-darken: darken($color-form-text-tertiary, $color-darken-percent);
+
+
 // ----------------------------
 // access colors
 

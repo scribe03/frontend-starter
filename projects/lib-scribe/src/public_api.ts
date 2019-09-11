@@ -2,7 +2,8 @@
  * Public API Surface of lib-scribe
  */
 
-export * from './lib/operators';
+export * from './lib/utils/operators';
+
 export * from './lib/message-bus';
 export * from './lib/rest-api-client';
 

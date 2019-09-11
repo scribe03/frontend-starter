@@ -10,6 +10,7 @@
     padding: 12px 0 0 4px;
     color: $color-text-input;
     width: 100%;
+    min-width: 0;
     font-size: $input-font-size;
     border: none;
 
@@ -21,22 +22,18 @@
   }
 }
 
-@mixin input-colored($color-p, $color-s) {
+@mixin input-colored($color-p, $color-s, $color-text) {
   border: 1px solid $color-p;
   border-bottom: 2px solid $color-s;
 
   ::ng-deep {
-    .prefix {
-      color: $color-s;
-    }
-
-    .suffix {
-      color: $color-s;
+    .prefix, .suffix {
+      color: $color-text;
     }
   }
 
   label {
-    color: $color-s;
+    color: $color-text;
   }
 }
 
@@ -73,22 +70,22 @@
       font-size: $input-font-size;
     }
 
-    @include input-colored($color-form-primary, $color-form-secondary);
+    @include input-colored($color-form-primary, $color-form-secondary, $color-form-text-tertiary);
 
     &.up {
-      @include input-colored($color-form-primary, $color-form-secondary);
+      @include input-colored($color-form-primary, $color-form-secondary, $color-form-text-tertiary);
     }
 
     &:hover {
-      @include input-colored($color-form-primary-darken, $color-form-secondary-darken);
+      @include input-colored($color-form-primary-darken, $color-form-secondary-darken, $color-form-text-tertiary-darken);
     }
 
     &.focused {
-      @include input-colored($color-form-primary-darken !important, $color-form-secondary-darken !important);
+      @include input-colored($color-form-primary-darken !important, $color-form-secondary-darken !important, $color-form-text-tertiary-darken !important);
     }
 
     &.invalid {
-      @include input-colored($color-form-primary !important, $color-danger !important);
+      @include input-colored($color-form-primary !important, $color-danger !important, $color-form-text-tertiary !important);
     }
   }
 
