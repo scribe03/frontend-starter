@@ -1,10 +1,10 @@
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Action } from '../interfaces/action.interface';
 
-export type Reducer = <T>(state: T, action: Action) => T;
+export type Reducer<T> = (state: T, action: Action) => T;
 
-const exampleConcreteReducer: Reducer = <T>(state: T, action: Action): T => {
-  return {} as T;
+const exampleConcreteReducer: Reducer<any> = (state: any, action: Action): any => {
+  return {};
 };
 
 export abstract class State<T> {
@@ -16,9 +16,11 @@ export abstract class State<T> {
     this.store$ = this.store.asObservable();
   }
 
-  // @OVERRIDE
+  /**
+   * @OVERRIDE you have to prepare and use concrete reducer !
+   */
   public reduce(action: Action): void {
-    this.state = exampleConcreteReducer<T>(this.state, action);
+    this.state = exampleConcreteReducer(this.state, action);
     this.publish(this.state);
   }
 
