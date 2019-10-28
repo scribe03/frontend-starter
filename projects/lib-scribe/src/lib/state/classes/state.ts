@@ -3,9 +3,7 @@ import { Action } from '../interfaces/action.interface';
 
 export type Reducer<T> = (state: T, action: Action) => T;
 
-const exampleConcreteReducer: Reducer<any> = (state: any, action: Action): any => {
-  return {};
-};
+const exampleConcreteReducer: Reducer<any> = (state: any, action: Action): any => null;
 
 export abstract class State<T> {
   public store$: Observable<T>;

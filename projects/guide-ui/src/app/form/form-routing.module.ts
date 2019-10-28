@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { InputTextComponent } from './input-text/input-text.component';
+import { SelectComponent } from './select/select.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
     path: 'input-text',
     component: InputTextComponent,
     pathMatch: 'full'
+  },
+  {
+    path: 'select',
+    component: SelectComponent,
   },
   {
     path: '**',
