@@ -1,4 +1,4 @@
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject } from 'rxjs';
 import { Action } from '../interfaces/action.interface';
 
 export type Reducer<T> = (state: T, action: Action) => T;
@@ -7,7 +7,7 @@ const exampleConcreteReducer: Reducer<any> = (state: any, action: Action): any =
 
 export abstract class State<T> {
   public store$: Observable<T>;
-  protected store = new BehaviorSubject<T>({} as T);
+  protected store: Subject<T> = new BehaviorSubject<T>({} as T);
   protected state: T;
 
   protected constructor() {

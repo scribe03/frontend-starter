@@ -1,3 +1,7 @@
-<p>
-  select works!
-</p>
+<form [formGroup]="fg">
+  <sc-select-group formControlName="city" placeholder="City">
+    <sc-select-option *ngFor="let city of cities" [value]="city.key">
+      {{ city.value }}
+    </sc-select-option>
+  </sc-select-group>
+</form>
