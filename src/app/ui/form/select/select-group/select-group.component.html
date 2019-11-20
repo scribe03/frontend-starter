@@ -1,0 +1,15 @@
+<sc-input-group>
+  <input scInput
+         [value]="valToDisplay"
+         type="text"
+         placeholder="{{ placeholder }}"
+         (focus)="setFocus(true)"
+         (blur)="setFocus(false)"
+         (keyup)="setKeyDown($event.target.value)"
+  >
+  <span class="suffix fas fa-angle-down"></span>
+  <!--  <span class="suffix fas fa-angle-up"></span>-->
+</sc-input-group>
+<ul>
+  <ng-content></ng-content>
+</ul>
