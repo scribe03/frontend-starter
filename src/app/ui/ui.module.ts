@@ -13,7 +13,8 @@ import { ModalComponent } from '@master/ui/windows/modal/modal.component';
 import { ModalContentComponent } from '@master/ui/windows/modal/modal-content/modal-content.component';
 import { ModalFooterComponent } from '@master/ui/windows/modal/modal-footer/modal-footer.component';
 import { ModalHeaderComponent } from '@master/ui/windows/modal/modal-header/modal-header.component';
-import { SelectOptionComponent } from './form/select/select-option/select-option.component';
+import { SelectOptionComponent } from '@master/ui/form/select/select-option/select-option.component';
+
 
 // ERROR: https://github.com/angular/angular/issues/29361
 // import { ModalComponent } from './windows/modal/modal.component';

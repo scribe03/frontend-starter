@@ -1,0 +1,12 @@
+<section class="carousel-container">
+  <div class="row">
+    <div class="col-6 btn-slide-left"><span (click)="slidePrevious()">left</span></div>
+    <div  class="col-6 btn-slide-right"><span (click)="slideNext()">right</span></div>
+  </div>
+  <div class="carousel-items">
+    <ng-content></ng-content>
+<!--    <ng-container *ngFor="let slider of sliders">-->
+<!--      <ng-container [ngTemplateOutlet]="slider.templateRef"></ng-container>-->
+<!--    </ng-container>-->
+  </div>
+</section>

@@ -14,6 +14,10 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'advanced-components',
+    loadChildren: () => import('./advanced-components/advanced-components.module').then(m => m.AdvancedComponentsModule)
+  },
+  {
     path: '**',
     component: ModalsComponent
   },

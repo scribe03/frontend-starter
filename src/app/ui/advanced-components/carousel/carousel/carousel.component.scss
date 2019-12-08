@@ -1,0 +1,24 @@
+:host .carousel-container {
+  .carousel-items {
+    display: flex;
+    flex-direction: row;
+  }
+
+  ::ng-deep {
+    .sc-slide {
+      flex-grow: 1;
+       display: none;
+
+      // temporary
+      padding: 10px;
+    }
+
+    .active {
+      display: block;
+    }
+
+    //.no-active {
+    //  display: none;
+    //}
+  }
+}
