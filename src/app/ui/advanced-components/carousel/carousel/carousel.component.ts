@@ -53,18 +53,18 @@ export class CarouselComponent implements AfterContentInit {
       case CarouselDirection.NEXT: // >>
         const leftSlideIndexToHide: number = (range[0] === 0) ? maxIndex : range[0] - 1;
         const rightSlideIndexToShow: number = range[range.length - 1];
-        slides[leftSlideIndexToHide].display(false);
-        slides[rightSlideIndexToShow].display();
+        slides[leftSlideIndexToHide].hide();
+        slides[rightSlideIndexToShow].show();
         break;
       case CarouselDirection.PREV: // <<
         const rightSlideIndexToHide: number = (range[range.length - 1] !== maxIndex)
           ? range[range.length - 1] + 1 : 0;
         const leftSlideIndexToShow: number = range[0];
-        slides[rightSlideIndexToHide].display(false);
-        slides[leftSlideIndexToShow].display();
+        slides[rightSlideIndexToHide].hide();
+        slides[leftSlideIndexToShow].show();
         break;
       default:
-        range.forEach((value: number) => slides[value].display());
+        range.forEach((value: number) => slides[value].show());
         break;
     }
   }

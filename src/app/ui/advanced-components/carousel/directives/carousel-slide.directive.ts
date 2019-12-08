@@ -19,10 +19,11 @@ export class CarouselSlideDirective implements OnInit {
     return this;
   }
 
-  public display(display: boolean = true): void {
-    // this.renderer.setStyle(this.elementRef.nativeElement, 'display', display ? 'block' : 'none');
-    display
-      ? this.renderer.addClass(this.elementRef.nativeElement, 'active')
-      : this.renderer.removeClass(this.elementRef.nativeElement, 'active');
+  public hide(): void {
+    this.renderer.removeClass(this.elementRef.nativeElement, 'active');
+  }
+
+  public show(): void {
+    this.renderer.addClass(this.elementRef.nativeElement, 'active');
   }
 }
