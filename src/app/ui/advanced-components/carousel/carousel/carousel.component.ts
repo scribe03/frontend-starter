@@ -83,13 +83,13 @@ export class CarouselComponent implements AfterContentInit {
    [7, 8, 9], 0, 1, 2, 3, 4, 5, 6
    [8, 9, 0], 1, 2, 3, 4, 5, 6, 7
    [9, 0, 1], 2, 3, 4, 5, 6, 7, 8
-<< [0, 1, 2], 3, 4, 5, 6, 7, 8, 9
-
+   [0, 1, 2], 3, 4, 5, 6, 7, 8, 9
+<<
    completeArrayWithCalculatedValues(9, 3, 9)
    */
   public completeArrayWithCalculatedValues(startFromIndex: number, range: number, maxIndex: number): number[] {
     const indexRange: number[] = [];
-    let restartedIndex = 0;
+    let newIndex = 0;
 
     let counter = 0;
     while (counter < range) {
@@ -97,8 +97,8 @@ export class CarouselComponent implements AfterContentInit {
         indexRange[counter] = startFromIndex;
         startFromIndex++;
       } else {
-        indexRange[counter] = restartedIndex;
-        restartedIndex++;
+        indexRange[counter] = newIndex;
+        newIndex++;
       }
       counter++;
     }
