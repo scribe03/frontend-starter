@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { IExampleCarouselItem } from '../../models/example-carousel-items';
 
 @Component({
@@ -6,7 +6,7 @@ import { IExampleCarouselItem } from '../../models/example-carousel-items';
   templateUrl: './carousel-text-item.component.html',
   styleUrls: ['./carousel-text-item.component.scss']
 })
-export class CarouselTextItemComponent implements OnInit {
+export class CarouselTextItemComponent implements OnInit, OnDestroy {
   @Input() item: IExampleCarouselItem;
 
   constructor() { }
@@ -14,4 +14,7 @@ export class CarouselTextItemComponent implements OnInit {
   ngOnInit() {
   }
 
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy');
+  }
 }
