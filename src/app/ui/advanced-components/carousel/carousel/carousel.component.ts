@@ -34,6 +34,10 @@ export class CarouselComponent implements AfterContentInit {
     this.moveSliders();
   }
 
+  private hideIndicatedSlide(slide: CarouselSlideDirective): void {
+    slide.hide();
+  }
+
   private moveSliders(): void {
     const maxIndex = (this.carouselSlide.length - 1 > 0) ? this.carouselSlide.length - 1 : 0;
     const slides: CarouselSlideDirective[] = this.carouselSlide.toArray();
@@ -46,14 +50,6 @@ export class CarouselComponent implements AfterContentInit {
       this.startFromIndex = this.carouselSlide.length - 1;
     }
 
-    // if (this.oldRange && this.oldRange.length && [CarouselDirection.NEXT, CarouselDirection.PREV].includes(this.direction)) {
-    //   this.oldRange.forEach((value: number, index: number) => slides[value]
-    //     .addOrder(index)
-    //     .animate(this.direction === CarouselDirection.NEXT ? 'left' : 'right')
-    //     .show()
-    //   );
-    // }
-
     const range: number[] = this.completeArrayWithCalculatedValues(this.startFromIndex, this.itemsPerSlide, maxIndex);
     this.oldRange = range;
 
@@ -62,29 +58,35 @@ export class CarouselComponent implements AfterContentInit {
     if ([CarouselDirection.NEXT, CarouselDirection.PREV].includes(this.direction)) {
       range.forEach((value: number, index: number) => slides[value]
         .addOrder(index)
-        .animate(this.direction === CarouselDirection.NEXT ? 'left' : 'right')
+        .animate(this.direction === CarouselDirection.NEXT ? 'left' : 'right', null)
         .show()
       );
     }
 
+    let methodToHide: Function;
+
     switch (this.direction) {
       case CarouselDirection.NEXT: // >>
         const leftSlideIndexToHide: number = (range[0] === 0) ? maxIndex : range[0] - 1;
+        methodToHide = () => slides[leftSlideIndexToHide].hide();
         const rightSlideIndexToShow: number = range[range.length - 1];
+
+        // slides[leftSlideIndexToHide].animate('xleft', methodToHide);
         slides[leftSlideIndexToHide].hide();
-        // slides[leftSlideIndexToHide].animate('xhide');
-        // slides[rightSlideIndexToShow].animate('left').show();
+        // slides[rightSlideIndexToShow].animate('left', null).show();
         break;
       case CarouselDirection.PREV: // <<
         const rightSlideIndexToHide: number = (range[range.length - 1] !== maxIndex)
           ? range[range.length - 1] + 1 : 0;
+        methodToHide = () => slides[rightSlideIndexToHide].hide();
         const leftSlideIndexToShow: number = range[0];
+
+        // slides[rightSlideIndexToHide].animate('xright', methodToHide);
         slides[rightSlideIndexToHide].hide();
-        // slides[rightSlideIndexToHide].animate('xhide');
-        // slides[leftSlideIndexToShow].animate('right').show();
+        // slides[leftSlideIndexToShow].animate('right', null).show();
         break;
       default:
-        range.forEach((value: number) => slides[value].show());
+        range.forEach((value: number) => slides[value].animate('left', null).show());
         break;
     }
   }

@@ -29,7 +29,7 @@ export class CarouselSlideDirective implements OnInit {
     this.renderer.addClass(this.elementRef.nativeElement, 'active');
   }
 
-  public animate(type: string): this {
+  public animate(type: string, methodToHide: Function): this {
     let metadata: AnimationMetadata[];
 
     switch (type) {
@@ -39,15 +39,23 @@ export class CarouselSlideDirective implements OnInit {
       case 'right':
         metadata = this.right();
         break;
-      case 'xhide':
-        metadata = this.xhide();
+      case 'xleft':
+        metadata = this.xleft();
+        break;
+      case 'xright':
+        metadata = this.xright();
         break;
     }
 
     const factory = this.builder.build(metadata);
     const player = factory.create(this.elementRef.nativeElement);
 
-    player.onDone(() => console.log('x'));
+    if (methodToHide) {
+      player.onDone(() => {
+        console.log('methodToHide');
+        methodToHide();
+      });
+    }
     player.play();
     return this;
   }
@@ -66,10 +74,17 @@ export class CarouselSlideDirective implements OnInit {
     ];
   }
 
-  private xhide(): AnimationMetadata[] {
+  private xright(): AnimationMetadata[] {
     return [
       style({ transform: 'translateX(0%)' }),
-      animate('400ms ease-in', style({ display: 'none' })),
+      animate('400ms ease-in', style({ transform: 'translateX(100%)' })),
+    ];
+  }
+
+  private xleft(): AnimationMetadata[] {
+    return [
+      style({ transform: 'translateX(0%)' }),
+      animate('400ms ease-in', style({ transform: 'translateX(-100%)' })),
     ];
   }
 }
