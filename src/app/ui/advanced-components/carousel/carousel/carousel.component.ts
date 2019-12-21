@@ -14,6 +14,7 @@ export class CarouselComponent implements AfterContentInit {
   @Input() public startFromIndex = 0;
   @Input() public itemsPerSlide = 3;
   private direction: CarouselDirection = CarouselDirection.UNKNOWN;
+  private oldRange: number[];
 
   constructor() { }
 
@@ -35,6 +36,7 @@ export class CarouselComponent implements AfterContentInit {
 
   private moveSliders(): void {
     const maxIndex = (this.carouselSlide.length - 1 > 0) ? this.carouselSlide.length - 1 : 0;
+    const slides: CarouselSlideDirective[] = this.carouselSlide.toArray();
 
     if (this.startFromIndex > maxIndex) {
       this.startFromIndex = 0;
@@ -44,24 +46,42 @@ export class CarouselComponent implements AfterContentInit {
       this.startFromIndex = this.carouselSlide.length - 1;
     }
 
+    // if (this.oldRange && this.oldRange.length && [CarouselDirection.NEXT, CarouselDirection.PREV].includes(this.direction)) {
+    //   this.oldRange.forEach((value: number, index: number) => slides[value]
+    //     .addOrder(index)
+    //     .animate(this.direction === CarouselDirection.NEXT ? 'left' : 'right')
+    //     .show()
+    //   );
+    // }
+
     const range: number[] = this.completeArrayWithCalculatedValues(this.startFromIndex, this.itemsPerSlide, maxIndex);
-    const slides: CarouselSlideDirective[] = this.carouselSlide.toArray();
+    this.oldRange = range;
 
     range.forEach((value: number, index: number) => slides[value].addOrder(index));
+
+    if ([CarouselDirection.NEXT, CarouselDirection.PREV].includes(this.direction)) {
+      range.forEach((value: number, index: number) => slides[value]
+        .addOrder(index)
+        .animate(this.direction === CarouselDirection.NEXT ? 'left' : 'right')
+        .show()
+      );
+    }
 
     switch (this.direction) {
       case CarouselDirection.NEXT: // >>
         const leftSlideIndexToHide: number = (range[0] === 0) ? maxIndex : range[0] - 1;
         const rightSlideIndexToShow: number = range[range.length - 1];
         slides[leftSlideIndexToHide].hide();
-        slides[rightSlideIndexToShow].show();
+        // slides[leftSlideIndexToHide].animate('xhide');
+        // slides[rightSlideIndexToShow].animate('left').show();
         break;
       case CarouselDirection.PREV: // <<
         const rightSlideIndexToHide: number = (range[range.length - 1] !== maxIndex)
           ? range[range.length - 1] + 1 : 0;
         const leftSlideIndexToShow: number = range[0];
         slides[rightSlideIndexToHide].hide();
-        slides[leftSlideIndexToShow].show();
+        // slides[rightSlideIndexToHide].animate('xhide');
+        // slides[leftSlideIndexToShow].animate('right').show();
         break;
       default:
         range.forEach((value: number) => slides[value].show());
