@@ -63,28 +63,28 @@ export class CarouselSlideDirective implements OnInit {
   private right(): AnimationMetadata[] {
     return [
       style({ transform: 'translateX(-100%)' }),
-      animate('400ms ease-in', style({ transform: 'translateX(0%)' })),
+      animate('2000ms ease-in', style({ transform: 'translateX(0%)' })),
     ];
   }
 
   private left(): AnimationMetadata[] {
     return [
       style({ transform: 'translateX(100%)' }),
-      animate('400ms ease-in', style({ transform: 'translateX(0%)' })),
+      animate('2000ms ease-in', style({ transform: 'translateX(0%)' })),
     ];
   }
 
   private xright(): AnimationMetadata[] {
     return [
-      style({ transform: 'translateX(0%)' }),
-      animate('400ms ease-in', style({ transform: 'translateX(100%)' })),
+      style({ transform: 'translateX(-100%)' }),
+      animate('2000ms ease-in', style({ transform: 'translateX(0%)' })),
     ];
   }
 
   private xleft(): AnimationMetadata[] {
     return [
       style({ transform: 'translateX(0%)' }),
-      animate('400ms ease-in', style({ transform: 'translateX(-100%)' })),
+      animate('2000ms ease-in', style({ transform: 'translateX(-100%)' })),
     ];
   }
 }

@@ -58,7 +58,7 @@ export class CarouselComponent implements AfterContentInit {
     if ([CarouselDirection.NEXT, CarouselDirection.PREV].includes(this.direction)) {
       range.forEach((value: number, index: number) => slides[value]
         .addOrder(index)
-        .animate(this.direction === CarouselDirection.NEXT ? 'left' : 'right', null)
+        .animate(this.direction === CarouselDirection.NEXT ? 'xleft' : 'right', null)
         .show()
       );
     }
@@ -71,8 +71,8 @@ export class CarouselComponent implements AfterContentInit {
         methodToHide = () => slides[leftSlideIndexToHide].hide();
         const rightSlideIndexToShow: number = range[range.length - 1];
 
-        // slides[leftSlideIndexToHide].animate('xleft', methodToHide);
-        slides[leftSlideIndexToHide].hide();
+        slides[leftSlideIndexToHide].animate('xleft', methodToHide);
+        // slides[leftSlideIndexToHide].hide();
         // slides[rightSlideIndexToShow].animate('left', null).show();
         break;
       case CarouselDirection.PREV: // <<
@@ -81,8 +81,8 @@ export class CarouselComponent implements AfterContentInit {
         methodToHide = () => slides[rightSlideIndexToHide].hide();
         const leftSlideIndexToShow: number = range[0];
 
-        // slides[rightSlideIndexToHide].animate('xright', methodToHide);
-        slides[rightSlideIndexToHide].hide();
+        slides[rightSlideIndexToHide].animate('xright', methodToHide);
+        // slides[rightSlideIndexToHide].hide();
         // slides[leftSlideIndexToShow].animate('right', null).show();
         break;
       default:
