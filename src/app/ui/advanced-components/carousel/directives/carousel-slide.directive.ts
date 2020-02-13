@@ -29,6 +29,10 @@ export class CarouselSlideDirective implements OnInit {
     this.renderer.addClass(this.elementRef.nativeElement, 'active');
   }
 
+  public getWidth(): number {
+    return this.elementRef.nativeElement.clientWidth;
+  }
+
   public animate(type: string, methodToHide: Function): this {
     let metadata: AnimationMetadata[];
 
@@ -51,11 +55,9 @@ export class CarouselSlideDirective implements OnInit {
     const player = factory.create(this.elementRef.nativeElement);
 
     if (methodToHide) {
-      player.onDone(() => {
-        console.log('methodToHide');
-        methodToHide();
-      });
+      player.onDone(() => methodToHide());
     }
+
     player.play();
     return this;
   }
@@ -75,13 +77,15 @@ export class CarouselSlideDirective implements OnInit {
   }
 
   private xright(): AnimationMetadata[] {
+    console.log('xright');
     return [
-      style({ transform: 'translateX(-100%)' }),
-      animate('2000ms ease-in', style({ transform: 'translateX(0%)' })),
+      style({ transform: 'translateX(0%)' }),
+      animate('2000ms ease-in', style({ transform: 'translateX(100%)' })),
     ];
   }
 
   private xleft(): AnimationMetadata[] {
+    console.log('xleft');
     return [
       style({ transform: 'translateX(0%)' }),
       animate('2000ms ease-in', style({ transform: 'translateX(-100%)' })),
