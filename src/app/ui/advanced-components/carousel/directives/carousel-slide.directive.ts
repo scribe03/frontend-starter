@@ -33,6 +33,10 @@ export class CarouselSlideDirective implements OnInit {
     return this.elementRef.nativeElement.clientWidth;
   }
 
+  public setWidth(width: number): void {
+    this.renderer.setStyle(this.elementRef.nativeElement, 'width', width + 'px');
+  }
+
   public animate(type: string, methodToHide: Function): this {
     let metadata: AnimationMetadata[];
 

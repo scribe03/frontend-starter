@@ -28,13 +28,17 @@ export class CarouselComponent implements AfterContentInit {
     this.moveSliders();
 
     this.slideMaxWidth = Math.floor(Math.abs(this.carouselInner.nativeElement.clientWidth / this.itemsPerSlide));
-    // console.log(this.slideMaxWidth);
+    this.setWidthToEachSlider();
   }
 
   public slidePrevious(): void {
+
+    if (this.direction === CarouselDirection.UNKNOWN || this.direction === CarouselDirection.NEXT) {
+      this.renderer.setStyle(this.carouselItems.nativeElement, 'transform', `translateX(-${this.slideMaxWidth}px)`);
+    }
+
     this.direction = CarouselDirection.PREV;
     this.startFromIndex -= 1;
-    // this.resetCarouselItemsLayer();
     this.moveSliders();
   }
 
@@ -67,38 +71,37 @@ export class CarouselComponent implements AfterContentInit {
     }
 
     const range: number[] = this.completeArrayWithCalculatedValues(this.startFromIndex, this.itemsPerSlide, maxIndex);
-
+console.log('range: ', range);
+console.log('oldRange: ', this.oldRange);
     // range.forEach((value: number, index: number) => slides[value].addOrder(index));
 
     let methodToHide: Function;
 
     // OLD extreme elements (left/right) from the collection should be animated and hidden
     switch (this.direction) {
-      case CarouselDirection.NEXT: // >>
+      case CarouselDirection.NEXT: // <<
         const oldLeftSlideIndexToHide: number = (range[0] === 0) ? maxIndex : range[0] - 1;
         methodToHide = () => {
           slides[oldLeftSlideIndexToHide].hide();
           this.transformCarouselItemsLayer();
-        }
+        };
         slides[oldLeftSlideIndexToHide].addOrder(0).animate('xleft', methodToHide);
         break;
-      case CarouselDirection.PREV: // <<
+      case CarouselDirection.PREV: // >>
         const oldRightSlideIndexToHide: number = (range[range.length - 1] !== maxIndex)
           ? range[range.length - 1] + 1 : 0;
         methodToHide = () => {
           slides[oldRightSlideIndexToHide].hide();
           this.transformCarouselItemsLayer();
-        }
-        console.log('<<', range, oldRightSlideIndexToHide);
-        console.log('<<', this.oldRange, oldRightSlideIndexToHide);
-        slides[oldRightSlideIndexToHide].addOrder(100).animate('xright', methodToHide);
+        };
+        slides[oldRightSlideIndexToHide].addOrder(this.itemsPerSlide + 1).animate('xright', methodToHide);
         break;
     }
 
     // new elements from the collection should be animated and showed
     if ([CarouselDirection.NEXT, CarouselDirection.PREV].includes(this.direction)) {
       range.forEach((value: number, index: number) => slides[value]
-        .addOrder(index)
+        .addOrder(index + 1)
         .animate(this.direction === CarouselDirection.NEXT ? 'xleft' : 'xright', null)
         .show()
       );
@@ -107,6 +110,10 @@ export class CarouselComponent implements AfterContentInit {
     }
 
     this.oldRange = range;
+  }
+
+  private setWidthToEachSlider(): void {
+    this.carouselSlide.forEach((slide: CarouselSlideDirective) => slide.setWidth(this.slideMaxWidth));
   }
 
   /**
