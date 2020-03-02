@@ -10,9 +10,7 @@
 
 <sc-carousel>
   <ng-container *ngFor="let item of items;">
-    <div scCarouselSlide>
-      <app-carousel-text-item [item]="item"></app-carousel-text-item>
-    </div>
+      <app-carousel-text-item scCarouselSlide [item]="item"></app-carousel-text-item>
   </ng-container>
 </sc-carousel>
 
