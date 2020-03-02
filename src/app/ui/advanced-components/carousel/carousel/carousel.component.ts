@@ -14,8 +14,8 @@ export class CarouselComponent implements AfterContentInit {
   @Input() public startFromIndex = 0;
   @Input() public itemsPerSlide = 3;
 
-  @ViewChild('carouselInner', {static: true}) protected carouselInner: ElementRef;
-  @ViewChild('carouselItems', {static: true}) protected carouselItems: ElementRef;
+  @ViewChild('carouselWrapper', {static: true}) protected carouselWrapper: ElementRef;
+  @ViewChild('carouselField', {static: true}) protected carouselField: ElementRef;
 
   private slideMaxWidth = 0;
 
@@ -24,17 +24,21 @@ export class CarouselComponent implements AfterContentInit {
 
   constructor(private renderer: Renderer2) { }
 
+  // @todo: ngOnInit
+  // 1. change screen size ... moveSliders()
+  // 2. min width ... set itemsPerSlide = 1
+
   ngAfterContentInit(): void {
     this.moveSliders();
 
-    this.slideMaxWidth = Math.floor(Math.abs(this.carouselInner.nativeElement.clientWidth / this.itemsPerSlide));
+    this.slideMaxWidth = Math.floor(Math.abs(this.carouselWrapper.nativeElement.clientWidth / this.itemsPerSlide));
     this.setWidthToEachSlider();
   }
 
   public slidePrevious(): void {
 
     if (this.direction === CarouselDirection.UNKNOWN || this.direction === CarouselDirection.NEXT) {
-      this.renderer.setStyle(this.carouselItems.nativeElement, 'transform', `translateX(-${this.slideMaxWidth}px)`);
+      this.renderer.setStyle(this.carouselField.nativeElement, 'transform', `translateX(-${this.slideMaxWidth}px)`);
     }
 
     this.direction = CarouselDirection.PREV;
@@ -45,17 +49,8 @@ export class CarouselComponent implements AfterContentInit {
   public slideNext(): void {
     this.direction = CarouselDirection.NEXT;
     this.startFromIndex += 1;
-    this.resetCarouselItemsLayer();
+    this.resetCarouselFieldLayer();
     this.moveSliders();
-  }
-
-  private transformCarouselItemsLayer(): void {
-    const width: number = this.direction === CarouselDirection.NEXT ? this.slideMaxWidth : -this.slideMaxWidth;
-    this.renderer.setStyle(this.carouselItems.nativeElement, 'transform', `translateX(${width}px)`);
-  }
-
-  private resetCarouselItemsLayer(): void {
-    this.renderer.removeStyle(this.carouselItems.nativeElement, 'transform');
   }
 
   private moveSliders(): void {
@@ -71,32 +66,8 @@ export class CarouselComponent implements AfterContentInit {
     }
 
     const range: number[] = this.completeArrayWithCalculatedValues(this.startFromIndex, this.itemsPerSlide, maxIndex);
-console.log('range: ', range);
-console.log('oldRange: ', this.oldRange);
-    // range.forEach((value: number, index: number) => slides[value].addOrder(index));
 
-    let methodToHide: Function;
-
-    // OLD extreme elements (left/right) from the collection should be animated and hidden
-    switch (this.direction) {
-      case CarouselDirection.NEXT: // <<
-        const oldLeftSlideIndexToHide: number = (range[0] === 0) ? maxIndex : range[0] - 1;
-        methodToHide = () => {
-          slides[oldLeftSlideIndexToHide].hide();
-          this.transformCarouselItemsLayer();
-        };
-        slides[oldLeftSlideIndexToHide].addOrder(0).animate('xleft', methodToHide);
-        break;
-      case CarouselDirection.PREV: // >>
-        const oldRightSlideIndexToHide: number = (range[range.length - 1] !== maxIndex)
-          ? range[range.length - 1] + 1 : 0;
-        methodToHide = () => {
-          slides[oldRightSlideIndexToHide].hide();
-          this.transformCarouselItemsLayer();
-        };
-        slides[oldRightSlideIndexToHide].addOrder(this.itemsPerSlide + 1).animate('xright', methodToHide);
-        break;
-    }
+    this.moveOldExtremeSlider(maxIndex, slides, range);
 
     // new elements from the collection should be animated and showed
     if ([CarouselDirection.NEXT, CarouselDirection.PREV].includes(this.direction)) {
@@ -112,12 +83,46 @@ console.log('oldRange: ', this.oldRange);
     this.oldRange = range;
   }
 
+  private moveOldExtremeSlider(maxIndex: number, slides: CarouselSlideDirective[], range: number[]): void {
+    let methodToHide: Function;
+
+    // OLD extreme elements (left/right) from the collection should be animated and hidden
+    switch (this.direction) {
+      case CarouselDirection.NEXT: // <<
+        const oldLeftSlideIndexToHide: number = (range[0] === 0) ? maxIndex : range[0] - 1;
+        methodToHide = () => {
+          slides[oldLeftSlideIndexToHide].hide();
+          this.transformCarouselFieldLayer();
+        };
+        slides[oldLeftSlideIndexToHide].addOrder(0).animate('xleft', methodToHide);
+        break;
+      case CarouselDirection.PREV: // >>
+        const oldRightSlideIndexToHide: number = (range[range.length - 1] !== maxIndex)
+          ? range[range.length - 1] + 1 : 0;
+        methodToHide = () => {
+          slides[oldRightSlideIndexToHide].hide();
+          this.transformCarouselFieldLayer();
+        };
+        slides[oldRightSlideIndexToHide].addOrder(this.itemsPerSlide + 1).animate('xright', methodToHide);
+        break;
+    }
+  }
+
+  private transformCarouselFieldLayer(): void {
+    const width: number = this.direction === CarouselDirection.NEXT ? this.slideMaxWidth : -this.slideMaxWidth;
+    this.renderer.setStyle(this.carouselField.nativeElement, 'transform', `translateX(${width}px)`);
+  }
+
+  private resetCarouselFieldLayer(): void {
+    this.renderer.removeStyle(this.carouselField.nativeElement, 'transform');
+  }
+
   private setWidthToEachSlider(): void {
     this.carouselSlide.forEach((slide: CarouselSlideDirective) => slide.setWidth(this.slideMaxWidth));
   }
 
   /**
-   * @todo: add description ...
+   * @todo: add description ... change name ...
    completeArrayWithCalculatedValues(0, 3, 9)
                                   >>
    [0, 1, 2], 3, 4, 5, 6, 7, 8, 9

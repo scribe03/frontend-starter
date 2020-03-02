@@ -3,8 +3,8 @@
     <div class="col-6 btn-slide-left"><span (click)="slidePrevious()">left</span></div>
     <div  class="col-6 btn-slide-right"><span (click)="slideNext()">right</span></div>
   </div>
-  <div class="carousel-inner" #carouselInner>
-    <div class="carousel-items" #carouselItems>
+  <div class="carousel-wrapper" #carouselWrapper>
+    <div class="carousel-field" #carouselField>
       <ng-content></ng-content>
     </div>
   </div>

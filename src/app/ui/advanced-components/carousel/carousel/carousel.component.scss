@@ -1,23 +1,17 @@
 .carousel-container {
-  .carousel-inner {
+  .carousel-wrapper {
     overflow: hidden;
   }
 
-  .carousel-items {
-    //display: flex;
-    //flex-direction: row;
+  .carousel-field {
     width: 2500px;
     display: flex;
   }
 
   ::ng-deep {
     .sc-slide {
-      //flex-grow: 1;
-      //flex-basis: 100%;
       float: left;
       height: 100%;
-      // width: 280px; // wartosc wyliczana
-
       display: none;
     }
 

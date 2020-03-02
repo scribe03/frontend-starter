@@ -29,10 +29,6 @@ export class CarouselSlideDirective implements OnInit {
     this.renderer.addClass(this.elementRef.nativeElement, 'active');
   }
 
-  public getWidth(): number {
-    return this.elementRef.nativeElement.clientWidth;
-  }
-
   public setWidth(width: number): void {
     this.renderer.setStyle(this.elementRef.nativeElement, 'width', width + 'px');
   }
@@ -69,30 +65,28 @@ export class CarouselSlideDirective implements OnInit {
   private right(): AnimationMetadata[] {
     return [
       style({ transform: 'translateX(-100%)' }),
-      animate('2000ms ease-in', style({ transform: 'translateX(0%)' })),
+      animate('250ms ease-in', style({ transform: 'translateX(0%)' })),
+    ];
+  }
+
+  private xright(): AnimationMetadata[] {
+    return [
+      style({ transform: 'translateX(0%)' }),
+      animate('250ms ease-in', style({ transform: 'translateX(100%)' })),
     ];
   }
 
   private left(): AnimationMetadata[] {
     return [
       style({ transform: 'translateX(100%)' }),
-      animate('2000ms ease-in', style({ transform: 'translateX(0%)' })),
-    ];
-  }
-
-  private xright(): AnimationMetadata[] {
-    console.log('xright');
-    return [
-      style({ transform: 'translateX(0%)' }),
-      animate('2000ms ease-in', style({ transform: 'translateX(100%)' })),
+      animate('250ms ease-in', style({ transform: 'translateX(0%)' })),
     ];
   }
 
   private xleft(): AnimationMetadata[] {
-    console.log('xleft');
     return [
       style({ transform: 'translateX(0%)' }),
-      animate('2000ms ease-in', style({ transform: 'translateX(-100%)' })),
+      animate('250ms ease-in', style({ transform: 'translateX(-100%)' })),
     ];
   }
 }
