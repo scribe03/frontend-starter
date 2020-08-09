@@ -1,5 +1,6 @@
 import { Directive, ElementRef, OnInit, Renderer2 } from '@angular/core';
 import { AnimationBuilder, AnimationMetadata, style, animate } from '@angular/animations';
+import { CarouselAnimationType } from '@master/ui/advanced-components/carousel/enums/carousel-animation-type';
 
 @Directive({
   selector: '[scCarouselSlide]'
@@ -33,21 +34,20 @@ export class CarouselSlideDirective implements OnInit {
     this.renderer.setStyle(this.elementRef.nativeElement, 'width', width + 'px');
   }
 
-  public animate(type: string, methodToHide: Function): this {
+  public animate(type: CarouselAnimationType, methodToHide: Function): this {
     let metadata: AnimationMetadata[];
-
     switch (type) {
-      case 'left':
-        metadata = this.left();
+      case CarouselAnimationType.LEFT_FROM_100_TO_0:
+        metadata = this.positionItemOnTheRightBeforeScrollingLeft();
         break;
-      case 'right':
-        metadata = this.right();
+      case CarouselAnimationType.LEFT_FROM_0_TO_M100:
+        metadata = this.scrollingLeft();
         break;
-      case 'xleft':
-        metadata = this.xleft();
+      case CarouselAnimationType.RIGHT_FROM_M100_TO_0:
+        metadata = this.positionItemOnTheLeftBeforeScrollingRight();
         break;
-      case 'xright':
-        metadata = this.xright();
+      case CarouselAnimationType.RIGHT_FROM_0_TO_100:
+        metadata = this.scrollingRight();
         break;
     }
 
@@ -62,31 +62,31 @@ export class CarouselSlideDirective implements OnInit {
     return this;
   }
 
-  private right(): AnimationMetadata[] {
-    return [
-      style({ transform: 'translateX(-100%)' }),
-      animate('250ms ease-in', style({ transform: 'translateX(0%)' })),
-    ];
-  }
-
-  private xright(): AnimationMetadata[] {
-    return [
-      style({ transform: 'translateX(0%)' }),
-      animate('250ms ease-in', style({ transform: 'translateX(100%)' })),
-    ];
-  }
-
-  private left(): AnimationMetadata[] {
+  private positionItemOnTheRightBeforeScrollingLeft(): AnimationMetadata[] {
     return [
       style({ transform: 'translateX(100%)' }),
       animate('250ms ease-in', style({ transform: 'translateX(0%)' })),
     ];
   }
 
-  private xleft(): AnimationMetadata[] {
+  private scrollingLeft(): AnimationMetadata[] {
     return [
       style({ transform: 'translateX(0%)' }),
       animate('250ms ease-in', style({ transform: 'translateX(-100%)' })),
+    ];
+  }
+
+  private positionItemOnTheLeftBeforeScrollingRight(): AnimationMetadata[] {
+    return [
+      style({ transform: 'translateX(-100%)' }),
+      animate('250ms ease-in', style({ transform: 'translateX(0%)' })),
+    ];
+  }
+
+  private scrollingRight(): AnimationMetadata[] {
+    return [
+      style({ transform: 'translateX(0%)' }),
+      animate('250ms ease-in', style({ transform: 'translateX(100%)' })),
     ];
   }
 }

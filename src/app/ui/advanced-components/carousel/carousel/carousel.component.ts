@@ -2,6 +2,7 @@ import { AfterContentInit, Component, ContentChildren, ElementRef, Input, QueryL
 
 import { CarouselSlideDirective } from '@master/ui/advanced-components/carousel/directives/carousel-slide.directive';
 import { CarouselDirection } from '@master/ui/advanced-components/carousel/enums/carousel-direction';
+import { CarouselAnimationType } from '@master/ui/advanced-components/carousel/enums/carousel-animation-type';
 
 @Component({
   selector: 'sc-carousel',
@@ -71,13 +72,15 @@ export class CarouselComponent implements AfterContentInit {
 
     // new elements from the collection should be animated and showed
     if ([CarouselDirection.NEXT, CarouselDirection.PREV].includes(this.direction)) {
+      const animationType: CarouselAnimationType = this.direction === CarouselDirection.NEXT
+        ? CarouselAnimationType.LEFT_FROM_0_TO_M100 : CarouselAnimationType.RIGHT_FROM_0_TO_100
       range.forEach((value: number, index: number) => slides[value]
         .addOrder(index + 1)
-        .animate(this.direction === CarouselDirection.NEXT ? 'xleft' : 'xright', null)
+        .animate(animationType, null)
         .show()
       );
     } else {
-      range.forEach((value: number) => slides[value].animate('left', null).show());
+      range.forEach((value: number) => slides[value].animate(CarouselAnimationType.LEFT_FROM_100_TO_0, null).show());
     }
 
     this.oldRange = range;
@@ -94,7 +97,7 @@ export class CarouselComponent implements AfterContentInit {
           slides[oldLeftSlideIndexToHide].hide();
           this.transformCarouselFieldLayer();
         };
-        slides[oldLeftSlideIndexToHide].addOrder(0).animate('xleft', methodToHide);
+        slides[oldLeftSlideIndexToHide].addOrder(0).animate(CarouselAnimationType.LEFT_FROM_0_TO_M100, methodToHide);
         break;
       case CarouselDirection.PREV: // >>
         const oldRightSlideIndexToHide: number = (range[range.length - 1] !== maxIndex)
@@ -103,7 +106,7 @@ export class CarouselComponent implements AfterContentInit {
           slides[oldRightSlideIndexToHide].hide();
           this.transformCarouselFieldLayer();
         };
-        slides[oldRightSlideIndexToHide].addOrder(this.itemsPerSlide + 1).animate('xright', methodToHide);
+        slides[oldRightSlideIndexToHide].addOrder(this.itemsPerSlide + 1).animate(CarouselAnimationType.RIGHT_FROM_0_TO_100, methodToHide);
         break;
     }
   }

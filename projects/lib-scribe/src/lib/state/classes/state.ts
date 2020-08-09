@@ -26,7 +26,16 @@ export abstract class State<T> {
     return this.state;
   }
 
-  protected publish(store: T): void {
-    this.store.next(store);
+  protected publish(state: T): void {
+    this.store.next(state);
   }
 }
+
+/**
+ export function selectProducts(store$: Observable<BasicOfferState>): Observable<Product[]> {
+  return store$.pipe(
+    map((state: BasicOfferState) => state.products),
+    distinctUntilChanged()
+  );
+}
+*/
